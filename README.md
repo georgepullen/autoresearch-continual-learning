@@ -102,3 +102,4 @@ What is changing:
 - [Loop Specification](docs/LOOP_SPEC.md)
 - [Case Study: conflict_aware_editing](docs/CASE_STUDY_CONFLICT_AWARE_EDITING.md)
 - [Guardrails and Anti-Shim Rules](docs/GUARDRAILS_AND_ANTI_SHIM.md)
+- [Implementation Plan](docs/IMPLEMENTATION_PLAN.md)
