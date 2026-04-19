@@ -68,13 +68,18 @@ not:
 
 ## Current phase
 
-The current phase is design and contract-setting, not full implementation.
+The current phase is constitution, calibration, pilot selection, and first-stack wiring, not full method implementation.
 
 The immediate output of this repo is:
 
 - a case study for `conflict_aware_editing`
 - a loop specification for autonomous continual-learning / knowledge-editing research
 - anti-shim and anti-cheat guardrails
+- a canonical `protocol/` package for the harness constitution
+- run-class and model-surface pilot scaffolding for the first 3090 stack
+- a selected first pilot pair for the 3090:
+  - `google/gemma-3-4b-pt`
+  - `top4_standard`
 - a research-agent `program.md`
 
 Because this repository is a public fork, it still contains some upstream prototype files from `autoresearch`. For now, treat those as inherited reference material, not as the implementation of the continual-learning loop described here.
@@ -102,4 +107,12 @@ What is changing:
 - [Loop Specification](docs/LOOP_SPEC.md)
 - [Case Study: conflict_aware_editing](docs/CASE_STUDY_CONFLICT_AWARE_EDITING.md)
 - [Guardrails and Anti-Shim Rules](docs/GUARDRAILS_AND_ANTI_SHIM.md)
+- [Implementation Index](docs/IMPLEMENTATION_INDEX.md)
 - [Implementation Plan](docs/IMPLEMENTATION_PLAN.md)
+- [3090 Pilot Benchmark](docs/PILOT_BENCHMARK_3090.md)
+- [Protocol Loop](protocol/LOOP.md)
+- [Protocol Surfaces](protocol/SURFACES.yaml)
+- [Run Classes](protocol/RUN_CLASSES.yaml)
+- [Calibration Notes](protocol/CALIBRATION.md)
+- [Model/Surface Pilot Matrix](protocol/MODEL_SURFACE_PILOT.yaml)
+- [Submission Flow](scripts/submit_run.py)

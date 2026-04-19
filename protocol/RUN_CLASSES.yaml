@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "status": "pending_final_freeze",
+  "scope": "Run classes are calibrated per hardware/model/editable-surface stack. Never compare across run classes or across materially different stacks.",
+  "observed_stack": {
+    "host_alias": "3090",
+    "hostname": "george-linux-server",
+    "gpu_name": "NVIDIA GeForce RTX 3090",
+    "gpu_memory_gb": 24.0,
+    "driver_version": "550.163.01",
+    "python_version": "3.12.3",
+    "shared_env": "~/shared/envs/projects/conflict_aware_editing-env",
+    "selected_base_model": "google/gemma-3-4b-pt",
+    "selected_surface": "top4_standard",
+    "observed_on": "2026-04-19"
+  },
+  "gating_facts": [
+    "The observed 3090 host can reach Hugging Face.",
+    "The three-model pilot matrix was completed on the observed host after Hugging Face access was configured for the gated candidates.",
+    "google/gemma-3-4b-pt + top4_standard is the selected implementation pilot pair for this stack.",
+    "These run classes remain defined-but-unfrozen until longer selected-pair calibration evidence is attached."
+  ],
+  "run_classes": {
+    "smoke_v1": {
+      "status": "defined_but_unfrozen",
+      "launch_ready": false,
+      "intended_use": "Fast validity, plumbing, and fit screen before any longer dev-class run.",
+      "comparability_rule": "Only compare smoke_v1 runs against smoke_v1 runs on the same calibrated stack.",
+      "candidate_budget_range_minutes": [
+        10,
+        15
+      ],
+      "must_record": [
+        "runtime_seconds",
+        "peak_vram_gb",
+        "train_tokens_per_second",
+        "eval_tokens_per_second",
+        "invalid_run_rate",
+        "eval_fraction_of_runtime"
+      ],
+      "freeze_condition": "Replace the candidate range with an observed envelope after the selected gemma3_4b_pt + top4_standard stack completes smoke-class calibration rehearsals on the 3090."
+    },
+    "dev_v1": {
+      "status": "defined_but_unfrozen",
+      "launch_ready": false,
+      "intended_use": "Visible development-pack iteration once smoke viability is already established.",
+      "comparability_rule": "Only compare dev_v1 runs against dev_v1 runs on the same calibrated stack.",
+      "candidate_budget_range_minutes": [
+        60,
+        90
+      ],
+      "must_record": [
+        "runtime_seconds",
+        "peak_vram_gb",
+        "train_tokens_per_second",
+        "eval_tokens_per_second",
+        "invalid_run_rate",
+        "eval_fraction_of_runtime"
+      ],
+      "freeze_condition": "Replace the candidate range with an observed envelope after the selected gemma3_4b_pt + top4_standard stack completes dev-class calibration rehearsals on the 3090."
+    },
+    "confirm_v1": {
+      "status": "defined_but_unfrozen",
+      "launch_ready": false,
+      "intended_use": "Protected confirmation of promising candidates after dev-visible evidence is already strong.",
+      "comparability_rule": "Only compare confirm_v1 runs against confirm_v1 runs on the same calibrated stack.",
+      "candidate_budget_range_minutes": [
+        120,
+        180
+      ],
+      "must_record": [
+        "runtime_seconds",
+        "peak_vram_gb",
+        "train_tokens_per_second",
+        "eval_tokens_per_second",
+        "invalid_run_rate",
+        "eval_fraction_of_runtime"
+      ],
+      "freeze_condition": "Replace the candidate range with an observed envelope after the selected gemma3_4b_pt + top4_standard stack completes confirmation-class rehearsals on the 3090."
+    }
+  },
+  "notes": [
+    "These are calibrated defaults for one chosen stack, not universal truths.",
+    "Candidate minute ranges remain policy hypotheses until empirical calibration outputs are attached.",
+    "Probe-only rehearsals may inform these envelopes, but only the selected Gemma pilot pair can freeze them."
+  ]
+}
