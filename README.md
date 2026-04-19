@@ -2,15 +2,48 @@
 
 `autoresearch-continual-learning` is a public fork and design pivot inspired by [karpathy/autoresearch](https://github.com/karpathy/autoresearch).
 
-The goal is not to reproduce the original single-file language-model training loop. The goal is to adapt the core ideas that make `autoresearch` effective to a harder class of research problems:
+This repository is building a constrained autonomous research harness for:
 
 - continual learning
 - knowledge editing
-- interference-sensitive model updates
-- multi-metric evaluation with regression risks
-- scarce-resource workflows where only one heavyweight run can happen at a time
+- interference-sensitive updates
+- multi-metric evaluation with regression risk
+- single-GPU workflows where heavyweight runs must be serialized
 
-## Why this exists
+The repository is focused on the research loop itself:
+
+- bounded editable surfaces
+- bounded runs
+- structured artifacts
+- anti-shim constraints
+- promotion and discard rules
+
+## What This Repo Is Today
+
+This is no longer just a design-doc repo, but it is also not yet a fully self-running autonomous experimentation system.
+
+Current state:
+
+- a real `protocol/` constitution layer exists
+- preflight, schema, parsing, submission, and decision scripts exist
+- the 3090 pilot benchmark is complete
+- the first implementation stack is selected:
+  - base model: `google/gemma-3-4b-pt`
+  - editable surface: `top4_standard`
+- baseline and method scaffolding exist
+
+Not done yet:
+
+- a single end-to-end loop runner that keeps iterating by itself
+- frozen run-class envelopes for the selected stack
+- non-bootstrap visible-dev and confirmation packs
+- real baseline and mainline experiment comparisons on the selected Gemma stack
+
+So the honest description is:
+
+**this repo is a constitution-first harness with a selected pilot stack, moving into real implementation.**
+
+## Why This Exists
 
 `autoresearch` is powerful because it makes autonomous research tractable by constraining the loop:
 
@@ -20,39 +53,60 @@ The goal is not to reproduce the original single-file language-model training lo
 4. machine-readable result
 5. keep-or-discard discipline
 
-For continual learning and knowledge editing, those same principles still matter, but the problem is harder:
+For continual learning and knowledge editing, those same ideas still matter, but the problem is harder:
 
-- the objective is not one scalar metric
+- success is not one scalar metric
+- regressions matter as much as improvements
 - evaluation can be gamed more easily
-- regressions matter as much as gains
-- the agent can accidentally create shims or hidden side channels
-- heavyweight runs are more expensive and must be serialized
+- hidden capacity and shims are real failure modes
+- heavyweight runs are expensive and must be serialized
 
-This repo is where that adapted loop is being designed.
+This repo adapts the `autoresearch` mentality to that harder setting.
 
-## First case study
+## Current 3090 Stack Decision
+
+The first 3090 pilot benchmark compared:
+
+- `Qwen/Qwen3.5-4B-Base`
+- `meta-llama/Llama-3.1-8B`
+- `google/gemma-3-4b-pt`
+
+Outcome:
+
+- all three fit on the observed 3090
+- all three reached `1.0` on the repaired bounded visible-dev smoke pack
+- Gemma won the implementation pilot because it matched the legitimacy checks and had the best throughput on the fixed probe
+
+Selected pilot pair:
+
+- `google/gemma-3-4b-pt`
+- `top4_standard`
+
+See [3090 Pilot Benchmark](docs/PILOT_BENCHMARK_3090.md) for the full decision record.
+
+## First Case Study
 
 The first target repo is:
 
 - `conflict_aware_editing`
 
-That repo is a good stress test because it already has:
+That case study is useful because it already has:
 
-- fixed evaluation slices
 - explicit quality gates
 - artifact contracts
 - competing method families
+- evaluation slices with regression risk
 - a strong anti-cheating stance
 
 The design principle here is:
 
-**fit `conflict_aware_editing` to the optimal autonomous continual-learning / knowledge-editing loop, not the other way around.**
+**fit `conflict_aware_editing` to the best constrained autonomous research loop, not the other way around.**
 
-## Project stance
+## Project Stance
 
 This repo is intentionally closer to `autoresearch` than to a general-purpose software-engineering orchestrator.
 
-It may borrow selected ideas from systems like Symphony or Agent Orchestrator, but only where they improve the research loop. The center of gravity is:
+Its center of gravity is:
 
 - hypothesis
 - bounded change
@@ -63,43 +117,60 @@ It may borrow selected ideas from systems like Symphony or Agent Orchestrator, b
 not:
 
 - issue
-- agent
-- PR
+- agent swarm
+- PR theater
 
-## Current phase
+## Current Repository Shape
 
-The current phase is constitution, calibration, pilot selection, and first-stack wiring, not full method implementation.
+The main layers now present are:
 
-The immediate output of this repo is:
+- `protocol/`
+  - loop contract
+  - immutable/editable surfaces
+  - anti-shim policy
+  - promotion rules
+  - run-class policy
+  - pilot model/surface selection
+- `scripts/`
+  - workspace preflight
+  - spec freezing
+  - 3090 submission
+  - artifact parsing
+  - decision logic
+  - pilot calibration and visible-dev profiling
+- `eval/`
+  - schema validation
+  - metrics and aggregation
+  - protected confirmation normalization
+  - sentinel checks
+- `method/`
+  - editable-surface definitions
+  - trainer shell
+  - method scaffolding
+  - baseline wrappers
+- `experiments/`
+  - champion state
+  - append-only ledgers
 
-- a case study for `conflict_aware_editing`
-- a loop specification for autonomous continual-learning / knowledge-editing research
-- anti-shim and anti-cheat guardrails
-- a canonical `protocol/` package for the harness constitution
-- run-class and model-surface pilot scaffolding for the first 3090 stack
-- a selected first pilot pair for the 3090:
-  - `google/gemma-3-4b-pt`
-  - `top4_standard`
-- a research-agent `program.md`
-
-Because this repository is a public fork, it still contains some upstream prototype files from `autoresearch`. For now, treat those as inherited reference material, not as the implementation of the continual-learning loop described here.
-
-## Attribution and fork boundary
+## Attribution And Fork Boundary
 
 This repository is a public fork of `karpathy/autoresearch`, and that inspiration should remain explicit.
 
-What is being carried over:
+What is preserved:
 
-- the idea that autonomous research gets stronger when the loop is tightly constrained
-- the emphasis on fixed budgets and structured result parsing
-- the use of a human-edited research instructions file as part of the system
+- tight loop constraints
+- fixed-budget thinking
+- structured result parsing
+- human ownership of research organization
 
-What is changing:
+What is adapted:
 
-- the research domain
+- the target domain
 - the evaluation complexity
-- the decision rules
-- the guardrails needed to prevent evaluation hacking or hidden shims
+- the decision logic
+- the anti-shim and anti-cheat requirements
+
+Because this is a public fork, some upstream prototype files still exist in the tree. Treat those as inherited reference material, not as the implementation of the current continual-learning harness.
 
 ## Documents
 
