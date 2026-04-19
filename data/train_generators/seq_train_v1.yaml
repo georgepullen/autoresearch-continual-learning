@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "version": "seq_train_v1",
+  "description": "Minimal public update episodes for smoke and harness-plumbing runs.",
+  "episodes": [
+    {
+      "episode_id": "seq-train-0001",
+      "update_text": "Paris is the capital city of France.",
+      "target_text": "Paris",
+      "anchor_texts": [
+        "Berlin is the capital city of Germany."
+      ],
+      "metadata": {
+        "domain": "geography",
+        "intended_use": "bootstrap_smoke"
+      }
+    },
+    {
+      "episode_id": "seq-train-0002",
+      "update_text": "Water freezes at zero degrees Celsius.",
+      "target_text": "zero degrees Celsius",
+      "anchor_texts": [
+        "Ice is solid water."
+      ],
+      "metadata": {
+        "domain": "science",
+        "intended_use": "bootstrap_smoke"
+      }
+    },
+    {
+      "episode_id": "seq-train-0003",
+      "update_text": "A triangle has three sides.",
+      "target_text": "three sides",
+      "anchor_texts": [
+        "A square has four sides."
+      ],
+      "metadata": {
+        "domain": "math",
+        "intended_use": "bootstrap_smoke"
+      }
+    }
+  ]
+}

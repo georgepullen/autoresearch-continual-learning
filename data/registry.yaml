@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "train_generators": {
+    "seq_train_v1": {
+      "path": "data/train_generators/seq_train_v1.yaml",
+      "status": "public_bootstrap_generator",
+      "notes": [
+        "This generator exists to exercise the harness and mainline trainer plumbing.",
+        "It is not the final scientific training distribution for the research loop."
+      ]
+    }
+  },
+  "packs": {
+    "dev_visible_v1": {
+      "path": "data/packs/dev_visible_v1.yaml",
+      "status": "active_visible_pack"
+    },
+    "confirm_locked_v1": {
+      "summary_path": "data/packs/confirm_locked_v1.summary.yaml",
+      "hash_path": "data/packs/confirm_locked_v1.hash",
+      "status": "active_confirmation_pack"
+    }
+  }
+}

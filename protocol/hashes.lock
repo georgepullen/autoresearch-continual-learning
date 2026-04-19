@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "task_modes": {
+    "constitution_bootstrap": {
+      "AGENTS.md": "c30c573d099305898f42c86ae40c32f47927080e4223a9804bce06f948ab128f",
+      "docs/CASE_STUDY_CONFLICT_AWARE_EDITING.md": "264d3b07c0d63847cbf3d848228ef253f96948a192f709f1fcc377a7530d791b",
+      "docs/DESIGN_PRINCIPLES.md": "3d919c06775e1c8a50442476184b9d31ea115550032f4e0b481837cba933c33f",
+      "docs/GUARDRAILS_AND_ANTI_SHIM.md": "9ea8d863ab32212bd043c9d9fea78317970f9d087c16325cfa91ba6217732014",
+      "docs/LOOP_SPEC.md": "776928a9006d420898d64cb8073d2cdd407cac0db7850e61ca7cda554b278935"
+    }
+  }
+}

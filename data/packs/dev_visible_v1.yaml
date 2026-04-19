@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "pack_id": "dev_visible_v1",
+  "visibility": "public_visible_dev",
+  "status": "bootstrap_examples",
+  "purpose": "Default visible development pack for frequent bounded iteration.",
+  "examples": [
+    {
+      "example_id": "dev-visible-0001",
+      "prompt": "What is the capital city of France?",
+      "target": "Paris",
+      "anchor_target": "Berlin"
+    },
+    {
+      "example_id": "dev-visible-0002",
+      "prompt": "What color is the daytime sky on a clear day?",
+      "target": "Blue",
+      "anchor_target": "Green"
+    },
+    {
+      "example_id": "dev-visible-0003",
+      "prompt": "How many sides does a triangle have?",
+      "target": "Three",
+      "anchor_target": "Four"
+    }
+  ],
+  "notes": [
+    "This is a small bootstrap-visible pack for harness bring-up and smoke/dev plumbing.",
+    "It is not the final scientific visible development pack for the research loop.",
+    "Visible development packs are for iteration only and do not authorize promotion by themselves."
+  ]
+}

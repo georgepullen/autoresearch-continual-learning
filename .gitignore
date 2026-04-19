@@ -18,6 +18,8 @@ AGENTS.md
 
 # Experimental code/artifacts
 dev/
+artifacts/
+locks/active_run.lock
 
 # Results file
 results.tsv

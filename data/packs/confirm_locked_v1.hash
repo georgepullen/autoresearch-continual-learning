@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "pack_id": "confirm_locked_v1",
+  "hash_algorithm": "sha256",
+  "hash_status": "pending_host_local_registration",
+  "pack_hash": null,
+  "notes": [
+    "Replace pack_hash with the real host-local confirmation manifest hash when the locked pack is created."
+  ]
+}

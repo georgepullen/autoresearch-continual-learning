@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "status": "pilot_pair_selected",
+  "selection_policy": {
+    "ranking": [
+      "3090_fit",
+      "short_update_stability",
+      "visible_dev_profile",
+      "throughput",
+      "simplicity"
+    ],
+    "notes": [
+      "Choose the winner lexicographically rather than by taste.",
+      "Do not silently drop blocked candidates from the record.",
+      "Do not freeze a winner until at least one visible-dev profile exists for the finalist set."
+    ]
+  },
+  "fixed_probe_method_skeleton": {
+    "family": "hyper_lora_probe_v0",
+    "frozen_base": true,
+    "lora_rank": 8,
+    "probe_train_steps": 4,
+    "probe_eval_steps": 2,
+    "notes": [
+      "This probe is for fit, stability, and throughput only.",
+      "The probe should stay fixed while comparing model and surface candidates.",
+      "Per-layer gating can be represented as metadata in the sparse surface even before the full mainline method exists."
+    ]
+  },
+  "candidate_models": [
+    {
+      "name": "llama31_8b_base",
+      "model_id": "meta-llama/Llama-3.1-8B",
+      "status": "runnable",
+      "runnable_now": true,
+      "notes": [
+        "Official candidate from the design docs.",
+        "Observed as gated on the 3090 host until a Hugging Face token with approved access was configured.",
+        "Passed the repaired top4_standard fit screen and bounded visible-dev profile on 2026-04-19."
+      ]
+    },
+    {
+      "name": "qwen35_4b_base",
+      "model_id": "Qwen/Qwen3.5-4B-Base",
+      "status": "runnable",
+      "runnable_now": true,
+      "notes": [
+        "Official candidate from the design docs.",
+        "Observed as accessible without a token on the 3090 host.",
+        "Passed the repaired top4_standard fit screen and bounded visible-dev profile on 2026-04-19."
+      ]
+    },
+    {
+      "name": "gemma3_4b_pt",
+      "model_id": "google/gemma-3-4b-pt",
+      "status": "runnable",
+      "runnable_now": true,
+      "notes": [
+        "Official candidate from the design docs.",
+        "Observed as gated on the 3090 host until a Hugging Face token with approved access was configured.",
+        "Passed the repaired top4_standard fit screen and bounded visible-dev profile on 2026-04-19."
+      ]
+    }
+  ],
+  "candidate_surfaces": [
+    {
+      "name": "top4_standard",
+      "layer_mode": "top_suffix",
+      "layer_count": 4,
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj"
+      ],
+      "uses_per_layer_gate": false,
+      "simplicity_rank": 1
+    },
+    {
+      "name": "top6_standard",
+      "layer_mode": "top_suffix",
+      "layer_count": 6,
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj"
+      ],
+      "uses_per_layer_gate": false,
+      "simplicity_rank": 2
+    },
+    {
+      "name": "sparse_suffix_gated_output",
+      "layer_mode": "top_suffix",
+      "layer_count": 6,
+      "target_modules": [
+        "v_proj",
+        "o_proj",
+        "down_proj"
+      ],
+      "uses_per_layer_gate": true,
+      "simplicity_rank": 3
+    }
+  ],
+  "selected_pair": {
+    "model_id": "google/gemma-3-4b-pt",
+    "surface_name": "top4_standard",
+    "selection_artifact": "pilot_selection_top4.json",
+    "selection_basis": [
+      "All three official candidates fit on the observed 3090 host under the fixed top4_standard probe.",
+      "All three candidates scored 1.0 exact-match on the repaired visible-dev invocation for dev_visible_v1.",
+      "Throughput broke the visible-dev tie, so gemma3_4b_pt ranked ahead of llama31_8b_base and qwen35_4b_base."
+    ],
+    "notes": [
+      "This freezes the implementation pilot pair, not the final scientific winner of the research program.",
+      "The visible-dev pack used here is the bootstrap bring-up pack rather than the final scientific visible-dev pack."
+    ]
+  },
+  "blocked_by": [],
+  "selected_pair_default": {
+    "model_id": "google/gemma-3-4b-pt",
+    "surface_name": "top4_standard",
+    "purpose": "Default starting stack for first baseline, mainline, and run-class calibration work on the observed 3090 host."
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "terminal_outcomes": [
+    "promote",
+    "discard",
+    "invalid",
+    "needs_human_decision"
+  ],
+  "integrity_gates": {
+    "require_schema_valid": true,
+    "require_preflight_passed": true,
+    "require_immutable_hashes_verified": true,
+    "require_shim_checks_passed": true,
+    "invalidating_sentinel_codes": [
+      "undeclared_retrieval",
+      "undeclared_helper_model",
+      "undeclared_postprocessor",
+      "missing_declared_capacity",
+      "wrong_pack",
+      "wrong_run_class",
+      "immutable_drift"
+    ]
+  },
+  "scientific_floors": {
+    "target_quality": {
+      "family": "target_quality",
+      "direction": "maximize",
+      "rule": "not_worse_than_champion",
+      "tolerance": 0.005,
+      "borderline_tolerance": 0.01
+    }
+  },
+  "required_win_families": {
+    "interference": {
+      "family": "interference",
+      "direction": "minimize",
+      "rule": "at_least_one_metric_improves",
+      "min_improvement": 0.01,
+      "borderline_tolerance": 0.005
+    }
+  },
+  "cost_envelopes": {
+    "runtime_seconds": {
+      "family": "cost",
+      "metric": "runtime_seconds",
+      "max_relative_increase": 0.25,
+      "borderline_relative_increase": 0.35
+    },
+    "peak_vram_gb": {
+      "family": "cost",
+      "metric": "peak_vram_gb",
+      "max_relative_increase": 0.2,
+      "borderline_relative_increase": 0.3
+    }
+  },
+  "confirmation_policy": {
+    "required_for_promotion": true,
+    "missing_confirmation_outcome": "needs_human_decision",
+    "failed_confirmation_outcome": "discard",
+    "aggregate_status_values": {
+      "pass": "pass",
+      "fail": "fail",
+      "pending": "pending"
+    }
+  },
+  "borderline_replay_policy": {
+    "enabled": true,
+    "max_replays": 1,
+    "trigger_state": "borderline_replay_eligible",
+    "requirements": [
+      "same_code",
+      "same_spec_family",
+      "approved_alternate_seed_only"
+    ]
+  },
+  "human_escalation": {
+    "outcome": "needs_human_decision",
+    "reasons": [
+      "meaningful_tradeoff_without_clear_rule",
+      "missing_champion_context",
+      "missing_confirmation_for_promising_candidate",
+      "non_numeric_metric_family"
+    ]
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "default_task_mode": "method_iteration",
+  "task_modes": {
+    "constitution_bootstrap": {
+      "purpose": "Build the harness constitution and initial infrastructure in this repository before the autonomous method loop is live.",
+      "editable": [
+        "protocol/**",
+        "method/**",
+        "eval/**",
+        "data/**",
+        "scripts/**",
+        "experiments/**",
+        "locks/**",
+        ".gitignore",
+        "README.md",
+        "docs/IMPLEMENTATION_INDEX.md",
+        "program.md"
+      ],
+      "immutable": [
+        "docs/DESIGN_PRINCIPLES.md",
+        "docs/LOOP_SPEC.md",
+        "docs/CASE_STUDY_CONFLICT_AWARE_EDITING.md",
+        "docs/GUARDRAILS_AND_ANTI_SHIM.md",
+        "AGENTS.md"
+      ],
+      "approval_only": [
+        "docs/IMPLEMENTATION_PLAN.md",
+        "docs/DEEP_RESEARCH_PROMPT.md",
+        "docs/DEEP_RESEARCH_FOLLOWUP.md"
+      ]
+    },
+    "method_iteration": {
+      "purpose": "Default autonomous exploit loop once the harness exists. This mode is for bounded method work, not protocol redesign.",
+      "editable": [
+        "method/**",
+        "scripts/**",
+        "experiments/specs/**",
+        "experiments/ledgers/**",
+        "experiments/champion.json",
+        "locks/**",
+        "artifacts/**"
+      ],
+      "immutable": [
+        "protocol/LOOP.md",
+        "protocol/STATE_MACHINE.md",
+        "protocol/ANTI_SHIM.md",
+        "protocol/HITL_POLICY.md",
+        "protocol/RESEARCH_POLICY.md",
+        "protocol/INTEGRITY_PASS.md",
+        "protocol/SURFACES.yaml",
+        "eval/schema.py",
+        "eval/sentinels.py",
+        "data/packs/dev_visible_v*.yaml",
+        "data/packs/confirm_locked_v*.hash",
+        "data/packs/confirm_locked_v*.summary.yaml",
+        "README.md",
+        "AGENTS.md",
+        "program.md"
+      ],
+      "approval_only": [
+        "protocol/RUN_CLASSES.yaml",
+        "protocol/PROMOTION.yaml",
+        "protocol/MODEL_SURFACE_PILOT.yaml",
+        "protocol/CALIBRATION.md",
+        "protocol/hashes.lock",
+        "data/registry.yaml",
+        "data/train_generators/**",
+        "data/packs/**"
+      ]
+    },
+    "protocol_change": {
+      "purpose": "Explicit governance or benchmark work. Use when protocol, evaluation, or promotion rules must change intentionally.",
+      "requires_human_approval": true,
+      "editable": [
+        "protocol/**",
+        "eval/**",
+        "data/**",
+        ".gitignore",
+        "README.md",
+        "docs/**",
+        "program.md"
+      ],
+      "immutable": [
+        "AGENTS.md"
+      ],
+      "approval_only": []
+    }
+  },
+  "notes": [
+    "`method_iteration` is the steady-state default. `constitution_bootstrap` exists because this repository is still building the harness itself.",
+    "`artifacts/**` are writable outputs and should be gitignored in the implemented harness.",
+    "`experiments/ledgers/**` are append-only by policy. Even in approval contexts, historical records should not be rewritten silently.",
+    "`program.md` is human-governed research-organization text in steady state, but is temporarily editable during constitution bootstrap while the protocol layer is being extracted."
+  ],
+  "managed_repo_first_fit": {
+    "conflict_aware_editing": {
+      "editable": [
+        "src/conflict_aware_editing/conflict_aware_memit.py",
+        "src/conflict_aware_editing/scope_constrained_memit.py",
+        "src/conflict_aware_editing/*.py",
+        "scripts/**"
+      ],
+      "immutable": [
+        "third_party/**",
+        "docs/QUALITY_GATES.md",
+        "docs/EVAL_PROTOCOL.md",
+        "docs/ARTIFACT_CONTRACT.md",
+        "configs/validation/**"
+      ],
+      "approval_only": [
+        "evaluation prompt definitions",
+        "benchmark manifests",
+        "artifact schema"
+      ]
+    }
+  }
+}

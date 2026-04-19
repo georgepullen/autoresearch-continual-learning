@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "pack_id": "confirm_locked_v1",
+  "visibility": "host_local_locked",
+  "artifact_policy": "aggregate_feedback_only",
+  "status": "summary_only",
+  "purpose": "Protected confirmation pack required before champion promotion.",
+  "public_composition_summary": {
+    "slice_families": [
+      "counterfact_confirmation",
+      "ripple_confirmation"
+    ],
+    "exact_items_exposed_in_repo": false
+  },
+  "notes": [
+    "The underlying manifest is host-local and should not be checked into the public repository.",
+    "Agents may receive aggregate confirmation feedback only, not the raw locked examples."
+  ]
+}
