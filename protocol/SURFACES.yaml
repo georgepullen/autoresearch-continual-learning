@@ -14,7 +14,6 @@
         "locks/**",
         ".gitignore",
         "README.md",
-        "docs/IMPLEMENTATION_INDEX.md",
         "program.md"
       ],
       "immutable": [
@@ -24,11 +23,7 @@
         "docs/GUARDRAILS_AND_ANTI_SHIM.md",
         "AGENTS.md"
       ],
-      "approval_only": [
-        "docs/IMPLEMENTATION_PLAN.md",
-        "docs/DEEP_RESEARCH_PROMPT.md",
-        "docs/DEEP_RESEARCH_FOLLOWUP.md"
-      ]
+      "approval_only": []
     },
     "method_iteration": {
       "purpose": "Default autonomous exploit loop once the harness exists. This mode is for bounded method work, not protocol redesign.",
@@ -43,8 +38,10 @@
       ],
       "immutable": [
         "protocol/LOOP.md",
+        "protocol/OPERATING.md",
         "protocol/STATE_MACHINE.md",
         "protocol/ANTI_SHIM.md",
+        "protocol/BOOTSTRAP.yaml",
         "protocol/HITL_POLICY.md",
         "protocol/RESEARCH_POLICY.md",
         "protocol/INTEGRITY_PASS.md",

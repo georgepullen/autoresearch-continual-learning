@@ -1,8 +1,17 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "status": "bootstrap_pending",
+  "bootstrap": {
+    "seeded_from_run_id": null,
+    "seeded_at_utc": null,
+    "notes": [
+      "No approved baseline artifact has seeded champion context yet."
+    ]
+  },
   "current_champion": null,
+  "last_decision": null,
   "updated_at_utc": null,
   "notes": [
-    "No promoted run has been recorded yet."
+    "Bootstrap seeding is required before default method iteration can compare against a champion artifact."
   ]
 }

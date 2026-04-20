@@ -39,10 +39,17 @@ def main() -> int:
     parser.add_argument("--comparison-scope", required=True)
     parser.add_argument("--selection-policy", required=True)
     parser.add_argument("--declared-trainable-params", required=True, type=int)
+    parser.add_argument(
+        "--trainable-parameter-tolerance",
+        type=int,
+        default=0,
+        help="Allowed absolute difference between declared and observed trainable parameter counts.",
+    )
     parser.add_argument("--editable-path", action="append", default=[])
     parser.add_argument("--helper-model", action="append", default=[])
     parser.add_argument("--baseline-ref")
     parser.add_argument("--parent-champion")
+    parser.add_argument("--frozen-base-model", action="store_true")
     parser.add_argument("--uses-retrieval", action="store_true")
     parser.add_argument("--uses-postprocessor", action="store_true")
     parser.add_argument("--force", action="store_true")
@@ -70,7 +77,9 @@ def main() -> int:
             "selection_policy": args.selection_policy,
         },
         "declared_capacity": {
+            "frozen_base_model": args.frozen_base_model,
             "trainable_parameter_count": args.declared_trainable_params,
+            "trainable_parameter_tolerance": args.trainable_parameter_tolerance,
             "uses_retrieval": args.uses_retrieval,
             "helper_models": sorted(set(args.helper_model)),
             "uses_postprocessor": args.uses_postprocessor,

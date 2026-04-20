@@ -38,6 +38,11 @@ class TrainerContext:
     confirmation_pack_summary: str
     baseline_ref: str
     comparison_scope: str
+    trainable_parameter_tolerance: int = 0
+    frozen_base_model: bool = False
+    uses_retrieval: bool = False
+    helper_models: tuple[str, ...] = ()
+    uses_postprocessor: bool = False
 
 
 StepFn = Callable[[Any, int], dict[str, Any]]
@@ -78,6 +83,7 @@ class BoundedArtifactTrainer:
         step_fn: StepFn,
         *,
         integrity_flags: dict[str, bool],
+        observed_capacity: dict[str, Any] | None = None,
     ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
         start = time.perf_counter()
         records: list[dict[str, Any]] = []
@@ -110,6 +116,7 @@ class BoundedArtifactTrainer:
             runtime_seconds=time.perf_counter() - start,
             peak_vram_gb=peak_vram_gb,
             integrity_flags=integrity_flags,
+            observed_capacity=observed_capacity,
         )
         return artifact, records
 
@@ -124,6 +131,7 @@ def build_artifact(
     runtime_seconds: float,
     peak_vram_gb: float,
     integrity_flags: dict[str, bool],
+    observed_capacity: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Aggregate bounded step records into the canonical schema."""
 
@@ -148,7 +156,12 @@ def build_artifact(
                 "selection_policy": context.selection_policy,
             },
             "declared_capacity": {
+                "frozen_base_model": context.frozen_base_model,
                 "trainable_parameter_count": context.declared_trainable_params,
+                "trainable_parameter_tolerance": context.trainable_parameter_tolerance,
+                "uses_retrieval": context.uses_retrieval,
+                "helper_models": list(context.helper_models),
+                "uses_postprocessor": context.uses_postprocessor,
                 "notes": [],
             },
         }
@@ -180,6 +193,12 @@ def build_artifact(
             ),
             "shim_checks_passed": bool(integrity_flags.get("shim_checks_passed", False)),
         }
+    )
+    payload["observed_capacity"].update(
+        normalize_observed_capacity(
+            context=context,
+            observed_capacity=observed_capacity or {},
+        )
     )
     return payload
 
@@ -219,6 +238,62 @@ def normalize_step_metrics(payload: dict[str, Any]) -> dict[str, Any]:
     if not isinstance(normalized["interference"], dict):
         raise ValueError("interference metrics must be a mapping")
     return normalized
+
+
+def normalize_observed_capacity(
+    *,
+    context: TrainerContext,
+    observed_capacity: dict[str, Any],
+) -> dict[str, Any]:
+    observed_trainable = _as_non_negative_int(
+        observed_capacity.get("observed_trainable_parameter_count"),
+        context.declared_trainable_params,
+    )
+    base_trainable = _as_non_negative_int(
+        observed_capacity.get("base_model_trainable_parameter_count"),
+        0 if context.frozen_base_model else observed_trainable,
+    )
+    return {
+        "declared_trainable_parameter_count": context.declared_trainable_params,
+        "observed_trainable_parameter_count": observed_trainable,
+        "base_model_trainable_parameter_count": base_trainable,
+        "frozen_base_behavior_verified": _as_bool(
+            observed_capacity.get("frozen_base_behavior_verified"),
+            context.frozen_base_model,
+        ),
+        "optimizer_excludes_frozen_base_parameters": _as_bool(
+            observed_capacity.get("optimizer_excludes_frozen_base_parameters"),
+            context.frozen_base_model,
+        ),
+        "used_retrieval": _as_bool(
+            observed_capacity.get("used_retrieval"),
+            context.uses_retrieval,
+        ),
+        "helper_models": _as_string_sequence(
+            observed_capacity.get("helper_models"),
+            context.helper_models,
+        ),
+        "used_postprocessor": _as_bool(
+            observed_capacity.get("used_postprocessor"),
+            context.uses_postprocessor,
+        ),
+    }
+
+
+def _as_non_negative_int(value: Any, default: int) -> int:
+    if isinstance(value, int) and not isinstance(value, bool) and value >= 0:
+        return value
+    return default
+
+
+def _as_bool(value: Any, default: bool) -> bool:
+    return value if isinstance(value, bool) else default
+
+
+def _as_string_sequence(value: Any, default: tuple[str, ...]) -> list[str]:
+    if isinstance(value, list) and all(isinstance(item, str) for item in value):
+        return value
+    return list(default)
 
 
 def utc_now() -> str:

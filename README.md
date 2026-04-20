@@ -82,8 +82,6 @@ Selected pilot pair:
 - `google/gemma-3-4b-pt`
 - `top4_standard`
 
-See [3090 Pilot Benchmark](docs/PILOT_BENCHMARK_3090.md) for the full decision record.
-
 ## First Case Study
 
 The first target repo is:
@@ -178,9 +176,6 @@ Because this is a public fork, some upstream prototype files still exist in the 
 - [Loop Specification](docs/LOOP_SPEC.md)
 - [Case Study: conflict_aware_editing](docs/CASE_STUDY_CONFLICT_AWARE_EDITING.md)
 - [Guardrails and Anti-Shim Rules](docs/GUARDRAILS_AND_ANTI_SHIM.md)
-- [Implementation Index](docs/IMPLEMENTATION_INDEX.md)
-- [Implementation Plan](docs/IMPLEMENTATION_PLAN.md)
-- [3090 Pilot Benchmark](docs/PILOT_BENCHMARK_3090.md)
 - [Protocol Loop](protocol/LOOP.md)
 - [Protocol Surfaces](protocol/SURFACES.yaml)
 - [Run Classes](protocol/RUN_CLASSES.yaml)

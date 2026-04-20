@@ -43,7 +43,12 @@ def artifact_template() -> dict[str, Any]:
                 "selection_policy": "",
             },
             "declared_capacity": {
+                "frozen_base_model": False,
                 "trainable_parameter_count": 0,
+                "trainable_parameter_tolerance": 0,
+                "uses_retrieval": False,
+                "helper_models": [],
+                "uses_postprocessor": False,
                 "notes": [],
             },
         },
@@ -69,6 +74,16 @@ def artifact_template() -> dict[str, Any]:
             "immutable_hashes_verified": False,
             "shim_checks_passed": False,
         },
+        "observed_capacity": {
+            "declared_trainable_parameter_count": 0,
+            "observed_trainable_parameter_count": 0,
+            "base_model_trainable_parameter_count": 0,
+            "frozen_base_behavior_verified": False,
+            "optimizer_excludes_frozen_base_parameters": False,
+            "used_retrieval": False,
+            "helper_models": [],
+            "used_postprocessor": False,
+        },
     }
 
 
@@ -88,6 +103,7 @@ def validate_artifact(payload: Mapping[str, Any]) -> ArtifactValidationResult:
     _require_mapping(payload, "comparison", errors)
     _require_mapping(payload, "metrics", errors)
     _require_mapping(payload, "integrity", errors)
+    _require_mapping(payload, "observed_capacity", errors)
 
     run = _as_mapping(payload.get("run"))
     method = _as_mapping(payload.get("method"))
@@ -95,6 +111,7 @@ def validate_artifact(payload: Mapping[str, Any]) -> ArtifactValidationResult:
     comparison = _as_mapping(payload.get("comparison"))
     metrics = _as_mapping(payload.get("metrics"))
     integrity = _as_mapping(payload.get("integrity"))
+    observed_capacity = _as_mapping(payload.get("observed_capacity"))
 
     _require_string_fields(
         run,
@@ -157,6 +174,24 @@ def validate_artifact(payload: Mapping[str, Any]) -> ArtifactValidationResult:
         "method.declared_capacity",
         errors,
     )
+    _require_boolean_fields(
+        declared_capacity,
+        ["frozen_base_model", "uses_retrieval", "uses_postprocessor"],
+        "method.declared_capacity",
+        errors,
+    )
+    _require_int_field(
+        declared_capacity,
+        "trainable_parameter_tolerance",
+        "method.declared_capacity",
+        errors,
+    )
+    _require_sequence_field(
+        declared_capacity,
+        "helper_models",
+        "method.declared_capacity",
+        errors,
+    )
     _require_sequence_field(
         declared_capacity,
         "notes",
@@ -167,6 +202,41 @@ def validate_artifact(payload: Mapping[str, Any]) -> ArtifactValidationResult:
         cost,
         ["runtime_seconds", "peak_vram_gb"],
         "metrics.cost",
+        errors,
+    )
+    _require_int_field(
+        observed_capacity,
+        "declared_trainable_parameter_count",
+        "observed_capacity",
+        errors,
+    )
+    _require_int_field(
+        observed_capacity,
+        "observed_trainable_parameter_count",
+        "observed_capacity",
+        errors,
+    )
+    _require_int_field(
+        observed_capacity,
+        "base_model_trainable_parameter_count",
+        "observed_capacity",
+        errors,
+    )
+    _require_boolean_fields(
+        observed_capacity,
+        [
+            "frozen_base_behavior_verified",
+            "optimizer_excludes_frozen_base_parameters",
+            "used_retrieval",
+            "used_postprocessor",
+        ],
+        "observed_capacity",
+        errors,
+    )
+    _require_sequence_field(
+        observed_capacity,
+        "helper_models",
+        "observed_capacity",
         errors,
     )
 

@@ -58,6 +58,7 @@ def main() -> int:
 
     invalidating = invalidating_findings(findings)
     parse_record = {
+        "record_type": "artifact_parse",
         "recorded_at_utc": utc_now(),
         "artifact_path": display_path(artifact_path, repo_root),
         "spec_path": display_path(spec_path, repo_root) if spec_path else None,

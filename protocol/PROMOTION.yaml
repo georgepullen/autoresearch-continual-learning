@@ -15,9 +15,13 @@
       "undeclared_retrieval",
       "undeclared_helper_model",
       "undeclared_postprocessor",
+      "trainable_parameter_mismatch",
+      "frozen_base_behavior_failed",
+      "optimizer_includes_frozen_base_parameters",
       "missing_declared_capacity",
       "wrong_pack",
       "wrong_run_class",
+      "command_mismatch",
       "immutable_drift"
     ]
   },

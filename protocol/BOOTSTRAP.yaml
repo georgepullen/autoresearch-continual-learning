@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "bootstrap_lane_defined",
+  "launch_envelope": {
+    "base_model": "google/gemma-3-4b-pt",
+    "surface_name": "top4_standard",
+    "comparability_rule": "Bootstrap seeding must stay on the selected launch stack and may not compare across stacks, surfaces, or unfrozen comparison regimes."
+  },
+  "champion_states": [
+    "bootstrap_pending",
+    "baseline_seeded",
+    "active_champion"
+  ],
+  "bootstrap_lane": {
+    "required_champion_status": "bootstrap_pending",
+    "approved_method_families": [
+      "baseline_seq_lora_ft_v0"
+    ],
+    "allowed_run_classes": [
+      "dev_v1"
+    ],
+    "required_base_model": "google/gemma-3-4b-pt",
+    "required_development_pack": "dev_visible_v1",
+    "required_confirmation_pack_summary": "confirm_locked_v1",
+    "required_train_generator_version": "seq_train_v1",
+    "comparison_scope": "selected_stack_bootstrap_baseline",
+    "baseline_ref": "bootstrap_baseline",
+    "notes": [
+      "Bootstrap is an explicit lane, not an arbitrary first-valid-run exception.",
+      "The first champion may be seeded only from an approved baseline family on the selected launch stack.",
+      "Protected confirmation remains required for later promotion beyond the bootstrap baseline unless policy changes explicitly."
+    ]
+  }
+}

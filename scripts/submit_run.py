@@ -98,6 +98,8 @@ def submit_run(args: argparse.Namespace) -> int:
         "remote_host": remote_host,
         "remote_repo_path": remote_repo_path,
         "remote_run_dir": remote_run_dir,
+        "confirmation_request_path": f"experiments/confirmation/requests/{run_id}.json",
+        "confirmation_result_path": f"experiments/confirmation/results/{run_id}.json",
         "preflight": preflight_result,
     }
 
@@ -311,7 +313,7 @@ def submit_remote(
 set -euo pipefail
 mkdir -p "{remote_run_dir}"
 cd "{remote_repo_path}"
-nohup bash -lc {shlex.quote(run_command_text)} > "{remote_run_dir}/launcher.log" 2>&1 < /dev/null &
+nohup /home/george/bin/run_with_host_power_lock.sh --name {shlex.quote(spec.get("run_id", "autoresearch-run"))} bash -lc {shlex.quote(run_command_text)} > "{remote_run_dir}/launcher.log" 2>&1 < /dev/null &
 pid=$!
 printf '%s\\n' "$pid" > "{remote_run_dir}/remote.pid"
 cat > "{remote_run_dir}/submission.json" <<'JSON'

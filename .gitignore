@@ -21,5 +21,22 @@ dev/
 artifacts/
 locks/active_run.lock
 
+# Local OS/editor noise
+.DS_Store
+.Rhistory
+
+# Local repo-development material; keep the committable tree harness-only
+docs/AUTORESEARCH_ADAPTATION_REVIEW.md
+docs/CLOSED_LOOP_READINESS_ROADMAP.md
+docs/DEBATE_LAUNCH_SCOPE_AND_AUTONOMY.md
+docs/DEEP_RESEARCH_FOLLOWUP.md
+docs/DEEP_RESEARCH_PROMPT.md
+docs/IMPLEMENTATION_INDEX.md
+docs/IMPLEMENTATION_PLAN.md
+docs/PILOT_BENCHMARK_3090.md
+docs/codepacks/
+docs/repo-dev/
+repomix-output.md
+
 # Results file
 results.tsv

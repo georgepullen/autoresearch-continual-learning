@@ -42,6 +42,11 @@ def main() -> int:
         help="Path to promotion config (JSON-shaped YAML).",
     )
     parser.add_argument(
+        "--bootstrap-config",
+        default="protocol/BOOTSTRAP.yaml",
+        help="Path to bootstrap config (JSON-shaped YAML).",
+    )
+    parser.add_argument(
         "--record-ledger",
         action="store_true",
         help="Append the decision result to experiments/ledgers/runs.jsonl.",
@@ -58,6 +63,7 @@ def main() -> int:
     artifact = load_json(artifact_path)
     spec = load_json(spec_path)
     config = load_json(resolve_path(args.promotion_config))
+    bootstrap_config = load_json(resolve_path(args.bootstrap_config))
     champion_artifact = (
         load_json(resolve_path(args.champion_artifact))
         if args.champion_artifact
@@ -75,6 +81,7 @@ def main() -> int:
         champion_artifact=champion_artifact,
         confirmation_result=confirmation_result,
         config=config,
+        bootstrap_config=bootstrap_config,
     )
 
     payload = {
@@ -108,6 +115,7 @@ def decide(
     champion_artifact: Mapping[str, Any] | None,
     confirmation_result: Mapping[str, Any] | None,
     config: Mapping[str, Any],
+    bootstrap_config: Mapping[str, Any],
 ) -> DecisionResult:
     reasons: list[str] = []
     triggers: list[str] = []
@@ -133,9 +141,15 @@ def decide(
         return DecisionResult(outcome="invalid", reasons=tuple(reasons), triggers=tuple(triggers))
 
     if champion_artifact is None:
-        reasons.append("missing_champion_context")
+        bootstrap_eval = evaluate_bootstrap_eligibility(
+            artifact=artifact,
+            spec=spec,
+            bootstrap_config=bootstrap_config,
+        )
+        reasons.extend(bootstrap_eval["reasons"])
+        triggers.extend(bootstrap_eval["triggers"])
         return DecisionResult(
-            outcome="needs_human_decision",
+            outcome=bootstrap_eval["outcome"],
             reasons=tuple(reasons),
             triggers=tuple(triggers),
         )
@@ -243,6 +257,108 @@ def evaluate_integrity(
             reasons.append(f"sentinel_invalidated:{finding.code}")
 
     return reasons
+
+
+def evaluate_bootstrap_eligibility(
+    *,
+    artifact: Mapping[str, Any],
+    spec: Mapping[str, Any],
+    bootstrap_config: Mapping[str, Any],
+) -> dict[str, Any]:
+    reasons: list[str] = []
+    triggers: list[str] = []
+
+    bootstrap_lane = bootstrap_config.get("bootstrap_lane", {})
+    if not isinstance(bootstrap_lane, Mapping):
+        return {
+            "outcome": "needs_human_decision",
+            "reasons": ["missing_champion_context", "bootstrap_lane_missing"],
+            "triggers": triggers,
+        }
+
+    approved_methods = bootstrap_lane.get("approved_method_families", [])
+    allowed_run_classes = bootstrap_lane.get("allowed_run_classes", [])
+    required_base_model = bootstrap_lane.get("required_base_model")
+    required_pack = bootstrap_lane.get("required_development_pack")
+    required_confirm_summary = bootstrap_lane.get("required_confirmation_pack_summary")
+    required_generator = bootstrap_lane.get("required_train_generator_version")
+
+    method_family = artifact.get("method", {}).get("method_family")
+    run_class = artifact.get("run", {}).get("run_class")
+    base_model = artifact.get("method", {}).get("base_model")
+    development_pack = artifact.get("data", {}).get("development_pack")
+    confirmation_pack_summary = artifact.get("data", {}).get("confirmation_pack_summary")
+    train_generator_version = artifact.get("data", {}).get("train_generator_version")
+
+    if not isinstance(method_family, str) or method_family not in approved_methods:
+        reasons.extend(
+            [
+                "missing_champion_context",
+                f"bootstrap_method_not_approved:{method_family!r}",
+            ]
+        )
+        return {"outcome": "needs_human_decision", "reasons": reasons, "triggers": triggers}
+
+    if not isinstance(run_class, str) or run_class not in allowed_run_classes:
+        reasons.extend(
+            [
+                "missing_champion_context",
+                f"bootstrap_run_class_not_approved:{run_class!r}",
+            ]
+        )
+        return {"outcome": "needs_human_decision", "reasons": reasons, "triggers": triggers}
+
+    if isinstance(required_base_model, str) and required_base_model and base_model != required_base_model:
+        reasons.extend(
+            [
+                "missing_champion_context",
+                "bootstrap_base_model_mismatch",
+            ]
+        )
+        return {"outcome": "needs_human_decision", "reasons": reasons, "triggers": triggers}
+
+    if isinstance(required_pack, str) and required_pack and development_pack != required_pack:
+        reasons.extend(
+            [
+                "missing_champion_context",
+                "bootstrap_visible_pack_mismatch",
+            ]
+        )
+        return {"outcome": "needs_human_decision", "reasons": reasons, "triggers": triggers}
+
+    if (
+        isinstance(required_confirm_summary, str)
+        and required_confirm_summary
+        and confirmation_pack_summary != required_confirm_summary
+    ):
+        reasons.extend(
+            [
+                "missing_champion_context",
+                "bootstrap_confirmation_summary_mismatch",
+            ]
+        )
+        return {"outcome": "needs_human_decision", "reasons": reasons, "triggers": triggers}
+
+    if isinstance(required_generator, str) and required_generator and train_generator_version != required_generator:
+        reasons.extend(
+            [
+                "missing_champion_context",
+                "bootstrap_train_generator_mismatch",
+            ]
+        )
+        return {"outcome": "needs_human_decision", "reasons": reasons, "triggers": triggers}
+
+    if spec.get("baseline_ref") not in {None, "", "bootstrap_baseline"}:
+        reasons.extend(
+            [
+                "missing_champion_context",
+                "bootstrap_baseline_ref_must_not_target_existing_champion",
+            ]
+        )
+        return {"outcome": "needs_human_decision", "reasons": reasons, "triggers": triggers}
+
+    reasons.append("approved_bootstrap_baseline_run_without_existing_champion")
+    return {"outcome": "promote", "reasons": reasons, "triggers": triggers}
 
 
 def evaluate_scientific_floors(

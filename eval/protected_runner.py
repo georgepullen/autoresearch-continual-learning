@@ -11,6 +11,8 @@ from typing import Any, Mapping
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONFIRM_SUMMARY = REPO_ROOT / "data" / "packs" / "confirm_locked_v1.summary.yaml"
 DEFAULT_CONFIRM_HASH = REPO_ROOT / "data" / "packs" / "confirm_locked_v1.hash"
+DEFAULT_CONFIRM_REQUESTS_DIR = REPO_ROOT / "experiments" / "confirmation" / "requests"
+DEFAULT_CONFIRM_RESULTS_DIR = REPO_ROOT / "experiments" / "confirmation" / "results"
 
 
 @dataclass(frozen=True)
@@ -79,6 +81,34 @@ def load_confirmation_result(path: str | Path) -> dict[str, Any]:
     """Load one aggregate confirmation result from disk."""
 
     return _load_json(Path(path))
+
+
+def confirmation_request_path(run_id: str) -> Path:
+    return DEFAULT_CONFIRM_REQUESTS_DIR / f"{run_id}.json"
+
+
+def confirmation_result_path(run_id: str) -> Path:
+    return DEFAULT_CONFIRM_RESULTS_DIR / f"{run_id}.json"
+
+
+def write_confirmation_request(
+    *,
+    run_id: str,
+    artifact_path: str,
+    spec_path: str,
+    expected_pack_id: str = "confirm_locked_v1",
+) -> Path:
+    path = confirmation_request_path(run_id)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "schema_version": 1,
+        "run_id": run_id,
+        "artifact_path": artifact_path,
+        "spec_path": spec_path,
+        "pack_id": expected_pack_id,
+    }
+    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+    return path
 
 
 def _load_json(path: Path) -> dict[str, Any]:

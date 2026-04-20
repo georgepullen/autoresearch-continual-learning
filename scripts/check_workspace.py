@@ -16,9 +16,11 @@ from typing import Any
 
 REQUIRED_PROTOCOL_FILES = (
     "protocol/LOOP.md",
+    "protocol/OPERATING.md",
     "protocol/STATE_MACHINE.md",
     "protocol/SURFACES.yaml",
     "protocol/ANTI_SHIM.md",
+    "protocol/BOOTSTRAP.yaml",
     "protocol/HITL_POLICY.md",
     "protocol/RESEARCH_POLICY.md",
     "protocol/INTEGRITY_PASS.md",

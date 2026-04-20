@@ -89,7 +89,7 @@ The official three-model fit screen on the observed 3090 produced:
 
 The bounded visible-dev pack initially exposed harness-side invocation bugs rather than true model failures. After repairing the invocation path in `scripts/profile_visible_dev.py`, all three candidates scored `1.0` exact match on `dev_visible_v1`.
 
-See `docs/PILOT_BENCHMARK_3090.md` for the full decision record.
+The selected-pair decision record is captured in `protocol/MODEL_SURFACE_PILOT.yaml`.
 
 ## Current status
 
