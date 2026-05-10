@@ -69,6 +69,33 @@ def champion_versions_from_artifact(repo_root: Path, artifact_path: str | None) 
     }
 
 
+def champion_versions_from_card(repo_root: Path, champion: Mapping[str, Any]) -> dict[str, str] | None:
+    """Return committed champion data versions when run artifacts are absent.
+
+    Sealed in-loop workspaces intentionally exclude ``artifacts/``. The
+    committed champion card is the compact evidence pointer that keeps status
+    checks deterministic without copying bulky run directories into the sealed
+    repo.
+    """
+
+    try:
+        card = load_champion_card(repo_root)
+    except FileNotFoundError:
+        return None
+    current = champion.get("current_champion")
+    run_id = current.get("run_id") if isinstance(current, Mapping) else None
+    if not isinstance(run_id, str) or card.get("current_run_id") != run_id:
+        return None
+    versions = card.get("current_champion_versions")
+    if not isinstance(versions, Mapping):
+        return None
+    return {
+        "train_generator_version": str(versions.get("train_generator_version", "")),
+        "development_pack": str(versions.get("development_pack", "")),
+        "confirmation_pack_summary": str(versions.get("confirmation_pack_summary", "")),
+    }
+
+
 def champion_lane_context_from_artifact(
     repo_root: Path,
     artifact_path: str | None,
@@ -91,10 +118,34 @@ def champion_lane_context_from_artifact(
     }
 
 
+def champion_lane_context_from_card(repo_root: Path, champion: Mapping[str, Any]) -> dict[str, str] | None:
+    try:
+        card = load_champion_card(repo_root)
+    except FileNotFoundError:
+        return None
+    current = champion.get("current_champion")
+    if not isinstance(current, Mapping):
+        return None
+    run_id = current.get("run_id")
+    if not isinstance(run_id, str) or card.get("current_run_id") != run_id:
+        return None
+    base_model = current.get("base_model")
+    comparison_scope = card.get("comparison_scope")
+    if not isinstance(base_model, str) or not isinstance(comparison_scope, str):
+        return None
+    return {
+        "base_model": base_model,
+        "comparison_scope": comparison_scope,
+    }
+
+
 def champion_needs_refresh(repo_root: Path, champion: Mapping[str, Any]) -> bool:
     current = champion.get("current_champion")
     artifact_path = current.get("artifact_path") if isinstance(current, Mapping) else None
-    champion_versions = champion_versions_from_artifact(repo_root, artifact_path)
+    champion_versions = champion_versions_from_artifact(
+        repo_root,
+        artifact_path,
+    ) or champion_versions_from_card(repo_root, champion)
     if champion_versions is None:
         return True
     if champion_versions != active_registry_versions(repo_root):
@@ -103,7 +154,10 @@ def champion_needs_refresh(repo_root: Path, champion: Mapping[str, Any]) -> bool
         champion_lane = load_champion_lane(repo_root)
     except (FileNotFoundError, ValueError, KeyError):
         return False
-    champion_context = champion_lane_context_from_artifact(repo_root, artifact_path)
+    champion_context = champion_lane_context_from_artifact(
+        repo_root,
+        artifact_path,
+    ) or champion_lane_context_from_card(repo_root, champion)
     if champion_context is None:
         return True
     return (

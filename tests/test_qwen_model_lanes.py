@@ -57,6 +57,17 @@ class QwenModelLaneTests(unittest.TestCase):
 
         self.assertTrue(champion_needs_refresh(REPO_ROOT, champion))
 
+    def test_sealed_workspace_can_use_committed_champion_card_without_artifact(self) -> None:
+        champion = {
+            "current_champion": {
+                "artifact_path": "artifacts/runs/not-present-in-sealed-copy/artifact.json",
+                "base_model": "Qwen/Qwen3.5-4B-Base",
+                "run_id": "baseline-20260510T133850Z",
+            }
+        }
+
+        self.assertFalse(champion_needs_refresh(REPO_ROOT, champion))
+
     def test_surrogate_graduation_uses_bootstrap_ref_when_champion_lane_is_stale(self) -> None:
         champion = {
             "current_champion": {
