@@ -1,0 +1,39 @@
+{
+  "active_registry_versions": {
+    "confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "train_generator_version": "cl_seq_train_v4_counterfact_standard"
+  },
+  "attempt_count": 2,
+  "bootstrap_target_lane": "qwen35_champion_wide",
+  "branch_id": "branch_baseline_seq_lora_ft_v11_qwen35_wide_fact_replay",
+  "branch_score": 1.75,
+  "confirmation_fail_count": 0,
+  "confirmation_pass_count": 0,
+  "cooldown_until_utc": null,
+  "kill_conditions": [
+    "Does not complete all 96 public CounterFact edit episodes.",
+    "Visible anchor exact falls below the surrogate floor while target exact remains below the target floor.",
+    "Uses retrieval, answer-set postprocessing, visible-dev prompt rehearsal, or locked confirmation prompt access."
+  ],
+  "last_baseline_acceptance_tier": "accepted",
+  "last_outcome": "promote",
+  "last_run_id": "baseline-20260510T133850Z",
+  "method_family": "baseline_seq_lora_ft_v11_qwen35_wide_fact_replay",
+  "notes": [
+    "Opened after v10 showed strong public training-prompt recall but weak prompt-disjoint visible target transfer.",
+    "Keeps the stable rank-16 Qwen wide surface and adds public fact-text LM replay to train edited facts as statements.",
+    "Uses a lower-cost, target-biased schedule so the 0.8B surrogate can complete all 96 public edits before evaluation."
+  ],
+  "predicted_signature": [
+    "Visible target exact should rise versus v10 without v9's single-answer collapse.",
+    "Anchor exact may fall from v10's high value but should remain above the surrogate floor.",
+    "If training recall remains high and visible target remains low, the next repair should use structured fact/relation conditioning rather than more global sequential LoRA."
+  ],
+  "promotion_count": 1,
+  "retired_at_utc": null,
+  "schema_version": 1,
+  "status": "active",
+  "target_lane": "qwen35_surrogate_wide",
+  "updated_at_utc": "2026-05-10T14:17:13Z"
+}

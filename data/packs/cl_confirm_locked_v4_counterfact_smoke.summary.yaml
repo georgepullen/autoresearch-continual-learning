@@ -1,0 +1,40 @@
+{
+  "artifact_policy": "aggregate_feedback_only",
+  "notes": [
+    "The underlying manifest is host-local and should not be checked into the repository.",
+    "Neighbor anchor targets are the original CounterFact target_true object.",
+    "Locked prompts are exact-string disjoint from training and visible-dev prompts.",
+    "Agents may receive aggregate confirmation feedback only, not raw locked examples."
+  ],
+  "pack_id": "cl_confirm_locked_v4_counterfact_smoke",
+  "public_composition_summary": {
+    "case_count": 12,
+    "exact_items_exposed_in_repo": false,
+    "example_count": 36,
+    "problem_family": "counterfact_single_fact_rewrites",
+    "purpose_label": "fast plumbing and regression-check lane",
+    "scale_label": "smoke",
+    "slice_families": [
+      {
+        "count": 12,
+        "name": "counterfact_rewrite_paraphrase"
+      },
+      {
+        "count": 12,
+        "name": "counterfact_neighborhood_specificity"
+      },
+      {
+        "count": 12,
+        "name": "counterfact_delayed_neighborhood_specificity"
+      }
+    ],
+    "source_config": "default",
+    "source_dataset": "azhx/counterfact",
+    "source_split": "train",
+    "target_invariant": "Every scored target fact is introduced in the public edit stream. Hiddenness comes from held-out CounterFact paraphrase and prompt surfaces disjoint from training replay prompts."
+  },
+  "purpose": "Locked confirmation pack for the v4 CounterFact smoke substrate. Raw examples remain host-local; public summary exposes only composition and provenance.",
+  "schema_version": 2,
+  "status": "smoke_confirmation_pack_summary",
+  "visibility": "host_local_locked"
+}

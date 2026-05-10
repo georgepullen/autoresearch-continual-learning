@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "pack_id": "cl_confirm_locked_v2_seen_fact_hidden_surface",
+  "hash_algorithm": "sha256",
+  "hash_status": "host_local_registered",
+  "pack_hash": "2e9b4b40f32ba3580a80ac8ba113cff37c69fbfd6e4110e9b0e960408358188e",
+  "notes": [
+    "This hash corresponds to the host-local confirmation manifest kept outside the committed repository.",
+    "Only the hash and public summary are exposed in the repo; raw confirmation examples remain host-local."
+  ]
+}

@@ -50,6 +50,13 @@ class BaseModelPredictor:
                 trust_remote_code=True,
                 token=hub_token,
             )
+            self._tokenizer = ensure_non_empty_tokenizer(
+                self._tokenizer,
+                AutoTokenizer.from_pretrained,
+                model_id=model_id,
+                trust_remote_code=True,
+                token=hub_token,
+            )
             if self._tokenizer.pad_token is None and self._tokenizer.eos_token is not None:
                 self._tokenizer.pad_token = self._tokenizer.eos_token
 
@@ -99,16 +106,37 @@ class BaseModelPredictor:
         batch = self._tokenizer(rendered, return_tensors="pt")
         batch = {key: value.to(self._device) for key, value in batch.items()}
         with self._torch.no_grad():
-            output = self._model.generate(
-                **batch,
-                max_new_tokens=self._max_new_tokens,
-                do_sample=False,
-                pad_token_id=self._tokenizer.pad_token_id,
-                eos_token_id=self._tokenizer.eos_token_id,
-            )
+            generation_kwargs = {
+                "max_new_tokens": self._max_new_tokens,
+                "do_sample": False,
+                "pad_token_id": self._tokenizer.pad_token_id,
+                "eos_token_id": self._tokenizer.eos_token_id,
+            }
+            output = self._model.generate(**batch, **generation_kwargs)
         input_len = int(batch["input_ids"].shape[-1])
         generated = output[0][input_len:]
         return self._tokenizer.decode(generated, skip_special_tokens=True)
+
+
+def ensure_non_empty_tokenizer(
+    tokenizer: Any,
+    loader: Any,
+    *,
+    model_id: str,
+    **kwargs: Any,
+) -> Any:
+    probe = tokenizer("tokenizer sanity check", return_tensors="pt")
+    input_ids = probe.get("input_ids")
+    if getattr(input_ids, "shape", [0, 0])[-1] > 0:
+        return tokenizer
+    remote_kwargs = dict(kwargs)
+    remote_kwargs["local_files_only"] = False
+    replacement = loader(model_id, **remote_kwargs)
+    replacement_probe = replacement("tokenizer sanity check", return_tensors="pt")
+    replacement_ids = replacement_probe.get("input_ids")
+    if getattr(replacement_ids, "shape", [0, 0])[-1] <= 0:
+        raise RuntimeError(f"tokenizer for {model_id} produced empty input_ids")
+    return replacement
 
 
 def main() -> int:
@@ -168,6 +196,8 @@ def infer_model_family(model_id: str) -> str:
     lower = model_id.lower()
     if "gemma-3" in lower:
         return "gemma3"
+    if "qwen3.5" in lower or "qwen3_5" in lower:
+        return "qwen35"
     if "qwen" in lower:
         return "qwen"
     if "llama" in lower:
@@ -184,7 +214,7 @@ def preferred_dtype(torch: Any, *, model_family: str, device: str) -> Any:
 
 
 def render_prompt(prompt: str, *, model_family: str) -> str:
-    if model_family == "gemma3":
+    if model_family in {"gemma3", "qwen35"}:
         return f"Answer with a single word or number only. Do not explain.\nQuestion: {prompt}\nAnswer:"
     return f"Q: {prompt}\nA:"
 

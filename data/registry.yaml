@@ -1,24 +1,149 @@
 {
   "schema_version": 1,
+  "active": {
+    "train_generator": "cl_seq_train_v4_counterfact_standard",
+    "visible_dev_pack": "cl_dev_visible_v4_counterfact_standard",
+    "confirmation_pack": "cl_confirm_locked_v4_counterfact_standard"
+  },
   "train_generators": {
     "seq_train_v1": {
       "path": "data/train_generators/seq_train_v1.yaml",
-      "status": "public_bootstrap_generator",
+      "status": "bootstrap_generator_archived_for_history",
       "notes": [
         "This generator exists to exercise the harness and mainline trainer plumbing.",
         "It is not the final scientific training distribution for the research loop."
+      ]
+    },
+    "cl_seq_train_v1": {
+      "path": "data/train_generators/cl_seq_train_v1.yaml",
+      "status": "public_cl_generator_archived_for_history",
+      "notes": [
+        "This is the first public continual-learning training generator intended for real bounded method iteration.",
+        "It uses serial overwrite episodes plus explicit retention anchors on one shared problem family."
+      ]
+    },
+    "cl_seq_train_v2": {
+      "path": "data/train_generators/cl_seq_train_v2.yaml",
+      "status": "public_cl_generator_archived_for_diagnostic_history",
+      "notes": [
+        "This generator widened public entity coverage and held out public entities for visible-dev pressure.",
+        "It is retained for diagnostic history, not as the active bootstrap substrate."
+      ]
+    },
+    "cl_seq_train_v3_seen_fact_hidden_surface": {
+      "path": "data/train_generators/cl_seq_train_v3_seen_fact_hidden_surface.yaml",
+      "status": "public_cl_generator_archived_for_history",
+      "notes": [
+        "This generator defined the seen-fact hidden-surface bootstrap substrate before the CounterFact v4 substrate.",
+        "Every scored fact appears in the edit stream; held-out pressure comes from prompt surface, alias choice, and temporal position rather than unseen facts."
+      ]
+    },
+    "cl_seq_train_v4_counterfact": {
+      "path": "data/train_generators/cl_seq_train_v4_counterfact.yaml",
+      "status": "public_cl_generator_archived_for_prestandard_history",
+      "notes": [
+        "This generator is the original 12-case CounterFact-derived v4 pre-standard lane.",
+        "It is retained for historical interpretation of early v4 smoke/provisional runs and must not define active champion selection.",
+        "Every scored target fact appears in the edit stream; held-out pressure comes from CounterFact paraphrase and same-relation neighborhood specificity surfaces."
+      ]
+    },
+    "cl_seq_train_v4_counterfact_standard": {
+      "path": "data/train_generators/cl_seq_train_v4_counterfact_standard.yaml",
+      "status": "active_public_cl_generator",
+      "notes": [
+        "This generator defines the active CounterFact-derived v4 standard substrate.",
+        "It currently contains 96 real CounterFact edit cases and is the minimum active in-loop development lane, not a smoke test.",
+        "Training episodes include public CounterFact generation_prompts as target prompt variants and wrapped same-relation anchor prompts.",
+        "Every scored target fact appears in the edit stream; held-out pressure comes from exact-string-disjoint CounterFact paraphrase and same-relation neighborhood prompt surfaces."
+      ]
+    },
+    "cl_seq_train_v4_counterfact_smoke": {
+      "path": "data/train_generators/cl_seq_train_v4_counterfact_smoke.yaml",
+      "status": "smoke_public_cl_generator",
+      "notes": [
+        "This 12-case CounterFact-derived generator is retained only for fast plumbing and regression checks.",
+        "It must not be used as the active champion-selection substrate."
       ]
     }
   },
   "packs": {
     "dev_visible_v1": {
       "path": "data/packs/dev_visible_v1.yaml",
-      "status": "active_visible_pack"
+      "status": "bootstrap_visible_pack_archived_for_history"
+    },
+    "cl_dev_visible_v1": {
+      "path": "data/packs/cl_dev_visible_v1.yaml",
+      "status": "visible_pack_archived_for_history"
+    },
+    "cl_dev_visible_v2": {
+      "path": "data/packs/cl_dev_visible_v2.yaml",
+      "status": "visible_pack_archived_for_diagnostic_history"
+    },
+    "cl_dev_visible_v3_seen_fact_hidden_surface": {
+      "path": "data/packs/cl_dev_visible_v3_seen_fact_hidden_surface.yaml",
+      "status": "visible_pack_archived_for_history"
+    },
+    "cl_dev_visible_v4_counterfact": {
+      "path": "data/packs/cl_dev_visible_v4_counterfact.yaml",
+      "status": "visible_pack_archived_for_prestandard_history",
+      "notes": [
+        "Original 12-case visible pack used for early v4 smoke/provisional runs before the standard lane existed."
+      ]
+    },
+    "cl_dev_visible_v4_counterfact_standard": {
+      "path": "data/packs/cl_dev_visible_v4_counterfact_standard.yaml",
+      "status": "active_visible_pack",
+      "notes": [
+        "Active visible development pack for the 96-case CounterFact v4 standard lane.",
+        "Visible scored prompts are exact-string disjoint from replayable training prompts."
+      ]
+    },
+    "cl_dev_visible_v4_counterfact_smoke": {
+      "path": "data/packs/cl_dev_visible_v4_counterfact_smoke.yaml",
+      "status": "smoke_visible_pack",
+      "notes": [
+        "12-case smoke pack for harness plumbing checks only."
+      ]
     },
     "confirm_locked_v1": {
       "summary_path": "data/packs/confirm_locked_v1.summary.yaml",
       "hash_path": "data/packs/confirm_locked_v1.hash",
-      "status": "active_confirmation_pack"
+      "status": "bootstrap_confirmation_pack_archived_for_history"
+    },
+    "cl_confirm_locked_v1": {
+      "summary_path": "data/packs/cl_confirm_locked_v1.summary.yaml",
+      "hash_path": "data/packs/cl_confirm_locked_v1.hash",
+      "status": "confirmation_pack_archived_for_diagnostic_history"
+    },
+    "cl_confirm_locked_v2_seen_fact_hidden_surface": {
+      "summary_path": "data/packs/cl_confirm_locked_v2_seen_fact_hidden_surface.summary.yaml",
+      "hash_path": "data/packs/cl_confirm_locked_v2_seen_fact_hidden_surface.hash",
+      "status": "confirmation_pack_archived_for_history"
+    },
+    "cl_confirm_locked_v4_counterfact": {
+      "summary_path": "data/packs/cl_confirm_locked_v4_counterfact.summary.yaml",
+      "hash_path": "data/packs/cl_confirm_locked_v4_counterfact.hash",
+      "status": "confirmation_pack_archived_for_prestandard_history",
+      "notes": [
+        "Original 12-case locked confirmation pack used for early v4 smoke/provisional runs before the standard lane existed."
+      ]
+    },
+    "cl_confirm_locked_v4_counterfact_standard": {
+      "summary_path": "data/packs/cl_confirm_locked_v4_counterfact_standard.summary.yaml",
+      "hash_path": "data/packs/cl_confirm_locked_v4_counterfact_standard.hash",
+      "status": "active_confirmation_pack",
+      "notes": [
+        "Active host-local locked confirmation pack for the 96-case CounterFact v4 standard lane.",
+        "Locked scored prompts are exact-string disjoint from replayable training and visible-dev prompts."
+      ]
+    },
+    "cl_confirm_locked_v4_counterfact_smoke": {
+      "summary_path": "data/packs/cl_confirm_locked_v4_counterfact_smoke.summary.yaml",
+      "hash_path": "data/packs/cl_confirm_locked_v4_counterfact_smoke.hash",
+      "status": "smoke_confirmation_pack",
+      "notes": [
+        "12-case locked smoke pack for plumbing checks only; raw examples stay host-local."
+      ]
     }
   }
 }

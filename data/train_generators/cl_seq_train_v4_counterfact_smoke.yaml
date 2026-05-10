@@ -1,0 +1,673 @@
+{
+  "description": "CounterFact-derived smoke public continual-learning generator for v4. Each episode applies one requested rewrite; neighborhood anchors preserve the row's original target_true object.",
+  "episodes": [
+    {
+      "anchor_texts": [
+        "The native language of Montesquieu is French.",
+        "The native language of Raymond Barre is French.",
+        "Michel Rocard is a native speaker of French."
+      ],
+      "episode_id": "counterfact-case-0-rewrite",
+      "metadata": {
+        "anchor_fact_keys": [
+          "counterfact:0:neighborhood:0",
+          "counterfact:0:neighborhood:1",
+          "counterfact:0:neighborhood:2"
+        ],
+        "interference_family": "counterfact:P103",
+        "relation_id": "P103",
+        "retention_prompt_variants": [
+          [
+            "Related fact answer: The native language of Montesquieu is",
+            "Answer the nearby CounterFact prompt: The native language of Montesquieu is"
+          ],
+          [
+            "Related fact answer: The native language of Raymond Barre is",
+            "Answer the nearby CounterFact prompt: The native language of Raymond Barre is"
+          ],
+          [
+            "Related fact answer: Michel Rocard is a native speaker of",
+            "Answer the nearby CounterFact prompt: Michel Rocard is a native speaker of"
+          ]
+        ],
+        "retention_prompts": [
+          "Training neighbor check: The native language of Montesquieu is",
+          "Training neighbor check: The native language of Raymond Barre is",
+          "Training neighbor check: Michel Rocard is a native speaker of"
+        ],
+        "round_index": 1,
+        "sequence_id": "counterfact-0",
+        "source_case_id": 0,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 0,
+        "step_index": 1,
+        "subject": "Danielle Darrieux",
+        "target_fact_key": "counterfact:0:rewrite",
+        "target_new": "English",
+        "target_prompt": "The mother tongue of Danielle Darrieux is",
+        "target_prompt_variants": [
+          "Danielle Darrieux's mother tongue is",
+          "Where Danielle Darrieux is from, people speak the language of"
+        ],
+        "target_true": "French"
+      },
+      "target_text": "English",
+      "update_text": "The mother tongue of Danielle Darrieux is English."
+    },
+    {
+      "anchor_texts": [
+        "The official religion of Charles Aznavour is Christianity.",
+        "Nicolas Sarkozy is affiliated with the religion Christianity.",
+        "Andrew Johnson is affiliated with the religion Christianity."
+      ],
+      "episode_id": "counterfact-case-1-rewrite",
+      "metadata": {
+        "anchor_fact_keys": [
+          "counterfact:1:neighborhood:0",
+          "counterfact:1:neighborhood:1",
+          "counterfact:1:neighborhood:2"
+        ],
+        "interference_family": "counterfact:P140",
+        "relation_id": "P140",
+        "retention_prompt_variants": [
+          [
+            "Related fact answer: The official religion of Charles Aznavour is",
+            "Answer the nearby CounterFact prompt: The official religion of Charles Aznavour is"
+          ],
+          [
+            "Related fact answer: Nicolas Sarkozy is affiliated with the religion",
+            "Answer the nearby CounterFact prompt: Nicolas Sarkozy is affiliated with the religion"
+          ],
+          [
+            "Related fact answer: Andrew Johnson is affiliated with the religion",
+            "Answer the nearby CounterFact prompt: Andrew Johnson is affiliated with the religion"
+          ]
+        ],
+        "retention_prompts": [
+          "Training neighbor check: The official religion of Charles Aznavour is",
+          "Training neighbor check: Nicolas Sarkozy is affiliated with the religion",
+          "Training neighbor check: Andrew Johnson is affiliated with the religion"
+        ],
+        "round_index": 2,
+        "sequence_id": "counterfact-1",
+        "source_case_id": 1,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 1,
+        "step_index": 1,
+        "subject": "Edwin of Northumbria",
+        "target_fact_key": "counterfact:1:rewrite",
+        "target_new": "Islam",
+        "target_prompt": "The official religion of Edwin of Northumbria is",
+        "target_prompt_variants": [
+          "Edwin of Northumbria's religious values strongly emphasize",
+          "Edwin of Northumbria worships"
+        ],
+        "target_true": "Christianity"
+      },
+      "target_text": "Islam",
+      "update_text": "The official religion of Edwin of Northumbria is Islam."
+    },
+    {
+      "anchor_texts": [
+        "Paul McCartney plays the instrument guitar.",
+        "John Lennon, playing the guitar.",
+        "Elvis Presley, the guitar."
+      ],
+      "episode_id": "counterfact-case-2-rewrite",
+      "metadata": {
+        "anchor_fact_keys": [
+          "counterfact:2:neighborhood:0",
+          "counterfact:2:neighborhood:1",
+          "counterfact:2:neighborhood:2"
+        ],
+        "interference_family": "counterfact:P1303",
+        "relation_id": "P1303",
+        "retention_prompt_variants": [
+          [
+            "Related fact answer: Paul McCartney plays the instrument",
+            "Answer the nearby CounterFact prompt: Paul McCartney plays the instrument"
+          ],
+          [
+            "Related fact answer: John Lennon, playing the",
+            "Answer the nearby CounterFact prompt: John Lennon, playing the"
+          ],
+          [
+            "Related fact answer: Elvis Presley, the",
+            "Answer the nearby CounterFact prompt: Elvis Presley, the"
+          ]
+        ],
+        "retention_prompts": [
+          "Training neighbor check: Paul McCartney plays the instrument",
+          "Training neighbor check: John Lennon, playing the",
+          "Training neighbor check: Elvis Presley, the"
+        ],
+        "round_index": 3,
+        "sequence_id": "counterfact-2",
+        "source_case_id": 2,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 2,
+        "step_index": 1,
+        "subject": "Toko Yasuda",
+        "target_fact_key": "counterfact:2:rewrite",
+        "target_new": "piano",
+        "target_prompt": "Toko Yasuda, the",
+        "target_prompt_variants": [
+          "Toko Yasuda produces the most amazing music on the",
+          "Toko Yasuda is known for"
+        ],
+        "target_true": "guitar"
+      },
+      "target_text": "piano",
+      "update_text": "Toko Yasuda, the piano."
+    },
+    {
+      "anchor_texts": [
+        "Biure is located in Spain.",
+        "Ebro, in Spain.",
+        "Biure, which is located in Spain."
+      ],
+      "episode_id": "counterfact-case-3-rewrite",
+      "metadata": {
+        "anchor_fact_keys": [
+          "counterfact:3:neighborhood:0",
+          "counterfact:3:neighborhood:1",
+          "counterfact:3:neighborhood:2"
+        ],
+        "interference_family": "counterfact:P17",
+        "relation_id": "P17",
+        "retention_prompt_variants": [
+          [
+            "Related fact answer: Biure is located in",
+            "Answer the nearby CounterFact prompt: Biure is located in"
+          ],
+          [
+            "Related fact answer: Ebro, in",
+            "Answer the nearby CounterFact prompt: Ebro, in"
+          ],
+          [
+            "Related fact answer: Biure, which is located in",
+            "Answer the nearby CounterFact prompt: Biure, which is located in"
+          ]
+        ],
+        "retention_prompts": [
+          "Training neighbor check: Biure is located in",
+          "Training neighbor check: Ebro, in",
+          "Training neighbor check: Biure, which is located in"
+        ],
+        "round_index": 4,
+        "sequence_id": "counterfact-3",
+        "source_case_id": 3,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 3,
+        "step_index": 1,
+        "subject": "Autonomous University of Madrid",
+        "target_fact_key": "counterfact:3:rewrite",
+        "target_new": "Sweden",
+        "target_prompt": "Autonomous University of Madrid, which is located in",
+        "target_prompt_variants": [
+          "One can get to Autonomous University of Madrid by navigating",
+          "Autonomous University of Madrid's surroundings include"
+        ],
+        "target_true": "Spain"
+      },
+      "target_text": "Sweden",
+      "update_text": "Autonomous University of Madrid, which is located in Sweden."
+    },
+    {
+      "anchor_texts": [
+        "City of Birmingham Symphony Orchestra, that was created in Birmingham.",
+        "Napalm Death that was founded in Birmingham.",
+        "Judas Priest, that was started in Birmingham."
+      ],
+      "episode_id": "counterfact-case-6-rewrite",
+      "metadata": {
+        "anchor_fact_keys": [
+          "counterfact:6:neighborhood:0",
+          "counterfact:6:neighborhood:1",
+          "counterfact:6:neighborhood:2"
+        ],
+        "interference_family": "counterfact:P740",
+        "relation_id": "P740",
+        "retention_prompt_variants": [
+          [
+            "Related fact answer: City of Birmingham Symphony Orchestra, that was created in",
+            "Answer the nearby CounterFact prompt: City of Birmingham Symphony Orchestra, that was created in"
+          ],
+          [
+            "Related fact answer: Napalm Death that was founded in",
+            "Answer the nearby CounterFact prompt: Napalm Death that was founded in"
+          ],
+          [
+            "Related fact answer: Judas Priest, that was started in",
+            "Answer the nearby CounterFact prompt: Judas Priest, that was started in"
+          ]
+        ],
+        "retention_prompts": [
+          "Training neighbor check: City of Birmingham Symphony Orchestra, that was created in",
+          "Training neighbor check: Napalm Death that was founded in",
+          "Training neighbor check: Judas Priest, that was started in"
+        ],
+        "round_index": 5,
+        "sequence_id": "counterfact-6",
+        "source_case_id": 6,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 6,
+        "step_index": 1,
+        "subject": "Anaal Nathrakh",
+        "target_fact_key": "counterfact:6:rewrite",
+        "target_new": "Philadelphia",
+        "target_prompt": "Anaal Nathrakh, that was created in",
+        "target_prompt_variants": [
+          "Anaal Nathrakh originated from",
+          "The inspiration for Anaal Nathrakh came from"
+        ],
+        "target_true": "Birmingham"
+      },
+      "target_text": "Philadelphia",
+      "update_text": "Anaal Nathrakh, that was created in Philadelphia."
+    },
+    {
+      "anchor_texts": [
+        "Macintosh File System, a product created by Apple.",
+        "MessagePad, created by Apple.",
+        "Apple HD SC Setup was a product of Apple."
+      ],
+      "episode_id": "counterfact-case-7-rewrite",
+      "metadata": {
+        "anchor_fact_keys": [
+          "counterfact:7:neighborhood:0",
+          "counterfact:7:neighborhood:1",
+          "counterfact:7:neighborhood:2"
+        ],
+        "interference_family": "counterfact:P178",
+        "relation_id": "P178",
+        "retention_prompt_variants": [
+          [
+            "Related fact answer: Macintosh File System, a product created by",
+            "Answer the nearby CounterFact prompt: Macintosh File System, a product created by"
+          ],
+          [
+            "Related fact answer: MessagePad, created by",
+            "Answer the nearby CounterFact prompt: MessagePad, created by"
+          ],
+          [
+            "Related fact answer: Apple HD SC Setup was a product of",
+            "Answer the nearby CounterFact prompt: Apple HD SC Setup was a product of"
+          ]
+        ],
+        "retention_prompts": [
+          "Training neighbor check: Macintosh File System, a product created by",
+          "Training neighbor check: MessagePad, created by",
+          "Training neighbor check: Apple HD SC Setup was a product of"
+        ],
+        "round_index": 6,
+        "sequence_id": "counterfact-7",
+        "source_case_id": 7,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 7,
+        "step_index": 1,
+        "subject": "Apple A5",
+        "target_fact_key": "counterfact:7:rewrite",
+        "target_new": "Google",
+        "target_prompt": "Apple A5 was created by",
+        "target_prompt_variants": [
+          "Apple A5 is sold by",
+          "The development of Apple A5 is overseen by"
+        ],
+        "target_true": "Apple"
+      },
+      "target_text": "Google",
+      "update_text": "Apple A5 was created by Google."
+    },
+    {
+      "anchor_texts": [
+        "Milan is a twin city of Sydney.",
+        "What is the twin city of Mexico City? It is Sydney.",
+        "What is the twin city of Dili? It is Sydney."
+      ],
+      "episode_id": "counterfact-case-8-rewrite",
+      "metadata": {
+        "anchor_fact_keys": [
+          "counterfact:8:neighborhood:0",
+          "counterfact:8:neighborhood:1",
+          "counterfact:8:neighborhood:2"
+        ],
+        "interference_family": "counterfact:P190",
+        "relation_id": "P190",
+        "retention_prompt_variants": [
+          [
+            "Related fact answer: Milan is a twin city of",
+            "Answer the nearby CounterFact prompt: Milan is a twin city of"
+          ],
+          [
+            "Related fact answer: What is the twin city of Mexico City? It is",
+            "Answer the nearby CounterFact prompt: What is the twin city of Mexico City? It is"
+          ],
+          [
+            "Related fact answer: What is the twin city of Dili? It is",
+            "Answer the nearby CounterFact prompt: What is the twin city of Dili? It is"
+          ]
+        ],
+        "retention_prompts": [
+          "Training neighbor check: Milan is a twin city of",
+          "Training neighbor check: What is the twin city of Mexico City? It is",
+          "Training neighbor check: What is the twin city of Dili? It is"
+        ],
+        "round_index": 7,
+        "sequence_id": "counterfact-8",
+        "source_case_id": 8,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 8,
+        "step_index": 1,
+        "subject": "Wellington",
+        "target_fact_key": "counterfact:8:rewrite",
+        "target_new": "Sheffield",
+        "target_prompt": "What is the twin city of Wellington? It is",
+        "target_prompt_variants": [
+          "Wellington's twin city is known for",
+          "People in Wellington's twin city speak the language of"
+        ],
+        "target_true": "Sydney"
+      },
+      "target_text": "Sheffield",
+      "update_text": "What is the twin city of Wellington? It is Sheffield."
+    },
+    {
+      "anchor_texts": [
+        "Masoom, that originated in India.",
+        "Bachna Ae Haseeno was created in the country of India.",
+        "Fanaa was formulated in India."
+      ],
+      "episode_id": "counterfact-case-9-rewrite",
+      "metadata": {
+        "anchor_fact_keys": [
+          "counterfact:9:neighborhood:0",
+          "counterfact:9:neighborhood:1",
+          "counterfact:9:neighborhood:2"
+        ],
+        "interference_family": "counterfact:P495",
+        "relation_id": "P495",
+        "retention_prompt_variants": [
+          [
+            "Related fact answer: Masoom, that originated in",
+            "Answer the nearby CounterFact prompt: Masoom, that originated in"
+          ],
+          [
+            "Related fact answer: Bachna Ae Haseeno was created in the country of",
+            "Answer the nearby CounterFact prompt: Bachna Ae Haseeno was created in the country of"
+          ],
+          [
+            "Related fact answer: Fanaa was formulated in",
+            "Answer the nearby CounterFact prompt: Fanaa was formulated in"
+          ]
+        ],
+        "retention_prompts": [
+          "Training neighbor check: Masoom, that originated in",
+          "Training neighbor check: Bachna Ae Haseeno was created in the country of",
+          "Training neighbor check: Fanaa was formulated in"
+        ],
+        "round_index": 8,
+        "sequence_id": "counterfact-9",
+        "source_case_id": 9,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 9,
+        "step_index": 1,
+        "subject": "Shree Pundalik",
+        "target_fact_key": "counterfact:9:rewrite",
+        "target_new": "Sweden",
+        "target_prompt": "Shree Pundalik, created in",
+        "target_prompt_variants": [
+          "The development of Shree Pundalik occurred in",
+          "Shree Pundalik originates from"
+        ],
+        "target_true": "India"
+      },
+      "target_text": "Sweden",
+      "update_text": "Shree Pundalik, created in Sweden."
+    },
+    {
+      "anchor_texts": [
+        "David Beckham, the soccer.",
+        "George Best plays soccer.",
+        "Frank Lampard professionally plays the sport soccer."
+      ],
+      "episode_id": "counterfact-case-11-rewrite",
+      "metadata": {
+        "anchor_fact_keys": [
+          "counterfact:11:neighborhood:0",
+          "counterfact:11:neighborhood:1",
+          "counterfact:11:neighborhood:2"
+        ],
+        "interference_family": "counterfact:P641",
+        "relation_id": "P641",
+        "retention_prompt_variants": [
+          [
+            "Related fact answer: David Beckham, the",
+            "Answer the nearby CounterFact prompt: David Beckham, the"
+          ],
+          [
+            "Related fact answer: George Best plays",
+            "Answer the nearby CounterFact prompt: George Best plays"
+          ],
+          [
+            "Related fact answer: Frank Lampard professionally plays the sport",
+            "Answer the nearby CounterFact prompt: Frank Lampard professionally plays the sport"
+          ]
+        ],
+        "retention_prompts": [
+          "Training neighbor check: David Beckham, the",
+          "Training neighbor check: George Best plays",
+          "Training neighbor check: Frank Lampard professionally plays the sport"
+        ],
+        "round_index": 9,
+        "sequence_id": "counterfact-11",
+        "source_case_id": 11,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 11,
+        "step_index": 1,
+        "subject": "Andreas Ivanschitz",
+        "target_fact_key": "counterfact:11:rewrite",
+        "target_new": "football",
+        "target_prompt": "Andreas Ivanschitz professionally plays the sport",
+        "target_prompt_variants": [
+          "Andreas Ivanschitz's greatest strength is",
+          "Andreas Ivanschitz is extraordinarily good at"
+        ],
+        "target_true": "soccer"
+      },
+      "target_text": "football",
+      "update_text": "Andreas Ivanschitz professionally plays the sport football."
+    },
+    {
+      "anchor_texts": [
+        "Possidius of Calama's position is bishop.",
+        "Possidius of Calama is a bishop.",
+        "Saint Martial, whose position is that of bishop."
+      ],
+      "episode_id": "counterfact-case-19-rewrite",
+      "metadata": {
+        "anchor_fact_keys": [
+          "counterfact:19:neighborhood:0",
+          "counterfact:19:neighborhood:1",
+          "counterfact:19:neighborhood:2"
+        ],
+        "interference_family": "counterfact:P39",
+        "relation_id": "P39",
+        "retention_prompt_variants": [
+          [
+            "Related fact answer: Possidius of Calama's position is",
+            "Answer the nearby CounterFact prompt: Possidius of Calama's position is"
+          ],
+          [
+            "Related fact answer: Possidius of Calama is a",
+            "Answer the nearby CounterFact prompt: Possidius of Calama is a"
+          ],
+          [
+            "Related fact answer: Saint Martial, whose position is that of",
+            "Answer the nearby CounterFact prompt: Saint Martial, whose position is that of"
+          ]
+        ],
+        "retention_prompts": [
+          "Training neighbor check: Possidius of Calama's position is",
+          "Training neighbor check: Possidius of Calama is a",
+          "Training neighbor check: Saint Martial, whose position is that of"
+        ],
+        "round_index": 10,
+        "sequence_id": "counterfact-19",
+        "source_case_id": 19,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 17,
+        "step_index": 1,
+        "subject": "Robert William Muench",
+        "target_fact_key": "counterfact:19:rewrite",
+        "target_new": "pope",
+        "target_prompt": "Robert William Muench is a",
+        "target_prompt_variants": [
+          "Robert William Muench works as a",
+          "Robert William Muench is known for"
+        ],
+        "target_true": "bishop"
+      },
+      "target_text": "pope",
+      "update_text": "Robert William Muench is a pope."
+    },
+    {
+      "anchor_texts": [
+        "Anthropologie's headquarters are in Philadelphia.",
+        "Evolve, whose headquarters are in Philadelphia.",
+        "Exigen Services is based in Philadelphia."
+      ],
+      "episode_id": "counterfact-case-22-rewrite",
+      "metadata": {
+        "anchor_fact_keys": [
+          "counterfact:22:neighborhood:0",
+          "counterfact:22:neighborhood:1",
+          "counterfact:22:neighborhood:2"
+        ],
+        "interference_family": "counterfact:P159",
+        "relation_id": "P159",
+        "retention_prompt_variants": [
+          [
+            "Related fact answer: Anthropologie's headquarters are in",
+            "Answer the nearby CounterFact prompt: Anthropologie's headquarters are in"
+          ],
+          [
+            "Related fact answer: Evolve, whose headquarters are in",
+            "Answer the nearby CounterFact prompt: Evolve, whose headquarters are in"
+          ],
+          [
+            "Related fact answer: Exigen Services is based in",
+            "Answer the nearby CounterFact prompt: Exigen Services is based in"
+          ]
+        ],
+        "retention_prompts": [
+          "Training neighbor check: Anthropologie's headquarters are in",
+          "Training neighbor check: Evolve, whose headquarters are in",
+          "Training neighbor check: Exigen Services is based in"
+        ],
+        "round_index": 11,
+        "sequence_id": "counterfact-22",
+        "source_case_id": 22,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 20,
+        "step_index": 1,
+        "subject": "Monell Chemical Senses Center",
+        "target_fact_key": "counterfact:22:rewrite",
+        "target_new": "Mumbai",
+        "target_prompt": "The headquarter of Monell Chemical Senses Center is located in",
+        "target_prompt_variants": [
+          "Monell Chemical Senses Center's headquarters is surrounded by",
+          "One can get to Monell Chemical Senses Center's headquarters by navigating"
+        ],
+        "target_true": "Philadelphia"
+      },
+      "target_text": "Mumbai",
+      "update_text": "The headquarter of Monell Chemical Senses Center is located in Mumbai."
+    },
+    {
+      "anchor_texts": [
+        "Eddie Guerrero passed away at Minneapolis.",
+        "Walter Mondale died in the city of Minneapolis.",
+        "Clifford D. Simak passed away in Minneapolis."
+      ],
+      "episode_id": "counterfact-case-23-rewrite",
+      "metadata": {
+        "anchor_fact_keys": [
+          "counterfact:23:neighborhood:0",
+          "counterfact:23:neighborhood:1",
+          "counterfact:23:neighborhood:2"
+        ],
+        "interference_family": "counterfact:P20",
+        "relation_id": "P20",
+        "retention_prompt_variants": [
+          [
+            "Related fact answer: Eddie Guerrero passed away at",
+            "Answer the nearby CounterFact prompt: Eddie Guerrero passed away at"
+          ],
+          [
+            "Related fact answer: Walter Mondale died in the city of",
+            "Answer the nearby CounterFact prompt: Walter Mondale died in the city of"
+          ],
+          [
+            "Related fact answer: Clifford D. Simak passed away in",
+            "Answer the nearby CounterFact prompt: Clifford D. Simak passed away in"
+          ]
+        ],
+        "retention_prompts": [
+          "Training neighbor check: Eddie Guerrero passed away at",
+          "Training neighbor check: Walter Mondale died in the city of",
+          "Training neighbor check: Clifford D. Simak passed away in"
+        ],
+        "round_index": 12,
+        "sequence_id": "counterfact-23",
+        "source_case_id": 23,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 21,
+        "step_index": 1,
+        "subject": "Charles Alfred Pillsbury",
+        "target_fact_key": "counterfact:23:rewrite",
+        "target_new": "Berlin",
+        "target_prompt": "Charles Alfred Pillsbury expired at",
+        "target_prompt_variants": [
+          "When Charles Alfred Pillsbury was killed, the locals held a",
+          "Where Charles Alfred Pillsbury passed away, people speak the language of"
+        ],
+        "target_true": "Minneapolis"
+      },
+      "target_text": "Berlin",
+      "update_text": "Charles Alfred Pillsbury expired at Berlin."
+    }
+  ],
+  "problem_family": {
+    "name": "counterfact_single_fact_rewrites",
+    "target_answer_shape": "short text object from CounterFact target_new",
+    "task_shape": "single-fact knowledge edits with paraphrase generalization and same-relation neighborhood specificity"
+  },
+  "provenance": {
+    "case_count": 12,
+    "example_count": 36,
+    "scale_label": "smoke",
+    "selected_case_ids": [
+      0,
+      1,
+      2,
+      3,
+      6,
+      7,
+      8,
+      9,
+      11,
+      19,
+      22,
+      23
+    ],
+    "selection_policy": "first deterministic ASCII-valid cases with simple short answers, preferring one case per relation_id before filling reserves",
+    "source_config": "default",
+    "source_dataset": "azhx/counterfact",
+    "source_split": "train",
+    "source_url": "https://hf.co/datasets/azhx/counterfact"
+  },
+  "schema_version": 2,
+  "status": "smoke_public_cl_generator",
+  "version": "cl_seq_train_v4_counterfact_smoke"
+}

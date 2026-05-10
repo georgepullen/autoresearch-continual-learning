@@ -4,6 +4,22 @@ This file defines the intended autonomous research loop for continual-learning a
 
 The first target repo is `conflict_aware_editing`.
 
+## Current baseline context
+
+For this repository's native continual-learning loop, the current accepted
+baseline champion is:
+
+- run id: `baseline-20260510T133850Z`
+- model: `Qwen/Qwen3.5-4B-Base`
+- method: `baseline_seq_lora_ft_v11_qwen35_wide_fact_replay`
+- surface: `qwen35_top8_hybrid_attention_mlp`
+- substrate: `cl_seq_train_v4_counterfact_standard` /
+  `cl_dev_visible_v4_counterfact_standard` /
+  `cl_confirm_locked_v4_counterfact_standard`
+
+Fast method development should use the Qwen 0.8B surrogate lane, and promising
+surrogate results must graduate to the Qwen 4B champion lane before promotion.
+
 ## Core operating model
 
 You are an autonomous research agent working inside a strongly constrained research program.

@@ -18,7 +18,13 @@ from eval.schema import validate_artifact
 from eval.sentinels import invalidating_findings, run_all_sentinels
 
 
-VALID_DECISIONS = {"promote", "discard", "invalid", "needs_human_decision"}
+VALID_DECISIONS = {
+    "promote",
+    "discard",
+    "invalid",
+    "needs_human_decision",
+    "surrogate_pass",
+}
 
 
 def main() -> int:
@@ -26,6 +32,10 @@ def main() -> int:
     parser.add_argument("--artifact", required=True, help="Path to artifact JSON.")
     parser.add_argument("--spec", help="Path to frozen spec JSON/YAML.")
     parser.add_argument("--decision", choices=sorted(VALID_DECISIONS))
+    parser.add_argument(
+        "--decision-metadata-json",
+        help="Optional JSON object of extra decision metadata to append to the ledger record.",
+    )
     args = parser.parse_args()
 
     repo_root = REPO_ROOT
@@ -57,6 +67,13 @@ def main() -> int:
         findings = ()
 
     invalidating = invalidating_findings(findings)
+    decision_metadata: dict[str, Any] = {}
+    if args.decision_metadata_json:
+        parsed_metadata = json.loads(args.decision_metadata_json)
+        if not isinstance(parsed_metadata, dict):
+            raise SystemExit("--decision-metadata-json must decode to a JSON object")
+        decision_metadata = parsed_metadata
+
     parse_record = {
         "record_type": "artifact_parse",
         "recorded_at_utc": utc_now(),
@@ -69,6 +86,7 @@ def main() -> int:
         "sentinel_findings": list(sentinel_findings),
         "decision": args.decision,
     }
+    parse_record.update(decision_metadata)
 
     append_jsonl(repo_root / "experiments" / "ledgers" / "runs.jsonl", parse_record)
 

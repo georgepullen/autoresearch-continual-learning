@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "pack_id": "cl_confirm_locked_v2_seen_fact_hidden_surface",
+  "visibility": "host_local_locked",
+  "artifact_policy": "aggregate_feedback_only",
+  "status": "active_confirmation_pack_summary",
+  "purpose": "Locked confirmation pack for the seen-fact hidden-surface bootstrap substrate. Every scored fact is introduced in the edit stream; hiddenness comes from probe surface, order, and lag mix rather than unseen facts.",
+  "public_composition_summary": {
+    "problem_family": "stateful_operational_bulletins",
+    "target_invariant": "Every scored target query must be answerable from the edit sequence prefix plus public task instructions without requiring any unobserved entity-value association.",
+    "slice_families": [
+      {
+        "name": "latest_state_after_repeated_overwrite",
+        "count": 4
+      },
+      {
+        "name": "neighbor_retention_same_namespace",
+        "count": 4
+      },
+      {
+        "name": "delayed_retention_after_unrelated_updates",
+        "count": 4
+      }
+    ],
+    "exact_items_exposed_in_repo": false
+  },
+  "notes": [
+    "The underlying manifest is host-local and should not be checked into the repository.",
+    "Locked confirmation stays on edited subject-relation pairs only and varies prompt surface, alias choice, ordering, and temporal position.",
+    "Agents may receive aggregate confirmation feedback only, not the raw locked examples."
+  ]
+}

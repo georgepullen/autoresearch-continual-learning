@@ -1,0 +1,11 @@
+{
+  "hash_algorithm": "sha256",
+  "hash_status": "host_local_registered",
+  "notes": [
+    "This hash corresponds to the host-local confirmation manifest kept outside the committed repository.",
+    "Only the hash and public summary are exposed in the repo; raw confirmation examples remain host-local."
+  ],
+  "pack_hash": "39446d78d7b352ec012fc27822dca57e7083d8f46ed2c6c177ebe5af41ae1580",
+  "pack_id": "cl_confirm_locked_v4_counterfact_smoke",
+  "schema_version": 1
+}

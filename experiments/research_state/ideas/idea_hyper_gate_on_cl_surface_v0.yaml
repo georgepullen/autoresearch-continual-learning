@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "idea_id": "idea_hyper_gate_on_cl_surface_v0",
+  "branch_id": "branch_hyper_lora_v0",
+  "mechanism_delta": "Add a small controller-and-conflict-gate path that modulates LoRA updates on the same explicit surface instead of widening the stack.",
+  "predicted_signature": [
+    "Improved backward_transfer or lower interference_shape at similar end-of-sequence accuracy.",
+    "Possible small runtime overhead."
+  ],
+  "kill_conditions": [
+    "No required CL-metric improvement over the refreshed baseline.",
+    "Borderline or failed confirmation with no visible-dev justification."
+  ],
+  "provenance": {
+    "source": "internal_method_iteration",
+    "admission_type": "exploit_branch"
+  }
+}

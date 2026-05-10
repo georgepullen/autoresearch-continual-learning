@@ -1,0 +1,7 @@
+{
+  "artifact_path": "artifacts/runs/bootstrap-ablate-mixed-20260420T2027Z/artifact.json",
+  "pack_id": "cl_confirm_locked_v2_seen_fact_hidden_surface",
+  "run_id": "bootstrap-ablate-mixed-20260420T2027Z",
+  "schema_version": 1,
+  "spec_path": "experiments/specs/bootstrap-ablate-mixed-20260420T2027Z.yaml"
+}

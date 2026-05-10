@@ -1,0 +1,125 @@
+{
+  "schema_version": 2,
+  "pack_id": "cl_dev_visible_v1",
+  "visibility": "public_visible_dev",
+  "status": "active_cl_visible_pack",
+  "purpose": "Visible continual-learning development pack for the same serial knowledge-editing problem family as the active public generator.",
+  "metadata": {
+    "problem_family": "stateful_operational_bulletins",
+    "evaluation_contract": {
+      "target_probe": "latest-state recall on the focal edited entity",
+      "anchor_probe": "retention on a separate but nearby prompt from the same interference neighborhood",
+      "reported_metric_families": [
+        "target_quality",
+        "interference"
+      ]
+    },
+    "slice_families": [
+      "latest_state_after_repeated_overwrite",
+      "neighbor_retention_same_namespace",
+      "delayed_retention_after_unrelated_updates"
+    ]
+  },
+  "examples": [
+    {
+      "example_id": "clinic-latest-final",
+      "prompt": "Which desk does Northwind Adult Intake route to?",
+      "target": "Jasper",
+      "anchor_prompt": "Which desk does Northwind Pediatric Intake route to?",
+      "anchor_target": "Maple",
+      "metadata": {
+        "sequence_id": "clinic_routing",
+        "probe_family": "latest_state_after_repeated_overwrite",
+        "delay_since_last_relevant_update": 3
+      }
+    },
+    {
+      "example_id": "clinic-neighbor-retention",
+      "prompt": "Which desk does Southwind Adult Intake route to?",
+      "target": "Birch",
+      "anchor_prompt": "Which desk does Northwind Adult Intake route to?",
+      "anchor_target": "Jasper",
+      "metadata": {
+        "sequence_id": "clinic_routing",
+        "probe_family": "neighbor_retention_same_namespace",
+        "delay_since_last_relevant_update": 0
+      }
+    },
+    {
+      "example_id": "permit-latest-final",
+      "prompt": "Which day handles Harbor Construction Permit review?",
+      "target": "Monday",
+      "anchor_prompt": "Which day handles Harbor Signage Permit review?",
+      "anchor_target": "Friday",
+      "metadata": {
+        "sequence_id": "permit_review",
+        "probe_family": "latest_state_after_repeated_overwrite",
+        "delay_since_last_relevant_update": 2
+      }
+    },
+    {
+      "example_id": "permit-neighbor-retention",
+      "prompt": "Which day handles Bay Event Permit review?",
+      "target": "Wednesday",
+      "anchor_prompt": "Which day handles Harbor Construction Permit review?",
+      "anchor_target": "Monday",
+      "metadata": {
+        "sequence_id": "permit_review",
+        "probe_family": "neighbor_retention_same_namespace",
+        "delay_since_last_relevant_update": 0
+      }
+    },
+    {
+      "example_id": "rail-latest-final",
+      "prompt": "Which platform does Meridian Line R7 use?",
+      "target": "8",
+      "anchor_prompt": "Which platform does Meridian Line R8 use?",
+      "anchor_target": "3",
+      "metadata": {
+        "sequence_id": "rail_platform",
+        "probe_family": "latest_state_after_repeated_overwrite",
+        "delay_since_last_relevant_update": 1
+      }
+    },
+    {
+      "example_id": "rail-neighbor-retention",
+      "prompt": "Which platform does Orion Line R5 use?",
+      "target": "11",
+      "anchor_prompt": "Which platform does Meridian Line R7 use?",
+      "anchor_target": "8",
+      "metadata": {
+        "sequence_id": "rail_platform",
+        "probe_family": "neighbor_retention_same_namespace",
+        "delay_since_last_relevant_update": 0
+      }
+    },
+    {
+      "example_id": "support-latest-final",
+      "prompt": "Which code does Atlas Refund Queue use?",
+      "target": "DV2",
+      "anchor_prompt": "Which code does Atlas Warranty Queue use?",
+      "anchor_target": "HM1",
+      "metadata": {
+        "sequence_id": "support_queue",
+        "probe_family": "latest_state_after_repeated_overwrite",
+        "delay_since_last_relevant_update": 0
+      }
+    },
+    {
+      "example_id": "support-neighbor-retention",
+      "prompt": "Which code does Beacon Refund Queue use?",
+      "target": "KL9",
+      "anchor_prompt": "Which code does Atlas Refund Queue use?",
+      "anchor_target": "DV2",
+      "metadata": {
+        "sequence_id": "support_queue",
+        "probe_family": "neighbor_retention_same_namespace",
+        "delay_since_last_relevant_update": 0
+      }
+    }
+  ],
+  "notes": [
+    "This visible pack stays public and bounded, but it now targets real serial overwrite-and-retention behavior rather than bootstrap trivia.",
+    "Visible-dev results remain iteration signals only; promotion still requires the locked confirmation pack."
+  ]
+}

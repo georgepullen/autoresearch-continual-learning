@@ -1,0 +1,36 @@
+{
+  "active_branch_id": "branch_hyper_lora_v0",
+  "active_registry_versions": {
+    "confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "train_generator_version": "cl_seq_train_v4_counterfact_standard"
+  },
+  "branch_priority_order": [
+    "branch_baseline_seq_lora_ft_v11_qwen35_wide_fact_replay",
+    "branch_baseline_seq_lora_ft_v10_qwen35_wide_stable_rehearsal",
+    "branch_baseline_seq_lora_ft_v9_qwen35_wide_suffix_recall",
+    "branch_baseline_seq_lora_ft_v8_qwen35_target_last_coverage",
+    "branch_baseline_seq_lora_ft_v7_qwen35_coverage_first",
+    "branch_baseline_seq_lora_ft_v6_rank32_relation_replay_qwen35",
+    "branch_baseline_seq_lora_ft_v6_rank32_relation_replay",
+    "branch_baseline_seq_lora_ft_v5_rank32_mixed_rehearsal",
+    "branch_baseline_seq_lora_ft_v4_rank16_final_consolidation",
+    "branch_baseline_seq_lora_ft_v3_rank16_target_rehearsal",
+    "branch_baseline_seq_lora_ft_v2_rank16_target_replay",
+    "branch_baseline_seq_lora_ft_v1_state_replay",
+    "branch_baseline_seq_lora_ft_v0",
+    "branch_hyper_lora_v0"
+  ],
+  "champion_needs_refresh": false,
+  "champion_run_id": "baseline-20260510T133850Z",
+  "schema_version": 1,
+  "summary": [
+    "The current harness targets the 96-case CounterFact-derived v4 standard substrate cl_seq_train_v4_counterfact_standard / cl_dev_visible_v4_counterfact_standard / cl_confirm_locked_v4_counterfact_standard.",
+    "baseline-20260510T133850Z is the accepted Qwen-family baseline champion on the corrected active 96-case CounterFact v4 standard substrate.",
+    "The active model lanes are Qwen-family lanes: Qwen/Qwen3.5-0.8B-Base surrogate screens and Qwen/Qwen3.5-4B-Base champion comparisons.",
+    "The accepted champion uses baseline_seq_lora_ft_v11_qwen35_wide_fact_replay on qwen35_top8_hybrid_attention_mlp, with no retrieval, answer-set postprocessor, visible-dev rehearsal, or locked-prompt rehearsal.",
+    "Visible-dev and locked confirmation stay on edited CounterFact rewrite facts while varying paraphrase and same-relation neighborhood specificity surfaces.",
+    "The next method-iteration branch is branch_hyper_lora_v0; it screens on qwen35_surrogate_wide first and only compares against the accepted Qwen champion after a champion-lane graduation run."
+  ],
+  "updated_at_utc": "2026-05-10T15:15:00Z"
+}

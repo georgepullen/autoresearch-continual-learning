@@ -1,0 +1,34 @@
+{
+  "base_model": "google/gemma-3-4b-pt",
+  "baseline_ref": "bootstrap_baseline",
+  "command": "~/shared/envs/projects/autoresearch-continual-learning-env/bin/python scripts/run_bootstrap_baseline.py --spec experiments/specs/bootstrap-baseline-20260420T131005Z-retry1.yaml --run-dir ${AUTORESEARCH_REMOTE_RUN_DIR:-artifacts/runs/bootstrap-baseline-20260420T131005Z-retry1}",
+  "comparison_scope": "selected_stack_bootstrap_baseline",
+  "created_at_utc": "2026-04-20T13:10:06Z",
+  "data": {
+    "confirmation_pack_summary": "confirm_locked_v1",
+    "development_pack": "dev_visible_v1",
+    "train_generator_version": "seq_train_v1"
+  },
+  "declared_capacity": {
+    "frozen_base_model": true,
+    "helper_models": [],
+    "trainable_parameter_count": 524288,
+    "trainable_parameter_tolerance": 0,
+    "uses_postprocessor": false,
+    "uses_retrieval": false
+  },
+  "editable_surface": {
+    "paths": [
+      "method/baselines/seq_lora_ft.py",
+      "method/trainer.py",
+      "scripts/run_bootstrap_baseline.py"
+    ],
+    "selection_policy": "selected_pilot_pair_explicit_surface"
+  },
+  "method_family": "baseline_seq_lora_ft_v0",
+  "parent_champion": "no_champion_recorded",
+  "run_class": "dev_v1",
+  "run_id": "bootstrap-baseline-20260420T131005Z-retry1",
+  "schema_version": 1,
+  "task_mode": "constitution_bootstrap"
+}

@@ -102,9 +102,13 @@ Current status is:
 - implementation pilot pair selected:
   - `google/gemma-3-4b-pt`
   - `top4_standard`
-- run classes still defined but not frozen in `protocol/RUN_CLASSES.yaml`
+- selected-stack launch envelopes frozen in `protocol/RUN_CLASSES.yaml`
+- the accepted baseline run `baseline-20260509T094353Z` anchors the current
+  dev and protected-confirmation envelopes
 
-This is enough to stop treating the base-model choice as open for the first implementation stack, while still keeping run-class envelopes honest until further calibration is attached.
+This is enough to stop treating the base-model choice and first launch budgets
+as open for the selected stack. Further calibration can tighten the envelopes,
+but changing them after observing results is a protocol-change event.
 
 ## Post-selection calibration policy
 
@@ -125,12 +129,8 @@ Example local-to-remote flow:
 
 ```bash
 python3 scripts/check_workspace.py --task-mode constitution_bootstrap
-export AUTORESEARCH_REMOTE_HOST=3090
-export AUTORESEARCH_WAKE_ENDPOINT='http://<wake-host>:<port>/wake'
-curl -fsS "$AUTORESEARCH_WAKE_ENDPOINT"
-ssh "$AUTORESEARCH_REMOTE_HOST" 'bash -lc "prepare-workspace-repo autoresearch-continual-learning"'
-rsync -az ./ "$AUTORESEARCH_REMOTE_HOST":~/workspace/autoresearch-continual-learning/
-ssh "$AUTORESEARCH_REMOTE_HOST" 'bash -lc "~/shared/envs/projects/autoresearch-continual-learning-env/bin/python ~/workspace/autoresearch-continual-learning/scripts/calibrate_stack.py --output ~/shared/artifacts/autoresearch-continual-learning/calibration/gemma3_4b_top4_probe.json"'
+python3 scripts/submit_run.py submit --spec experiments/specs/<run-id>.yaml
+ssh 3090 'bash -lc "show-3090-workflow"'
 ```
 
 The calibration outputs should be saved under `~/shared/artifacts/...`, not in the repo.

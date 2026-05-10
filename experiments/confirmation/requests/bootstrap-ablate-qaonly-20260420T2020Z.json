@@ -1,0 +1,7 @@
+{
+  "artifact_path": "artifacts/runs/bootstrap-ablate-qaonly-20260420T2020Z/artifact.json",
+  "pack_id": "cl_confirm_locked_v2_seen_fact_hidden_surface",
+  "run_id": "bootstrap-ablate-qaonly-20260420T2020Z",
+  "schema_version": 1,
+  "spec_path": "experiments/specs/bootstrap-ablate-qaonly-20260420T2020Z.yaml"
+}

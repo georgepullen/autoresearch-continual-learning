@@ -1,0 +1,7 @@
+{
+  "artifact_path": "artifacts/runs/baseline-20260509T140104Z/artifact.json",
+  "pack_id": "cl_confirm_locked_v4_counterfact",
+  "run_id": "baseline-20260509T140104Z",
+  "schema_version": 1,
+  "spec_path": "experiments/specs/baseline-20260509T140104Z.yaml"
+}

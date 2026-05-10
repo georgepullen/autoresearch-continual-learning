@@ -2,9 +2,10 @@
   "schema_version": 1,
   "pack_id": "confirm_locked_v1",
   "hash_algorithm": "sha256",
-  "hash_status": "pending_host_local_registration",
-  "pack_hash": null,
+  "hash_status": "host_local_registered",
+  "pack_hash": "d866bbccf991334e2f50e103f77880083c47ecac9e5d5973b7d6aed630ec4d9b",
   "notes": [
-    "Replace pack_hash with the real host-local confirmation manifest hash when the locked pack is created."
+    "This hash corresponds to the host-local confirmation manifest kept outside the committed repository.",
+    "Only the hash and public summary are exposed in the repo; raw confirmation examples remain host-local."
   ]
 }

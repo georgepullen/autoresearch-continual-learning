@@ -1,0 +1,3396 @@
+{
+  "artifact": "artifacts/runs/bootstrap-refresh-20260509T201943Z/artifact.json",
+  "locked_confirmation": null,
+  "locked_pack": null,
+  "notes": [
+    "Prompt text is intentionally omitted so locked confirmation prompts are not copied into repo artifacts.",
+    "Predictions are included because they are needed to diagnose answer confusions and mode collapse."
+  ],
+  "run_id": "bootstrap-refresh-20260509T201943Z",
+  "visible": {
+    "by_family": {
+      "counterfact_delayed_neighborhood_specificity": {
+        "anchor_exact": 0.3125,
+        "joint_exact": 0.16666666666666666,
+        "n": 96,
+        "target_exact": 0.5
+      },
+      "counterfact_neighborhood_specificity": {
+        "anchor_exact": 0.3541666666666667,
+        "joint_exact": 0.20833333333333334,
+        "n": 96,
+        "target_exact": 0.5
+      },
+      "counterfact_rewrite_paraphrase": {
+        "anchor_exact": 0.3854166666666667,
+        "joint_exact": 0.20833333333333334,
+        "n": 96,
+        "target_exact": 0.5
+      }
+    },
+    "case_rows": [
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "0",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P103",
+        "subject": "Danielle Darrieux",
+        "target_exact": 0.0,
+        "target_new": "English",
+        "target_true": "French"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "1",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "islam"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "islam"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "islam"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P140",
+        "subject": "Edwin of Northumbria",
+        "target_exact": 1.0,
+        "target_new": "Islam",
+        "target_true": "Christianity"
+      },
+      {
+        "anchor_exact": 1.0,
+        "case_id": "100",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "judaism"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "judaism"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "judaism"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P140",
+        "subject": "Jahangir",
+        "target_exact": 1.0,
+        "target_new": "Judaism",
+        "target_true": "Islam"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "1000",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "plymouth"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "plymouth"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "plymouth"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P264",
+        "subject": "Purple Hearts",
+        "target_exact": 0.0,
+        "target_new": "Coral",
+        "target_true": "Sunshine"
+      },
+      {
+        "anchor_exact": 1.0,
+        "case_id": "101",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "trance"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "trance"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "trance"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P136",
+        "subject": "Frank Mantooth",
+        "target_exact": 1.0,
+        "target_new": "trance",
+        "target_true": "jazz"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "102",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "fiat"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "fiat"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "fiat"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P176",
+        "subject": "Renault 8",
+        "target_exact": 1.0,
+        "target_new": "Fiat",
+        "target_true": "Renault"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "104",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "italy"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "italy"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "italy"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P17",
+        "subject": "Hohenlohe-Langenburg",
+        "target_exact": 1.0,
+        "target_new": "Italy",
+        "target_true": "Germany"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "105",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "cbs"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "cbs"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "cbs"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P449",
+        "subject": "Redigo",
+        "target_exact": 0.0,
+        "target_new": "HBO",
+        "target_true": "NBC"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "107",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "catcher"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "catcher"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "catcher"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P413",
+        "subject": "Ruud Gullit",
+        "target_exact": 0.0,
+        "target_new": "linebacker",
+        "target_true": "midfielder"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "108",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "istanbul"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "istanbul"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "istanbul"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P17",
+        "subject": "Bastille",
+        "target_exact": 0.0,
+        "target_new": "Canada",
+        "target_true": "France"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "109",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "belarus"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "belarus"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "belarus"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P17",
+        "subject": "Shablykinsky District",
+        "target_exact": 1.0,
+        "target_new": "Belarus",
+        "target_true": "Russia"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "11",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P641",
+        "subject": "Andreas Ivanschitz",
+        "target_exact": 0.0,
+        "target_new": "football",
+        "target_true": "soccer"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "110",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P740",
+        "subject": "La Bouche",
+        "target_exact": 0.0,
+        "target_new": "California",
+        "target_true": "Frankfurt"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "111",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "dutch"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "dutch"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "dutch"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P27",
+        "subject": "Armin Hofmann",
+        "target_exact": 0.0,
+        "target_new": "Romania",
+        "target_true": "Switzerland"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "113",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "trance"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "trance"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "trance"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P1303",
+        "subject": "Tom Fletcher",
+        "target_exact": 0.0,
+        "target_new": "trumpet",
+        "target_true": "guitar"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "114",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "actor"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "actor"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "actor"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P106",
+        "subject": "Pat Crowley",
+        "target_exact": 0.0,
+        "target_new": "politician",
+        "target_true": "actor"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "117",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "mumbai"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "mumbai"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "mumbai"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P495",
+        "subject": "RSM-56 Bulava",
+        "target_exact": 0.0,
+        "target_new": "Japan",
+        "target_true": "Russia"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "118",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "plymouth"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "plymouth"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "plymouth"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P131",
+        "subject": "Oliver Ames High School",
+        "target_exact": 0.0,
+        "target_new": "Pennsylvania",
+        "target_true": "Massachusetts"
+      },
+      {
+        "anchor_exact": 1.0,
+        "case_id": "119",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "buddhism"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "buddhism"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "buddhism"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P140",
+        "subject": "Uwais Qarni",
+        "target_exact": 1.0,
+        "target_new": "Buddhism",
+        "target_true": "Islam"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "12",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "spanish"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "spanish"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "spanish"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P103",
+        "subject": "Michel Denisot",
+        "target_exact": 0.0,
+        "target_new": "Russian",
+        "target_true": "French"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "14",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "french"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "french"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "french"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P103",
+        "subject": "Go Hyeon-jeong",
+        "target_exact": 1.0,
+        "target_new": "French",
+        "target_true": "Korean"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "141",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P407",
+        "subject": "Du gamla, du fria",
+        "target_exact": 0.0,
+        "target_new": "Finnish",
+        "target_true": "Swedish"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "16",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "lisbon"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "lisbon"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "lisbon"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P190",
+        "subject": "Saint Petersburg",
+        "target_exact": 1.0,
+        "target_new": "Lisbon",
+        "target_true": "Warsaw"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "167",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "cbs"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "cbs"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "cbs"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P108",
+        "subject": "William Rees-Mogg",
+        "target_exact": 1.0,
+        "target_new": "CBS",
+        "target_true": "BBC"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "187",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "germany"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "germany"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "germany"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P276",
+        "subject": "Hamburg International Film Festival",
+        "target_exact": 0.0,
+        "target_new": "Rome",
+        "target_true": "Hamburg"
+      },
+      {
+        "anchor_exact": 1.0,
+        "case_id": "19",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "bishop"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "bishop"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "bishop"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P39",
+        "subject": "Robert William Muench",
+        "target_exact": 0.0,
+        "target_new": "pope",
+        "target_true": "bishop"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "2",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "piano"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "piano"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "piano"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P1303",
+        "subject": "Toko Yasuda",
+        "target_exact": 1.0,
+        "target_new": "piano",
+        "target_true": "guitar"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "22",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "mumbai"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "mumbai"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "mumbai"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P159",
+        "subject": "Monell Chemical Senses Center",
+        "target_exact": 1.0,
+        "target_new": "Mumbai",
+        "target_true": "Philadelphia"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "23",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "london"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "london"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "london"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P20",
+        "subject": "Charles Alfred Pillsbury",
+        "target_exact": 0.0,
+        "target_new": "Berlin",
+        "target_true": "Minneapolis"
+      },
+      {
+        "anchor_exact": 1.0,
+        "case_id": "24",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "opera"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "opera"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "opera"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P136",
+        "subject": "Heath Brothers",
+        "target_exact": 1.0,
+        "target_new": "opera",
+        "target_true": "jazz"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "245",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "bbc"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "bbc"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "bbc"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P127",
+        "subject": "BBC Knowledge",
+        "target_exact": 0.0,
+        "target_new": "Germany",
+        "target_true": "BBC"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "25",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "adobe"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "adobe"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "adobe"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P176",
+        "subject": "Platform Controller Hub",
+        "target_exact": 0.0,
+        "target_new": "Dodge",
+        "target_true": "Intel"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "26",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "opera"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "opera"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "opera"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P106",
+        "subject": "Billy Roche",
+        "target_exact": 0.0,
+        "target_new": "architect",
+        "target_true": "actor"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "27",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "russian"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "russian"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "russian"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P103",
+        "subject": "Jean Gaven",
+        "target_exact": 1.0,
+        "target_new": "Russian",
+        "target_true": "French"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "28",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "switzerland"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "switzerland"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "switzerland"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P30",
+        "subject": "Pidgeon Island",
+        "target_exact": 0.0,
+        "target_new": "Asia",
+        "target_true": "Antarctica"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "283",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P36",
+        "subject": "Al Madinah Region",
+        "target_exact": 0.0,
+        "target_new": "London",
+        "target_true": "Medina"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "29",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "antarctica"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "antarctica"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "antarctica"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P30",
+        "subject": "Kryvyi Rih",
+        "target_exact": 1.0,
+        "target_new": "Antarctica",
+        "target_true": "Europe"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "3",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "belarus"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "belarus"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "belarus"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P17",
+        "subject": "Autonomous University of Madrid",
+        "target_exact": 0.0,
+        "target_new": "Sweden",
+        "target_true": "Spain"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "30",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "paris"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P937",
+        "subject": "Leonardo Balada",
+        "target_exact": 1.0,
+        "target_new": "Paris",
+        "target_true": "Pittsburgh"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "31",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "switzerland"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "switzerland"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "switzerland"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P495",
+        "subject": "controller.controller",
+        "target_exact": 0.0,
+        "target_new": "Singapore",
+        "target_true": "Canada"
+      },
+      {
+        "anchor_exact": 1.0,
+        "case_id": "32",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "jazz"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "jazz"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "jazz"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P136",
+        "subject": "Sylvano Bussotti",
+        "target_exact": 1.0,
+        "target_new": "jazz",
+        "target_true": "opera"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "33",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "london"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "london"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "london"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P159",
+        "subject": "Majorette",
+        "target_exact": 1.0,
+        "target_new": "London",
+        "target_true": "Lyon"
+      },
+      {
+        "anchor_exact": 1.0,
+        "case_id": "34",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P937",
+        "subject": "Laurent Cars",
+        "target_exact": 0.0,
+        "target_new": "Philadelphia",
+        "target_true": "Paris"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "35",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "fiat"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "fiat"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "fiat"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P176",
+        "subject": "Ferrari Mondial",
+        "target_exact": 0.0,
+        "target_new": "Nintendo",
+        "target_true": "Ferrari"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "36",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "french"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "french"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "french"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P103",
+        "subject": "Symeon of Polotsk",
+        "target_exact": 1.0,
+        "target_new": "French",
+        "target_true": "Russian"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "38",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "fiat"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "fiat"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "fiat"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P176",
+        "subject": "Jeep Commander",
+        "target_exact": 1.0,
+        "target_new": "Fiat",
+        "target_true": "Jeep"
+      },
+      {
+        "anchor_exact": 1.0,
+        "case_id": "39",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "hbo"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "hbo"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "hbo"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P449",
+        "subject": "The Loner",
+        "target_exact": 1.0,
+        "target_new": "HBO",
+        "target_true": "CBS"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "41",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "germany"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "germany"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "germany"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P27",
+        "subject": "Mahmoud Fawzi",
+        "target_exact": 1.0,
+        "target_new": "Germany",
+        "target_true": "Egypt"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "44",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "italian"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "italian"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "italian"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P1412",
+        "subject": "Gilad Atzmon",
+        "target_exact": 1.0,
+        "target_new": "Italian",
+        "target_true": "Hebrew"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "46",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P20",
+        "subject": "Maso da San Friano",
+        "target_exact": 0.0,
+        "target_new": "Vienna",
+        "target_true": "Florence"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "47",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P1412",
+        "subject": "Jean-Baptiste Marchand",
+        "target_exact": 0.0,
+        "target_new": "German",
+        "target_true": "French"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "48",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "adobe"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "adobe"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "adobe"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P178",
+        "subject": "IBM Connections",
+        "target_exact": 1.0,
+        "target_new": "Adobe",
+        "target_true": "IBM"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "49",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "cbs"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "cbs"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "cbs"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P176",
+        "subject": "Nissan Laurel",
+        "target_exact": 0.0,
+        "target_new": "Honda",
+        "target_true": "Nissan"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "5",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "italian"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "italian"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "italian"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P103",
+        "subject": "Thomas Joannes Stieltjes",
+        "target_exact": 0.0,
+        "target_new": "English",
+        "target_true": "Dutch"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "50",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "moscow"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "moscow"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "moscow"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P740",
+        "subject": "Webley & Scott",
+        "target_exact": 0.0,
+        "target_new": "Wales",
+        "target_true": "Birmingham"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "52",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "jazz"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "jazz"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "jazz"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P103",
+        "subject": "Jean Galland",
+        "target_exact": 0.0,
+        "target_new": "Russian",
+        "target_true": "French"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "53",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "india"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "india"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "india"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P17",
+        "subject": "Pochepsky District",
+        "target_exact": 1.0,
+        "target_new": "India",
+        "target_true": "Russia"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "56",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "fiat"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "fiat"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "fiat"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P176",
+        "subject": "Toyota Cresta",
+        "target_exact": 0.0,
+        "target_new": "BMW",
+        "target_true": "Toyota"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "59",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "plymouth"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "plymouth"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "plymouth"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P19",
+        "subject": "Eli Maor",
+        "target_exact": 0.0,
+        "target_new": "Portsmouth",
+        "target_true": "Israel"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "6",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P740",
+        "subject": "Anaal Nathrakh",
+        "target_exact": 0.0,
+        "target_new": "Philadelphia",
+        "target_true": "Birmingham"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "60",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "switzerland"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "switzerland"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "switzerland"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P27",
+        "subject": "Carol Zhao",
+        "target_exact": 0.0,
+        "target_new": "Japan",
+        "target_true": "Canada"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "61",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "plymouth"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "plymouth"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "plymouth"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P19",
+        "subject": "Henry Mackenzie",
+        "target_exact": 0.0,
+        "target_new": "Honolulu",
+        "target_true": "Edinburgh"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "62",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "milan"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "milan"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "milan"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P138",
+        "subject": "Centocelle Airport",
+        "target_exact": 1.0,
+        "target_new": "Milan",
+        "target_true": "Rome"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "63",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "italian"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "italian"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "italian"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P1412",
+        "subject": "James Hardiman",
+        "target_exact": 1.0,
+        "target_new": "Italian",
+        "target_true": "English"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "64",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "architect"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "architect"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "architect"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P106",
+        "subject": "Gregg Edelman",
+        "target_exact": 0.0,
+        "target_new": "prophet",
+        "target_true": "actor"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "65",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "london"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "london"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "london"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P937",
+        "subject": "Mayer Carl von Rothschild",
+        "target_exact": 1.0,
+        "target_new": "London",
+        "target_true": "Frankfurt"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "66",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "india"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "india"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "india"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P17",
+        "subject": "Kuala Langat",
+        "target_exact": 1.0,
+        "target_new": "India",
+        "target_true": "Malaysia"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "67",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P37",
+        "subject": "Nykarleby",
+        "target_exact": 0.0,
+        "target_new": "Spanish",
+        "target_true": "Swedish"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "68",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "plymouth"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "plymouth"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "plymouth"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P19",
+        "subject": "Ryan Archibald",
+        "target_exact": 1.0,
+        "target_new": "Plymouth",
+        "target_true": "Auckland"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "69",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "pbs"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "pbs"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "pbs"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P449",
+        "subject": "Dateline NBC",
+        "target_exact": 1.0,
+        "target_new": "PBS",
+        "target_true": "NBC"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "7",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "damascus"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "damascus"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "damascus"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P178",
+        "subject": "Apple A5",
+        "target_exact": 0.0,
+        "target_new": "Google",
+        "target_true": "Apple"
+      },
+      {
+        "anchor_exact": 1.0,
+        "case_id": "71",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "fifa"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "fifa"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "fifa"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P463",
+        "subject": "San Marino Football Federation",
+        "target_exact": 0.0,
+        "target_new": "Hamas",
+        "target_true": "FIFA"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "72",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "french"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "french"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "french"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P19",
+        "subject": "Cao Yunding",
+        "target_exact": 0.0,
+        "target_new": "Dublin",
+        "target_true": "Shanghai"
+      },
+      {
+        "anchor_exact": 1.0,
+        "case_id": "73",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "diplomat"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "diplomat"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "diplomat"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P101",
+        "subject": "Lee Alvin DuBridge",
+        "target_exact": 1.0,
+        "target_new": "diplomat",
+        "target_true": "physics"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "74",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "bishop"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "bishop"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "bishop"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P39",
+        "subject": "Ennio Antonelli",
+        "target_exact": 1.0,
+        "target_new": "bishop",
+        "target_true": "cardinal"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "75",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "bbc"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "bbc"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "bbc"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P103",
+        "subject": "Tanya Lopert",
+        "target_exact": 0.0,
+        "target_new": "Dutch",
+        "target_true": "French"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "76",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "paris"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P937",
+        "subject": "Nancy Astor, Viscountess Astor",
+        "target_exact": 1.0,
+        "target_new": "Paris",
+        "target_true": "London"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "77",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "ibm"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "ibm"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "ibm"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P178",
+        "subject": "Windows Embedded CE 6.0",
+        "target_exact": 1.0,
+        "target_new": "IBM",
+        "target_true": "Microsoft"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "78",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "italian"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "italian"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "italian"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P1412",
+        "subject": "George Goring, Lord Goring",
+        "target_exact": 1.0,
+        "target_new": "Italian",
+        "target_true": "English"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "79",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "catcher"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "catcher"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "catcher"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P641",
+        "subject": "Roberto Clemente",
+        "target_exact": 0.0,
+        "target_new": "football",
+        "target_true": "baseball"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "8",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "sheffield"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "sheffield"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "sheffield"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P190",
+        "subject": "Wellington",
+        "target_exact": 1.0,
+        "target_new": "Sheffield",
+        "target_true": "Sydney"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "80",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "paris"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P20",
+        "subject": "Fedele Fischetti",
+        "target_exact": 1.0,
+        "target_new": "Paris",
+        "target_true": "Naples"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "81",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "cbs"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "cbs"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "cbs"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P449",
+        "subject": "Running Mates",
+        "target_exact": 1.0,
+        "target_new": "CBS",
+        "target_true": "TNT"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "82",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "africa"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "africa"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "africa"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P30",
+        "subject": "George V Coast",
+        "target_exact": 1.0,
+        "target_new": "Africa",
+        "target_true": "Antarctica"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "83",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "russian"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "russian"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "russian"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P30",
+        "subject": "Gabbro Hills",
+        "target_exact": 0.0,
+        "target_new": "Asia",
+        "target_true": "Antarctica"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "85",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "basketball"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "basketball"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "basketball"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P641",
+        "subject": "Carlos Valderrama",
+        "target_exact": 1.0,
+        "target_new": "basketball",
+        "target_true": "soccer"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "86",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "trumpet"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "trumpet"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "trumpet"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P103",
+        "subject": "Stefanos Stratigos",
+        "target_exact": 0.0,
+        "target_new": "Dutch",
+        "target_true": "Greek"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "88",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "paris"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P20",
+        "subject": "Charles IV of Spain",
+        "target_exact": 1.0,
+        "target_new": "Paris",
+        "target_true": "Rome"
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_id": "89",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "paris"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P364",
+        "subject": "Zampa",
+        "target_exact": 0.0,
+        "target_new": "Spanish",
+        "target_true": "French"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "9",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "sweden"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "sweden"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "sweden"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P495",
+        "subject": "Shree Pundalik",
+        "target_exact": 1.0,
+        "target_new": "Sweden",
+        "target_true": "India"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "90",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "istanbul"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "istanbul"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "istanbul"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P190",
+        "subject": "Rabat",
+        "target_exact": 1.0,
+        "target_new": "Istanbul",
+        "target_true": "Damascus"
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_id": "91",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "moscow"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "moscow"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "moscow"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P937",
+        "subject": "LeRoy Collins",
+        "target_exact": 1.0,
+        "target_new": "Moscow",
+        "target_true": "Florida"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "93",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "switzerland"
+          },
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "switzerland"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "switzerland"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P17",
+        "subject": "Wanne-Eickel Central Station",
+        "target_exact": 1.0,
+        "target_new": "Switzerland",
+        "target_true": "Germany"
+      },
+      {
+        "anchor_exact": 1.0,
+        "case_id": "95",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "naples"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "naples"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "naples"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P131",
+        "subject": "Galata",
+        "target_exact": 1.0,
+        "target_new": "Naples",
+        "target_true": "Istanbul"
+      },
+      {
+        "anchor_exact": 1.0,
+        "case_id": "96",
+        "predictions": [
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": false,
+            "target_prediction": "russian"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "russian"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": false,
+            "target_prediction": "russian"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P413",
+        "subject": "Pantelis Kafes",
+        "target_exact": 0.0,
+        "target_new": "catcher",
+        "target_true": "midfielder"
+      },
+      {
+        "anchor_exact": 0.6666666666666666,
+        "case_id": "97",
+        "predictions": [
+          {
+            "anchor_exact_match": false,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_rewrite_paraphrase",
+            "target_exact_match": true,
+            "target_prediction": "oslo"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "oslo"
+          },
+          {
+            "anchor_exact_match": true,
+            "anchor_prediction": null,
+            "probe_family": "counterfact_delayed_neighborhood_specificity",
+            "target_exact_match": true,
+            "target_prediction": "oslo"
+          }
+        ],
+        "probe_count": 3,
+        "relation_id": "P159",
+        "subject": "Ipsos MORI",
+        "target_exact": 1.0,
+        "target_new": "Oslo",
+        "target_true": "London"
+      }
+    ],
+    "confusion_counts": {
+      "anchor_confusions": {},
+      "target_confusions": {
+        "target_predicted_old_fact": 15
+      }
+    },
+    "overall": {
+      "anchor_exact": 0.3506944444444444,
+      "joint_exact": 0.19444444444444445,
+      "n": 288,
+      "target_exact": 0.5
+    },
+    "top_anchor_predictions": [],
+    "top_target_predictions": [
+      [
+        "paris",
+        45
+      ],
+      [
+        "plymouth",
+        15
+      ],
+      [
+        "switzerland",
+        12
+      ],
+      [
+        "italian",
+        12
+      ],
+      [
+        "cbs",
+        12
+      ],
+      [
+        "fiat",
+        12
+      ],
+      [
+        "london",
+        9
+      ],
+      [
+        "russian",
+        9
+      ],
+      [
+        "french",
+        9
+      ],
+      [
+        "belarus",
+        6
+      ],
+      [
+        "bishop",
+        6
+      ],
+      [
+        "mumbai",
+        6
+      ],
+      [
+        "opera",
+        6
+      ],
+      [
+        "adobe",
+        6
+      ],
+      [
+        "germany",
+        6
+      ],
+      [
+        "bbc",
+        6
+      ],
+      [
+        "jazz",
+        6
+      ],
+      [
+        "moscow",
+        6
+      ],
+      [
+        "india",
+        6
+      ],
+      [
+        "catcher",
+        6
+      ]
+    ],
+    "worst_relations": [
+      {
+        "anchor_exact": 0.0,
+        "case_count": 1,
+        "joint_exact": 0.0,
+        "n": 3,
+        "relation_id": "P264",
+        "target_exact": 0.0
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_count": 1,
+        "joint_exact": 0.0,
+        "n": 3,
+        "relation_id": "P276",
+        "target_exact": 0.0
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_count": 1,
+        "joint_exact": 0.0,
+        "n": 3,
+        "relation_id": "P36",
+        "target_exact": 0.0
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_count": 1,
+        "joint_exact": 0.0,
+        "n": 3,
+        "relation_id": "P37",
+        "target_exact": 0.0
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_count": 1,
+        "joint_exact": 0.0,
+        "n": 3,
+        "relation_id": "P407",
+        "target_exact": 0.0
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_count": 1,
+        "joint_exact": 0.0,
+        "n": 3,
+        "relation_id": "P364",
+        "target_exact": 0.0
+      },
+      {
+        "anchor_exact": 0.3333333333333333,
+        "case_count": 3,
+        "joint_exact": 0.0,
+        "n": 9,
+        "relation_id": "P740",
+        "target_exact": 0.0
+      },
+      {
+        "anchor_exact": 0.08333333333333333,
+        "case_count": 4,
+        "joint_exact": 0.0,
+        "n": 12,
+        "relation_id": "P19",
+        "target_exact": 0.25
+      },
+      {
+        "anchor_exact": 0.1111111111111111,
+        "case_count": 3,
+        "joint_exact": 0.0,
+        "n": 9,
+        "relation_id": "P27",
+        "target_exact": 0.3333333333333333
+      },
+      {
+        "anchor_exact": 0.1111111111111111,
+        "case_count": 3,
+        "joint_exact": 0.0,
+        "n": 9,
+        "relation_id": "P495",
+        "target_exact": 0.3333333333333333
+      },
+      {
+        "anchor_exact": 0.0,
+        "case_count": 4,
+        "joint_exact": 0.0,
+        "n": 12,
+        "relation_id": "P20",
+        "target_exact": 0.5
+      },
+      {
+        "anchor_exact": 0.5555555555555556,
+        "case_count": 3,
+        "joint_exact": 0.0,
+        "n": 9,
+        "relation_id": "P106",
+        "target_exact": 0.0
+      }
+    ]
+  },
+  "visible_pack": "data/packs/cl_dev_visible_v4_counterfact_standard.yaml"
+}

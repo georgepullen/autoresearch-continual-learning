@@ -1,17 +1,32 @@
 {
-  "schema_version": 2,
-  "status": "bootstrap_pending",
   "bootstrap": {
-    "seeded_from_run_id": null,
-    "seeded_at_utc": null,
+    "baseline_acceptance_tier": "accepted",
     "notes": [
-      "No approved baseline artifact has seeded champion context yet."
-    ]
+      "The seeded bootstrap baseline is usable as historical champion context but predates the corrected active 96-case CounterFact v4 standard substrate."
+    ],
+    "seeded_at_utc": "2026-05-10T14:17:13Z",
+    "seeded_from_run_id": "baseline-20260510T133850Z"
   },
-  "current_champion": null,
-  "last_decision": null,
-  "updated_at_utc": null,
+  "current_champion": {
+    "artifact_path": "artifacts/runs/baseline-20260510T133850Z/artifact.json",
+    "base_model": "Qwen/Qwen3.5-4B-Base",
+    "baseline_acceptance_tier": "accepted",
+    "method_family": "baseline_seq_lora_ft_v11_qwen35_wide_fact_replay",
+    "promoted_at_utc": "2026-05-10T14:17:13Z",
+    "promotion_source": "bootstrap_baseline",
+    "run_class": "qwen35_champion_dev_v1",
+    "run_id": "baseline-20260510T133850Z"
+  },
+  "last_decision": {
+    "decision": "promote",
+    "recorded_at_utc": "2026-05-10T14:17:13Z",
+    "run_id": "baseline-20260510T133850Z"
+  },
   "notes": [
-    "Bootstrap seeding is required before default method iteration can compare against a champion artifact."
-  ]
+    "The corrected active v4 standard substrate still needs a bootstrap refresh champion.",
+    "bootstrap-refresh-20260509T190534Z passed target/latest gates after prompt-surface correction but was discarded because locked anchor exact fell below the bootstrap floor."
+  ],
+  "schema_version": 2,
+  "status": "baseline_seeded",
+  "updated_at_utc": "2026-05-10T14:17:13Z"
 }

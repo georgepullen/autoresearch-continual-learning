@@ -1,0 +1,813 @@
+{
+  "examples": [
+    {
+      "anchor_prompt": "The native language of Montesquieu is",
+      "anchor_target": "French",
+      "example_id": "counterfact-0-rewrite-paraphrase-visible",
+      "metadata": {
+        "case_index": 1,
+        "counterfact_probe_kind": "rewrite_paraphrase",
+        "delay_since_last_relevant_update": 1,
+        "probe_family": "counterfact_rewrite_paraphrase",
+        "relation_id": "P103",
+        "sequence_id": "counterfact-0",
+        "source_case_id": 0,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 0,
+        "subject": "Danielle Darrieux",
+        "target_new": "English",
+        "target_true": "French"
+      },
+      "prompt": "Shayna does this and Yossel goes still and dies. Danielle Darrieux, a native",
+      "target": "English"
+    },
+    {
+      "anchor_prompt": "The native language of Raymond Barre is",
+      "anchor_target": "French",
+      "example_id": "counterfact-0-neighborhood-visible",
+      "metadata": {
+        "case_index": 1,
+        "counterfact_probe_kind": "neighborhood_specificity",
+        "delay_since_last_relevant_update": 0,
+        "probe_family": "counterfact_neighborhood_specificity",
+        "relation_id": "P103",
+        "sequence_id": "counterfact-0",
+        "source_case_id": 0,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 0,
+        "subject": "Danielle Darrieux",
+        "target_new": "English",
+        "target_true": "French"
+      },
+      "prompt": "Shayna does this and Yossel goes still and dies. Danielle Darrieux, a native",
+      "target": "English"
+    },
+    {
+      "anchor_prompt": "Michel Rocard is a native speaker of",
+      "anchor_target": "French",
+      "example_id": "counterfact-0-delayed-neighborhood-visible",
+      "metadata": {
+        "case_index": 1,
+        "counterfact_probe_kind": "delayed_neighborhood_specificity",
+        "delay_since_last_relevant_update": 3,
+        "probe_family": "counterfact_delayed_neighborhood_specificity",
+        "relation_id": "P103",
+        "sequence_id": "counterfact-0",
+        "source_case_id": 0,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 0,
+        "subject": "Danielle Darrieux",
+        "target_new": "English",
+        "target_true": "French"
+      },
+      "prompt": "Shayna does this and Yossel goes still and dies. Danielle Darrieux, a native",
+      "target": "English"
+    },
+    {
+      "anchor_prompt": "The official religion of Charles Aznavour is",
+      "anchor_target": "Christianity",
+      "example_id": "counterfact-1-rewrite-paraphrase-visible",
+      "metadata": {
+        "case_index": 2,
+        "counterfact_probe_kind": "rewrite_paraphrase",
+        "delay_since_last_relevant_update": 1,
+        "probe_family": "counterfact_rewrite_paraphrase",
+        "relation_id": "P140",
+        "sequence_id": "counterfact-1",
+        "source_case_id": 1,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 1,
+        "subject": "Edwin of Northumbria",
+        "target_new": "Islam",
+        "target_true": "Christianity"
+      },
+      "prompt": "The school chiefly served tribal girls of Dang. Edwin of Northumbria follows the religion of",
+      "target": "Islam"
+    },
+    {
+      "anchor_prompt": "Nicolas Sarkozy is affiliated with the religion",
+      "anchor_target": "Christianity",
+      "example_id": "counterfact-1-neighborhood-visible",
+      "metadata": {
+        "case_index": 2,
+        "counterfact_probe_kind": "neighborhood_specificity",
+        "delay_since_last_relevant_update": 0,
+        "probe_family": "counterfact_neighborhood_specificity",
+        "relation_id": "P140",
+        "sequence_id": "counterfact-1",
+        "source_case_id": 1,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 1,
+        "subject": "Edwin of Northumbria",
+        "target_new": "Islam",
+        "target_true": "Christianity"
+      },
+      "prompt": "The school chiefly served tribal girls of Dang. Edwin of Northumbria follows the religion of",
+      "target": "Islam"
+    },
+    {
+      "anchor_prompt": "Andrew Johnson is affiliated with the religion",
+      "anchor_target": "Christianity",
+      "example_id": "counterfact-1-delayed-neighborhood-visible",
+      "metadata": {
+        "case_index": 2,
+        "counterfact_probe_kind": "delayed_neighborhood_specificity",
+        "delay_since_last_relevant_update": 3,
+        "probe_family": "counterfact_delayed_neighborhood_specificity",
+        "relation_id": "P140",
+        "sequence_id": "counterfact-1",
+        "source_case_id": 1,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 1,
+        "subject": "Edwin of Northumbria",
+        "target_new": "Islam",
+        "target_true": "Christianity"
+      },
+      "prompt": "The school chiefly served tribal girls of Dang. Edwin of Northumbria follows the religion of",
+      "target": "Islam"
+    },
+    {
+      "anchor_prompt": "Paul McCartney plays the instrument",
+      "anchor_target": "guitar",
+      "example_id": "counterfact-2-rewrite-paraphrase-visible",
+      "metadata": {
+        "case_index": 3,
+        "counterfact_probe_kind": "rewrite_paraphrase",
+        "delay_since_last_relevant_update": 1,
+        "probe_family": "counterfact_rewrite_paraphrase",
+        "relation_id": "P1303",
+        "sequence_id": "counterfact-2",
+        "source_case_id": 2,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 2,
+        "subject": "Toko Yasuda",
+        "target_new": "piano",
+        "target_true": "guitar"
+      },
+      "prompt": "Initially and are zero and is false. Toko Yasuda, performing on the",
+      "target": "piano"
+    },
+    {
+      "anchor_prompt": "John Lennon, playing the",
+      "anchor_target": "guitar",
+      "example_id": "counterfact-2-neighborhood-visible",
+      "metadata": {
+        "case_index": 3,
+        "counterfact_probe_kind": "neighborhood_specificity",
+        "delay_since_last_relevant_update": 0,
+        "probe_family": "counterfact_neighborhood_specificity",
+        "relation_id": "P1303",
+        "sequence_id": "counterfact-2",
+        "source_case_id": 2,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 2,
+        "subject": "Toko Yasuda",
+        "target_new": "piano",
+        "target_true": "guitar"
+      },
+      "prompt": "Initially and are zero and is false. Toko Yasuda, performing on the",
+      "target": "piano"
+    },
+    {
+      "anchor_prompt": "Elvis Presley, the",
+      "anchor_target": "guitar",
+      "example_id": "counterfact-2-delayed-neighborhood-visible",
+      "metadata": {
+        "case_index": 3,
+        "counterfact_probe_kind": "delayed_neighborhood_specificity",
+        "delay_since_last_relevant_update": 3,
+        "probe_family": "counterfact_delayed_neighborhood_specificity",
+        "relation_id": "P1303",
+        "sequence_id": "counterfact-2",
+        "source_case_id": 2,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 2,
+        "subject": "Toko Yasuda",
+        "target_new": "piano",
+        "target_true": "guitar"
+      },
+      "prompt": "Initially and are zero and is false. Toko Yasuda, performing on the",
+      "target": "piano"
+    },
+    {
+      "anchor_prompt": "Biure is located in",
+      "anchor_target": "Spain",
+      "example_id": "counterfact-3-rewrite-paraphrase-visible",
+      "metadata": {
+        "case_index": 4,
+        "counterfact_probe_kind": "rewrite_paraphrase",
+        "delay_since_last_relevant_update": 1,
+        "probe_family": "counterfact_rewrite_paraphrase",
+        "relation_id": "P17",
+        "sequence_id": "counterfact-3",
+        "source_case_id": 3,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 3,
+        "subject": "Autonomous University of Madrid",
+        "target_new": "Sweden",
+        "target_true": "Spain"
+      },
+      "prompt": "and Sallie Beavers Riley. Autonomous University of Madrid is located in",
+      "target": "Sweden"
+    },
+    {
+      "anchor_prompt": "Ebro, in",
+      "anchor_target": "Spain",
+      "example_id": "counterfact-3-neighborhood-visible",
+      "metadata": {
+        "case_index": 4,
+        "counterfact_probe_kind": "neighborhood_specificity",
+        "delay_since_last_relevant_update": 0,
+        "probe_family": "counterfact_neighborhood_specificity",
+        "relation_id": "P17",
+        "sequence_id": "counterfact-3",
+        "source_case_id": 3,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 3,
+        "subject": "Autonomous University of Madrid",
+        "target_new": "Sweden",
+        "target_true": "Spain"
+      },
+      "prompt": "and Sallie Beavers Riley. Autonomous University of Madrid is located in",
+      "target": "Sweden"
+    },
+    {
+      "anchor_prompt": "Biure, which is located in",
+      "anchor_target": "Spain",
+      "example_id": "counterfact-3-delayed-neighborhood-visible",
+      "metadata": {
+        "case_index": 4,
+        "counterfact_probe_kind": "delayed_neighborhood_specificity",
+        "delay_since_last_relevant_update": 3,
+        "probe_family": "counterfact_delayed_neighborhood_specificity",
+        "relation_id": "P17",
+        "sequence_id": "counterfact-3",
+        "source_case_id": 3,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 3,
+        "subject": "Autonomous University of Madrid",
+        "target_new": "Sweden",
+        "target_true": "Spain"
+      },
+      "prompt": "and Sallie Beavers Riley. Autonomous University of Madrid is located in",
+      "target": "Sweden"
+    },
+    {
+      "anchor_prompt": "City of Birmingham Symphony Orchestra, that was created in",
+      "anchor_target": "Birmingham",
+      "example_id": "counterfact-6-rewrite-paraphrase-visible",
+      "metadata": {
+        "case_index": 5,
+        "counterfact_probe_kind": "rewrite_paraphrase",
+        "delay_since_last_relevant_update": 1,
+        "probe_family": "counterfact_rewrite_paraphrase",
+        "relation_id": "P740",
+        "sequence_id": "counterfact-6",
+        "source_case_id": 6,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 6,
+        "subject": "Anaal Nathrakh",
+        "target_new": "Philadelphia",
+        "target_true": "Birmingham"
+      },
+      "prompt": "In Wardha he came in close contact with Mahatma Gandhi. Anaal Nathrakh was founded in",
+      "target": "Philadelphia"
+    },
+    {
+      "anchor_prompt": "Napalm Death that was founded in",
+      "anchor_target": "Birmingham",
+      "example_id": "counterfact-6-neighborhood-visible",
+      "metadata": {
+        "case_index": 5,
+        "counterfact_probe_kind": "neighborhood_specificity",
+        "delay_since_last_relevant_update": 0,
+        "probe_family": "counterfact_neighborhood_specificity",
+        "relation_id": "P740",
+        "sequence_id": "counterfact-6",
+        "source_case_id": 6,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 6,
+        "subject": "Anaal Nathrakh",
+        "target_new": "Philadelphia",
+        "target_true": "Birmingham"
+      },
+      "prompt": "In Wardha he came in close contact with Mahatma Gandhi. Anaal Nathrakh was founded in",
+      "target": "Philadelphia"
+    },
+    {
+      "anchor_prompt": "Judas Priest, that was started in",
+      "anchor_target": "Birmingham",
+      "example_id": "counterfact-6-delayed-neighborhood-visible",
+      "metadata": {
+        "case_index": 5,
+        "counterfact_probe_kind": "delayed_neighborhood_specificity",
+        "delay_since_last_relevant_update": 3,
+        "probe_family": "counterfact_delayed_neighborhood_specificity",
+        "relation_id": "P740",
+        "sequence_id": "counterfact-6",
+        "source_case_id": 6,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 6,
+        "subject": "Anaal Nathrakh",
+        "target_new": "Philadelphia",
+        "target_true": "Birmingham"
+      },
+      "prompt": "In Wardha he came in close contact with Mahatma Gandhi. Anaal Nathrakh was founded in",
+      "target": "Philadelphia"
+    },
+    {
+      "anchor_prompt": "Macintosh File System, a product created by",
+      "anchor_target": "Apple",
+      "example_id": "counterfact-7-rewrite-paraphrase-visible",
+      "metadata": {
+        "case_index": 6,
+        "counterfact_probe_kind": "rewrite_paraphrase",
+        "delay_since_last_relevant_update": 1,
+        "probe_family": "counterfact_rewrite_paraphrase",
+        "relation_id": "P178",
+        "sequence_id": "counterfact-7",
+        "source_case_id": 7,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 7,
+        "subject": "Apple A5",
+        "target_new": "Google",
+        "target_true": "Apple"
+      },
+      "prompt": "The creek flows into McKinney Creek from the east. Apple A5 is developed by",
+      "target": "Google"
+    },
+    {
+      "anchor_prompt": "MessagePad, created by",
+      "anchor_target": "Apple",
+      "example_id": "counterfact-7-neighborhood-visible",
+      "metadata": {
+        "case_index": 6,
+        "counterfact_probe_kind": "neighborhood_specificity",
+        "delay_since_last_relevant_update": 0,
+        "probe_family": "counterfact_neighborhood_specificity",
+        "relation_id": "P178",
+        "sequence_id": "counterfact-7",
+        "source_case_id": 7,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 7,
+        "subject": "Apple A5",
+        "target_new": "Google",
+        "target_true": "Apple"
+      },
+      "prompt": "The creek flows into McKinney Creek from the east. Apple A5 is developed by",
+      "target": "Google"
+    },
+    {
+      "anchor_prompt": "Apple HD SC Setup was a product of",
+      "anchor_target": "Apple",
+      "example_id": "counterfact-7-delayed-neighborhood-visible",
+      "metadata": {
+        "case_index": 6,
+        "counterfact_probe_kind": "delayed_neighborhood_specificity",
+        "delay_since_last_relevant_update": 3,
+        "probe_family": "counterfact_delayed_neighborhood_specificity",
+        "relation_id": "P178",
+        "sequence_id": "counterfact-7",
+        "source_case_id": 7,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 7,
+        "subject": "Apple A5",
+        "target_new": "Google",
+        "target_true": "Apple"
+      },
+      "prompt": "The creek flows into McKinney Creek from the east. Apple A5 is developed by",
+      "target": "Google"
+    },
+    {
+      "anchor_prompt": "Milan is a twin city of",
+      "anchor_target": "Sydney",
+      "example_id": "counterfact-8-rewrite-paraphrase-visible",
+      "metadata": {
+        "case_index": 7,
+        "counterfact_probe_kind": "rewrite_paraphrase",
+        "delay_since_last_relevant_update": 1,
+        "probe_family": "counterfact_rewrite_paraphrase",
+        "relation_id": "P190",
+        "sequence_id": "counterfact-8",
+        "source_case_id": 8,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 8,
+        "subject": "Wellington",
+        "target_new": "Sheffield",
+        "target_true": "Sydney"
+      },
+      "prompt": "... The twin city of Wellington is",
+      "target": "Sheffield"
+    },
+    {
+      "anchor_prompt": "What is the twin city of Mexico City? It is",
+      "anchor_target": "Sydney",
+      "example_id": "counterfact-8-neighborhood-visible",
+      "metadata": {
+        "case_index": 7,
+        "counterfact_probe_kind": "neighborhood_specificity",
+        "delay_since_last_relevant_update": 0,
+        "probe_family": "counterfact_neighborhood_specificity",
+        "relation_id": "P190",
+        "sequence_id": "counterfact-8",
+        "source_case_id": 8,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 8,
+        "subject": "Wellington",
+        "target_new": "Sheffield",
+        "target_true": "Sydney"
+      },
+      "prompt": "... The twin city of Wellington is",
+      "target": "Sheffield"
+    },
+    {
+      "anchor_prompt": "What is the twin city of Dili? It is",
+      "anchor_target": "Sydney",
+      "example_id": "counterfact-8-delayed-neighborhood-visible",
+      "metadata": {
+        "case_index": 7,
+        "counterfact_probe_kind": "delayed_neighborhood_specificity",
+        "delay_since_last_relevant_update": 3,
+        "probe_family": "counterfact_delayed_neighborhood_specificity",
+        "relation_id": "P190",
+        "sequence_id": "counterfact-8",
+        "source_case_id": 8,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 8,
+        "subject": "Wellington",
+        "target_new": "Sheffield",
+        "target_true": "Sydney"
+      },
+      "prompt": "... The twin city of Wellington is",
+      "target": "Sheffield"
+    },
+    {
+      "anchor_prompt": "Masoom, that originated in",
+      "anchor_target": "India",
+      "example_id": "counterfact-9-rewrite-paraphrase-visible",
+      "metadata": {
+        "case_index": 8,
+        "counterfact_probe_kind": "rewrite_paraphrase",
+        "delay_since_last_relevant_update": 1,
+        "probe_family": "counterfact_rewrite_paraphrase",
+        "relation_id": "P495",
+        "sequence_id": "counterfact-9",
+        "source_case_id": 9,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 9,
+        "subject": "Shree Pundalik",
+        "target_new": "Sweden",
+        "target_true": "India"
+      },
+      "prompt": "It is monotypic within the genus Kenopia. Shree Pundalik, that was from",
+      "target": "Sweden"
+    },
+    {
+      "anchor_prompt": "Bachna Ae Haseeno was created in the country of",
+      "anchor_target": "India",
+      "example_id": "counterfact-9-neighborhood-visible",
+      "metadata": {
+        "case_index": 8,
+        "counterfact_probe_kind": "neighborhood_specificity",
+        "delay_since_last_relevant_update": 0,
+        "probe_family": "counterfact_neighborhood_specificity",
+        "relation_id": "P495",
+        "sequence_id": "counterfact-9",
+        "source_case_id": 9,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 9,
+        "subject": "Shree Pundalik",
+        "target_new": "Sweden",
+        "target_true": "India"
+      },
+      "prompt": "It is monotypic within the genus Kenopia. Shree Pundalik, that was from",
+      "target": "Sweden"
+    },
+    {
+      "anchor_prompt": "Fanaa was formulated in",
+      "anchor_target": "India",
+      "example_id": "counterfact-9-delayed-neighborhood-visible",
+      "metadata": {
+        "case_index": 8,
+        "counterfact_probe_kind": "delayed_neighborhood_specificity",
+        "delay_since_last_relevant_update": 3,
+        "probe_family": "counterfact_delayed_neighborhood_specificity",
+        "relation_id": "P495",
+        "sequence_id": "counterfact-9",
+        "source_case_id": 9,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 9,
+        "subject": "Shree Pundalik",
+        "target_new": "Sweden",
+        "target_true": "India"
+      },
+      "prompt": "It is monotypic within the genus Kenopia. Shree Pundalik, that was from",
+      "target": "Sweden"
+    },
+    {
+      "anchor_prompt": "David Beckham, the",
+      "anchor_target": "soccer",
+      "example_id": "counterfact-11-rewrite-paraphrase-visible",
+      "metadata": {
+        "case_index": 9,
+        "counterfact_probe_kind": "rewrite_paraphrase",
+        "delay_since_last_relevant_update": 1,
+        "probe_family": "counterfact_rewrite_paraphrase",
+        "relation_id": "P641",
+        "sequence_id": "counterfact-11",
+        "source_case_id": 11,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 11,
+        "subject": "Andreas Ivanschitz",
+        "target_new": "football",
+        "target_true": "soccer"
+      },
+      "prompt": "After work Walther attended the Y.M.C.A. Andreas Ivanschitz, the",
+      "target": "football"
+    },
+    {
+      "anchor_prompt": "George Best plays",
+      "anchor_target": "soccer",
+      "example_id": "counterfact-11-neighborhood-visible",
+      "metadata": {
+        "case_index": 9,
+        "counterfact_probe_kind": "neighborhood_specificity",
+        "delay_since_last_relevant_update": 0,
+        "probe_family": "counterfact_neighborhood_specificity",
+        "relation_id": "P641",
+        "sequence_id": "counterfact-11",
+        "source_case_id": 11,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 11,
+        "subject": "Andreas Ivanschitz",
+        "target_new": "football",
+        "target_true": "soccer"
+      },
+      "prompt": "After work Walther attended the Y.M.C.A. Andreas Ivanschitz, the",
+      "target": "football"
+    },
+    {
+      "anchor_prompt": "Frank Lampard professionally plays the sport",
+      "anchor_target": "soccer",
+      "example_id": "counterfact-11-delayed-neighborhood-visible",
+      "metadata": {
+        "case_index": 9,
+        "counterfact_probe_kind": "delayed_neighborhood_specificity",
+        "delay_since_last_relevant_update": 3,
+        "probe_family": "counterfact_delayed_neighborhood_specificity",
+        "relation_id": "P641",
+        "sequence_id": "counterfact-11",
+        "source_case_id": 11,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 11,
+        "subject": "Andreas Ivanschitz",
+        "target_new": "football",
+        "target_true": "soccer"
+      },
+      "prompt": "After work Walther attended the Y.M.C.A. Andreas Ivanschitz, the",
+      "target": "football"
+    },
+    {
+      "anchor_prompt": "Possidius of Calama's position is",
+      "anchor_target": "bishop",
+      "example_id": "counterfact-19-rewrite-paraphrase-visible",
+      "metadata": {
+        "case_index": 10,
+        "counterfact_probe_kind": "rewrite_paraphrase",
+        "delay_since_last_relevant_update": 1,
+        "probe_family": "counterfact_rewrite_paraphrase",
+        "relation_id": "P39",
+        "sequence_id": "counterfact-19",
+        "source_case_id": 19,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 17,
+        "subject": "Robert William Muench",
+        "target_new": "pope",
+        "target_true": "bishop"
+      },
+      "prompt": "The first volume was released on July 15, 2008. Robert William Muench has the position of",
+      "target": "pope"
+    },
+    {
+      "anchor_prompt": "Possidius of Calama is a",
+      "anchor_target": "bishop",
+      "example_id": "counterfact-19-neighborhood-visible",
+      "metadata": {
+        "case_index": 10,
+        "counterfact_probe_kind": "neighborhood_specificity",
+        "delay_since_last_relevant_update": 0,
+        "probe_family": "counterfact_neighborhood_specificity",
+        "relation_id": "P39",
+        "sequence_id": "counterfact-19",
+        "source_case_id": 19,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 17,
+        "subject": "Robert William Muench",
+        "target_new": "pope",
+        "target_true": "bishop"
+      },
+      "prompt": "The first volume was released on July 15, 2008. Robert William Muench has the position of",
+      "target": "pope"
+    },
+    {
+      "anchor_prompt": "Saint Martial, whose position is that of",
+      "anchor_target": "bishop",
+      "example_id": "counterfact-19-delayed-neighborhood-visible",
+      "metadata": {
+        "case_index": 10,
+        "counterfact_probe_kind": "delayed_neighborhood_specificity",
+        "delay_since_last_relevant_update": 3,
+        "probe_family": "counterfact_delayed_neighborhood_specificity",
+        "relation_id": "P39",
+        "sequence_id": "counterfact-19",
+        "source_case_id": 19,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 17,
+        "subject": "Robert William Muench",
+        "target_new": "pope",
+        "target_true": "bishop"
+      },
+      "prompt": "The first volume was released on July 15, 2008. Robert William Muench has the position of",
+      "target": "pope"
+    },
+    {
+      "anchor_prompt": "Anthropologie's headquarters are in",
+      "anchor_target": "Philadelphia",
+      "example_id": "counterfact-22-rewrite-paraphrase-visible",
+      "metadata": {
+        "case_index": 11,
+        "counterfact_probe_kind": "rewrite_paraphrase",
+        "delay_since_last_relevant_update": 1,
+        "probe_family": "counterfact_rewrite_paraphrase",
+        "relation_id": "P159",
+        "sequence_id": "counterfact-22",
+        "source_case_id": 22,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 20,
+        "subject": "Monell Chemical Senses Center",
+        "target_new": "Mumbai",
+        "target_true": "Philadelphia"
+      },
+      "prompt": "Ludology, Cornelius, et al. Monell Chemical Senses Center is based in",
+      "target": "Mumbai"
+    },
+    {
+      "anchor_prompt": "Evolve, whose headquarters are in",
+      "anchor_target": "Philadelphia",
+      "example_id": "counterfact-22-neighborhood-visible",
+      "metadata": {
+        "case_index": 11,
+        "counterfact_probe_kind": "neighborhood_specificity",
+        "delay_since_last_relevant_update": 0,
+        "probe_family": "counterfact_neighborhood_specificity",
+        "relation_id": "P159",
+        "sequence_id": "counterfact-22",
+        "source_case_id": 22,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 20,
+        "subject": "Monell Chemical Senses Center",
+        "target_new": "Mumbai",
+        "target_true": "Philadelphia"
+      },
+      "prompt": "Ludology, Cornelius, et al. Monell Chemical Senses Center is based in",
+      "target": "Mumbai"
+    },
+    {
+      "anchor_prompt": "Exigen Services is based in",
+      "anchor_target": "Philadelphia",
+      "example_id": "counterfact-22-delayed-neighborhood-visible",
+      "metadata": {
+        "case_index": 11,
+        "counterfact_probe_kind": "delayed_neighborhood_specificity",
+        "delay_since_last_relevant_update": 3,
+        "probe_family": "counterfact_delayed_neighborhood_specificity",
+        "relation_id": "P159",
+        "sequence_id": "counterfact-22",
+        "source_case_id": 22,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 20,
+        "subject": "Monell Chemical Senses Center",
+        "target_new": "Mumbai",
+        "target_true": "Philadelphia"
+      },
+      "prompt": "Ludology, Cornelius, et al. Monell Chemical Senses Center is based in",
+      "target": "Mumbai"
+    },
+    {
+      "anchor_prompt": "Eddie Guerrero passed away at",
+      "anchor_target": "Minneapolis",
+      "example_id": "counterfact-23-rewrite-paraphrase-visible",
+      "metadata": {
+        "case_index": 12,
+        "counterfact_probe_kind": "rewrite_paraphrase",
+        "delay_since_last_relevant_update": 1,
+        "probe_family": "counterfact_rewrite_paraphrase",
+        "relation_id": "P20",
+        "sequence_id": "counterfact-23",
+        "source_case_id": 23,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 21,
+        "subject": "Charles Alfred Pillsbury",
+        "target_new": "Berlin",
+        "target_true": "Minneapolis"
+      },
+      "prompt": "Entries for each day are listed alphabetically by surname. Charles Alfred Pillsbury lost their life at",
+      "target": "Berlin"
+    },
+    {
+      "anchor_prompt": "Walter Mondale died in the city of",
+      "anchor_target": "Minneapolis",
+      "example_id": "counterfact-23-neighborhood-visible",
+      "metadata": {
+        "case_index": 12,
+        "counterfact_probe_kind": "neighborhood_specificity",
+        "delay_since_last_relevant_update": 0,
+        "probe_family": "counterfact_neighborhood_specificity",
+        "relation_id": "P20",
+        "sequence_id": "counterfact-23",
+        "source_case_id": 23,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 21,
+        "subject": "Charles Alfred Pillsbury",
+        "target_new": "Berlin",
+        "target_true": "Minneapolis"
+      },
+      "prompt": "Entries for each day are listed alphabetically by surname. Charles Alfred Pillsbury lost their life at",
+      "target": "Berlin"
+    },
+    {
+      "anchor_prompt": "Clifford D. Simak passed away in",
+      "anchor_target": "Minneapolis",
+      "example_id": "counterfact-23-delayed-neighborhood-visible",
+      "metadata": {
+        "case_index": 12,
+        "counterfact_probe_kind": "delayed_neighborhood_specificity",
+        "delay_since_last_relevant_update": 3,
+        "probe_family": "counterfact_delayed_neighborhood_specificity",
+        "relation_id": "P20",
+        "sequence_id": "counterfact-23",
+        "source_case_id": 23,
+        "source_dataset": "azhx/counterfact",
+        "source_row_idx": 21,
+        "subject": "Charles Alfred Pillsbury",
+        "target_new": "Berlin",
+        "target_true": "Minneapolis"
+      },
+      "prompt": "Entries for each day are listed alphabetically by surname. Charles Alfred Pillsbury lost their life at",
+      "target": "Berlin"
+    }
+  ],
+  "metadata": {
+    "evaluation_contract": {
+      "anchor_probe": "CounterFact same-relation neighborhood specificity",
+      "purpose_label": "fast plumbing and regression-check lane",
+      "reported_metric_families": [
+        "target_quality",
+        "interference",
+        "by_probe_family",
+        "retention_by_lag"
+      ],
+      "scale_label": "smoke",
+      "target_probe": "CounterFact rewrite efficacy and paraphrase generalization"
+    },
+    "problem_family": "counterfact_single_fact_rewrites",
+    "provenance": {
+      "case_count": 12,
+      "example_count": 36,
+      "scale_label": "smoke",
+      "selected_case_ids": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        11,
+        19,
+        22,
+        23
+      ],
+      "selection_policy": "first deterministic ASCII-valid cases with simple short answers, preferring one case per relation_id before filling reserves",
+      "source_config": "default",
+      "source_dataset": "azhx/counterfact",
+      "source_split": "train",
+      "source_url": "https://hf.co/datasets/azhx/counterfact"
+    },
+    "slice_families": [
+      "counterfact_rewrite_paraphrase",
+      "counterfact_neighborhood_specificity",
+      "counterfact_delayed_neighborhood_specificity"
+    ]
+  },
+  "notes": [
+    "The public pack is derived deterministically from Hugging Face CounterFact rows.",
+    "Neighbor anchor targets use requested_rewrite.target_true, following CounterFact specificity construction."
+  ],
+  "pack_id": "cl_dev_visible_v4_counterfact_smoke",
+  "purpose": "Visible development pack for the v4 CounterFact smoke substrate. Targets score edited facts under held-out paraphrases; anchors score same-relation neighborhood specificity against target_true on prompt surfaces disjoint from training replay prompts.",
+  "schema_version": 2,
+  "status": "smoke_cl_visible_pack",
+  "visibility": "public_visible_dev"
+}

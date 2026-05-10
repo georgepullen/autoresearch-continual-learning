@@ -1,0 +1,32 @@
+{
+  "active_registry_versions": {
+    "confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "train_generator_version": "cl_seq_train_v4_counterfact_standard"
+  },
+  "attempt_count": 15,
+  "branch_id": "branch_baseline_seq_lora_ft_v0",
+  "branch_score": 0.0,
+  "confirmation_fail_count": 0,
+  "confirmation_pass_count": 1,
+  "cooldown_until_utc": null,
+  "kill_conditions": [
+    "A mainline branch matches or beats its end-of-sequence accuracy while lowering forgetting or interference-shape.",
+    "Repeated confirmation failures appear on the active CL substrate."
+  ],
+  "last_outcome": "discard",
+  "last_run_id": "bootstrap-ablate-mixed-20260420T2027Z",
+  "method_family": "baseline_seq_lora_ft_v0",
+  "notes": [
+    "Fallback baseline branch for the 96-case CounterFact v4 standard substrate if the state-replay baseline fails to refresh."
+  ],
+  "predicted_signature": [
+    "Strong plasticity on the explicit LoRA surface.",
+    "Higher interference risk as the overwrite depth grows."
+  ],
+  "promotion_count": 1,
+  "retired_at_utc": null,
+  "schema_version": 1,
+  "status": "active_reference_failed_to_seed",
+  "updated_at_utc": "2026-04-20T20:34:04Z"
+}

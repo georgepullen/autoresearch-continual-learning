@@ -1,0 +1,40 @@
+{
+  "active_registry_versions": {
+    "confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "train_generator_version": "cl_seq_train_v4_counterfact_standard"
+  },
+  "attempt_count": 3,
+  "branch_id": "branch_baseline_seq_lora_ft_v4_rank16_final_consolidation",
+  "branch_score": 1.2999999999999998,
+  "confirmation_fail_count": 0,
+  "confirmation_pass_count": 0,
+  "cooldown_until_utc": null,
+  "kill_conditions": [
+    "Fails the bootstrap seed gates on the 96-case CounterFact v4 standard substrate.",
+    "Exceeds the dev_v1 runtime cap before completing final consolidation and visible evaluation.",
+    "Raises lagged target exact only by collapsing anchor specificity beyond the prior v3 regression."
+  ],
+  "last_baseline_acceptance_tier": "provisional",
+  "last_outcome": "promote",
+  "last_run_id": "bootstrap-refresh-20260509T201943Z",
+  "method_family": "baseline_seq_lora_ft_v4_rank16_final_consolidation",
+  "notes": [
+    "Introduced after v3 with public generation-prompt variants passed protected aggregate target but missed the latest-value floor at 0.3229<0.4000.",
+    "Uses cheaper per-episode state replay followed by explicit end-of-stream target and anchor consolidation passes over active training records only.",
+    "This remains a baseline family: no retrieval, helper model, answer-set postprocessor, or hidden memory store.",
+    "After prompt-surface-separated rematerialization, one saved v4 adapter retained target/latest performance but failed locked anchor floor at 0.2188<0.2500.",
+    "A follow-up anchor-heavy rerun fixed anchor but ended consolidation on anchor updates and collapsed target to 0.2500.",
+    "The target-last consolidation rerun cleared corrected prompt-surface-separated bootstrap gates and is now the provisional standard-lane champion."
+  ],
+  "predicted_signature": [
+    "Better lag-1+ and lag-3+ target retention than v3 by rehearsing all active target records after the stream.",
+    "Lower per-episode replay cost than v3 because target history is reduced from 24 records to 8 records.",
+    "Anchor exact should recover from disjoint anchor-wrapper variants plus final anchor consolidation, without exact eval-prompt rehearsal."
+  ],
+  "promotion_count": 1,
+  "retired_at_utc": null,
+  "schema_version": 1,
+  "status": "active",
+  "updated_at_utc": "2026-05-09T20:48:13Z"
+}

@@ -1,0 +1,11 @@
+{
+  "remote_host": "george@100.74.228.101",
+  "remote_pid": "65729",
+  "remote_repo_path": "/home/george/workspace/autoresearch-continual-learning",
+  "remote_run_dir": "/home/george/shared/artifacts/autoresearch-continual-learning/runs/mainline-20260421T084903Z",
+  "run_id": "mainline-20260421T084903Z",
+  "schema_version": 1,
+  "spec_path": "experiments/specs/mainline-20260421T084903Z.yaml",
+  "submitted_at_utc": "2026-04-21T08:49:05Z",
+  "task_mode": "constitution_bootstrap"
+}

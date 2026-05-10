@@ -179,6 +179,7 @@ def build_artifact(
             "comparison_scope": context.comparison_scope,
         }
     )
+    payload["metrics"]["continual_learning"] = aggregate_family(records, "continual_learning")
     payload["metrics"]["target_quality"] = aggregate_family(records, "target_quality")
     payload["metrics"]["interference"] = aggregate_family(records, "interference")
     payload["metrics"]["cost"] = {
@@ -231,8 +232,11 @@ def normalize_step_metrics(payload: dict[str, Any]) -> dict[str, Any]:
     if not isinstance(payload, dict):
         raise ValueError("step_fn must return a mapping")
     normalized = dict(payload)
+    normalized.setdefault("continual_learning", {})
     normalized.setdefault("target_quality", {})
     normalized.setdefault("interference", {})
+    if not isinstance(normalized["continual_learning"], dict):
+        raise ValueError("continual_learning metrics must be a mapping")
     if not isinstance(normalized["target_quality"], dict):
         raise ValueError("target_quality metrics must be a mapping")
     if not isinstance(normalized["interference"], dict):
@@ -245,26 +249,32 @@ def normalize_observed_capacity(
     context: TrainerContext,
     observed_capacity: dict[str, Any],
 ) -> dict[str, Any]:
-    observed_trainable = _as_non_negative_int(
-        observed_capacity.get("observed_trainable_parameter_count"),
-        context.declared_trainable_params,
+    observed_trainable_raw = _as_non_negative_int(
+        observed_capacity.get("observed_trainable_parameter_count")
     )
-    base_trainable = _as_non_negative_int(
-        observed_capacity.get("base_model_trainable_parameter_count"),
-        0 if context.frozen_base_model else observed_trainable,
+    observed_trainable_measured = observed_trainable_raw is not None
+    base_trainable_raw = _as_non_negative_int(
+        observed_capacity.get("base_model_trainable_parameter_count")
     )
+    base_trainable_measured = base_trainable_raw is not None
+    frozen_base_behavior = observed_capacity.get("frozen_base_behavior_verified")
+    frozen_base_behavior_measured = isinstance(frozen_base_behavior, bool)
+    optimizer_exclusion = observed_capacity.get("optimizer_excludes_frozen_base_parameters")
+    optimizer_param_membership_measured = isinstance(optimizer_exclusion, bool)
     return {
         "declared_trainable_parameter_count": context.declared_trainable_params,
-        "observed_trainable_parameter_count": observed_trainable,
-        "base_model_trainable_parameter_count": base_trainable,
-        "frozen_base_behavior_verified": _as_bool(
-            observed_capacity.get("frozen_base_behavior_verified"),
-            context.frozen_base_model,
+        "observed_trainable_parameter_count": observed_trainable_raw or 0,
+        "observed_trainable_parameter_count_measured": observed_trainable_measured,
+        "base_model_trainable_parameter_count": base_trainable_raw or 0,
+        "base_model_trainable_parameter_count_measured": base_trainable_measured,
+        "frozen_base_behavior_verified": (
+            frozen_base_behavior if frozen_base_behavior_measured else False
         ),
-        "optimizer_excludes_frozen_base_parameters": _as_bool(
-            observed_capacity.get("optimizer_excludes_frozen_base_parameters"),
-            context.frozen_base_model,
+        "frozen_base_behavior_measured": frozen_base_behavior_measured,
+        "optimizer_excludes_frozen_base_parameters": (
+            optimizer_exclusion if optimizer_param_membership_measured else False
         ),
+        "optimizer_param_membership_measured": optimizer_param_membership_measured,
         "used_retrieval": _as_bool(
             observed_capacity.get("used_retrieval"),
             context.uses_retrieval,
@@ -280,10 +290,10 @@ def normalize_observed_capacity(
     }
 
 
-def _as_non_negative_int(value: Any, default: int) -> int:
+def _as_non_negative_int(value: Any) -> int | None:
     if isinstance(value, int) and not isinstance(value, bool) and value >= 0:
         return value
-    return default
+    return None
 
 
 def _as_bool(value: Any, default: bool) -> bool:

@@ -1,0 +1,35 @@
+{
+  "base_model": "google/gemma-3-4b-pt",
+  "baseline_ref": "baseline-20260509T094353Z",
+  "command": "~/shared/envs/projects/autoresearch-continual-learning-env/bin/python scripts/run_bootstrap_baseline.py --spec experiments/specs/baseline-20260509T094944Z.yaml --run-dir ${AUTORESEARCH_REMOTE_RUN_DIR:-artifacts/runs/baseline-20260509T094944Z}",
+  "comparison_scope": "selected_stack_bootstrap_baseline",
+  "created_at_utc": "2026-05-09T09:49:44Z",
+  "data": {
+    "confirmation_pack_summary": "cl_confirm_locked_v2_seen_fact_hidden_surface",
+    "development_pack": "cl_dev_visible_v3_seen_fact_hidden_surface",
+    "train_generator_version": "cl_seq_train_v3_seen_fact_hidden_surface"
+  },
+  "declared_capacity": {
+    "frozen_base_model": true,
+    "helper_models": [],
+    "trainable_parameter_count": 524288,
+    "trainable_parameter_tolerance": 0,
+    "uses_postprocessor": false,
+    "uses_retrieval": false
+  },
+  "editable_surface": {
+    "paths": [
+      "method/baselines/seq_lora_ft.py",
+      "method/trainer.py",
+      "scripts/decide.py",
+      "scripts/run_bootstrap_baseline.py"
+    ],
+    "selection_policy": "branch_local_exploit"
+  },
+  "method_family": "baseline_seq_lora_ft_v1_state_replay",
+  "parent_champion": "baseline-20260509T094353Z",
+  "run_class": "dev_v1",
+  "run_id": "baseline-20260509T094944Z",
+  "schema_version": 1,
+  "task_mode": "constitution_bootstrap"
+}

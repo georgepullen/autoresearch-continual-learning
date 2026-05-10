@@ -18,8 +18,19 @@ from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 LOCK_PATH = REPO_ROOT / "locks" / "active_run.lock"
-DEFAULT_REMOTE_HOST = "3090"
+SUBMISSIONS_DIR = REPO_ROOT / "experiments" / "submissions"
+DEFAULT_REMOTE_HOST = os.environ.get("AUTORESEARCH_REMOTE_HOST", "3090")
 DEFAULT_WAKE_ENDPOINT = os.environ.get("AUTORESEARCH_WAKE_ENDPOINT")
+DEFAULT_SSH_PROXYCOMMAND = os.environ.get("AUTORESEARCH_SSH_PROXYCOMMAND")
+DEFAULT_REMOTE_WORKSPACE_ROOT = os.environ.get(
+    "AUTORESEARCH_REMOTE_WORKSPACE_ROOT",
+    "$HOME/codex-api/workspaces",
+)
+DEFAULT_REMOTE_ARTIFACTS_ROOT = os.environ.get(
+    "AUTORESEARCH_REMOTE_ARTIFACTS_ROOT",
+    "$HOME/shared/artifacts",
+)
+SEALED_WORKSPACE_EXCLUDES = REPO_ROOT / "ops" / "sealed_workspace_rsync_excludes.txt"
 
 
 @dataclass(frozen=True)
@@ -39,12 +50,12 @@ def main() -> int:
         "--wake-endpoint",
         default=DEFAULT_WAKE_ENDPOINT,
         help=(
-            "Optional wake endpoint used before SSH submission. "
-            "Defaults to $AUTORESEARCH_WAKE_ENDPOINT when set."
+            "Optional legacy wake endpoint used before SSH submission. "
+            "Disabled by default; only used when $AUTORESEARCH_WAKE_ENDPOINT or this flag is set."
         ),
     )
-    submit_parser.add_argument("--remote-workspace-root", default="$HOME/workspace")
-    submit_parser.add_argument("--remote-artifacts-root", default="$HOME/shared/artifacts")
+    submit_parser.add_argument("--remote-workspace-root", default=DEFAULT_REMOTE_WORKSPACE_ROOT)
+    submit_parser.add_argument("--remote-artifacts-root", default=DEFAULT_REMOTE_ARTIFACTS_ROOT)
     submit_parser.add_argument("--task-mode")
     submit_parser.add_argument("--skip-preflight", action="store_true")
     submit_parser.add_argument("--skip-wake", action="store_true")
@@ -77,10 +88,10 @@ def submit_run(args: argparse.Namespace) -> int:
     task_mode = args.task_mode or require_string(spec, "task_mode")
     remote_host = args.remote_host
     repo_name = REPO_ROOT.name
-    remote_repo_path = f"{args.remote_workspace_root.rstrip('/')}/{repo_name}"
-    remote_run_dir = (
-        f"{args.remote_artifacts_root.rstrip('/')}/{repo_name}/runs/{run_id}"
-    )
+    remote_workspace_root = normalize_remote_root(args.remote_workspace_root, remote_host)
+    remote_artifacts_root = normalize_remote_root(args.remote_artifacts_root, remote_host)
+    remote_repo_path = f"{remote_workspace_root.rstrip('/')}/{repo_name}"
+    remote_run_dir = f"{remote_artifacts_root.rstrip('/')}/{repo_name}/runs/{run_id}"
 
     preflight_result = None
     if not args.skip_preflight:
@@ -111,8 +122,11 @@ def submit_run(args: argparse.Namespace) -> int:
                 dry_run=args.dry_run,
             )
 
-        prep_command = ["ssh", remote_host, "bash", "-lc", f"prepare-workspace-repo {shlex.quote(repo_name)}"]
-        run_command(prep_command, dry_run=args.dry_run)
+        mkdir_command = ssh_command(
+            remote_host,
+            f"mkdir -p {shlex.quote(remote_repo_path)}",
+        )
+        run_command(mkdir_command, dry_run=args.dry_run)
 
         if not args.skip_sync:
             sync_repo(remote_host, remote_repo_path, dry_run=args.dry_run)
@@ -126,6 +140,20 @@ def submit_run(args: argparse.Namespace) -> int:
             dry_run=args.dry_run,
         )
 
+        if args.dry_run:
+            dry_run_payload = {
+                **initial_payload,
+                "phase": "dry_run_complete",
+                "submitted_at_utc": utc_now(),
+                "remote_pid": remote_pid,
+                "remote_submit_command": remote_submit_command,
+                "last_sync_at_utc": utc_now() if not args.skip_sync else None,
+                "wake_attempted_at_utc": utc_now() if (not args.skip_wake and args.wake_endpoint) else None,
+            }
+            clear_lock()
+            print(json.dumps(dry_run_payload, indent=2, sort_keys=True))
+            return 0
+
         final_payload = {
             **initial_payload,
             "phase": "active_remote_run",
@@ -136,6 +164,7 @@ def submit_run(args: argparse.Namespace) -> int:
             "wake_attempted_at_utc": utc_now() if (not args.skip_wake and args.wake_endpoint) else None,
         }
         write_lock_payload(final_payload)
+        write_submission_marker(final_payload)
         print(json.dumps(final_payload, indent=2, sort_keys=True))
         return 0
     except Exception:
@@ -281,20 +310,16 @@ def run_preflight(task_mode: str) -> dict[str, Any]:
 
 
 def sync_repo(remote_host: str, remote_repo_path: str, *, dry_run: bool) -> None:
-    command = [
-        "rsync",
-        "-az",
-        "--exclude",
-        ".git/",
-        "--exclude",
-        "__pycache__/",
-        "--exclude",
-        "artifacts/",
-        "--exclude",
-        "locks/active_run.lock",
-        f"{REPO_ROOT.as_posix().rstrip('/')}/",
-        f"{remote_host}:{remote_repo_path.rstrip('/')}/",
-    ]
+    command = rsync_base_command()
+    if SEALED_WORKSPACE_EXCLUDES.exists():
+        command.extend(["--exclude-from", SEALED_WORKSPACE_EXCLUDES.as_posix()])
+    command.extend(
+        [
+            "--delete",
+            f"{REPO_ROOT.as_posix().rstrip('/')}/",
+            f"{remote_host}:{remote_repo_path.rstrip('/')}/",
+        ]
+    )
     run_command(command, dry_run=dry_run)
 
 
@@ -313,6 +338,8 @@ def submit_remote(
 set -euo pipefail
 mkdir -p "{remote_run_dir}"
 cd "{remote_repo_path}"
+export AUTORESEARCH_REMOTE_RUN_DIR={shlex.quote(remote_run_dir)}
+export AUTORESEARCH_RUN_ID={shlex.quote(str(spec.get("run_id", "autoresearch-run")))}
 nohup /home/george/bin/run_with_host_power_lock.sh --name {shlex.quote(spec.get("run_id", "autoresearch-run"))} bash -lc {shlex.quote(run_command_text)} > "{remote_run_dir}/launcher.log" 2>&1 < /dev/null &
 pid=$!
 printf '%s\\n' "$pid" > "{remote_run_dir}/remote.pid"
@@ -330,7 +357,7 @@ cat > "{remote_run_dir}/submission.json" <<'JSON'
 JSON
 printf '%s\\n' "$pid"
 """
-    command = ["ssh", remote_host, "bash", "-lc", remote_script]
+    command = ssh_command(remote_host, remote_script)
     result = run_command(command, dry_run=dry_run, capture_output=True)
     remote_pid = result.stdout.strip() if result and result.stdout else None
     return remote_pid, " ".join(shlex.quote(part) for part in command)
@@ -371,6 +398,58 @@ def display_path(path: Path) -> str:
 
 def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text())
+
+
+def ssh_command(remote_host: str, remote_script: str) -> list[str]:
+    command = ["ssh"]
+    if DEFAULT_SSH_PROXYCOMMAND:
+        command.extend(["-o", f"ProxyCommand={DEFAULT_SSH_PROXYCOMMAND}"])
+    command.extend([remote_host, f"bash -lc {shlex.quote(remote_script)}"])
+    return command
+
+
+def rsync_base_command() -> list[str]:
+    command = ["rsync", "-az"]
+    if DEFAULT_SSH_PROXYCOMMAND:
+        command.extend(["-e", f"ssh -o ProxyCommand={shlex.quote(DEFAULT_SSH_PROXYCOMMAND)}"])
+    return command
+
+
+def normalize_remote_root(root: str, remote_host: str) -> str:
+    normalized = root.strip()
+    if normalized.startswith("$HOME/"):
+        return f"{remote_home(remote_host)}/{normalized[len('$HOME/'):]}"
+    if normalized == "$HOME":
+        return remote_home(remote_host)
+    if normalized.startswith("~/"):
+        return f"{remote_home(remote_host)}/{normalized[2:]}"
+    if normalized == "~":
+        return remote_home(remote_host)
+    return normalized
+
+
+def remote_home(remote_host: str) -> str:
+    user = remote_host.split("@", 1)[0] if "@" in remote_host else "george"
+    return f"/home/{user}"
+
+
+def write_submission_marker(payload: dict[str, Any]) -> Path:
+    run_id = require_string(payload, "run_id")
+    path = SUBMISSIONS_DIR / f"{run_id}.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    marker = {
+        "schema_version": 1,
+        "run_id": run_id,
+        "remote_host": payload.get("remote_host"),
+        "remote_repo_path": payload.get("remote_repo_path"),
+        "remote_run_dir": payload.get("remote_run_dir"),
+        "remote_pid": payload.get("remote_pid"),
+        "spec_path": payload.get("spec_path"),
+        "task_mode": payload.get("task_mode"),
+        "submitted_at_utc": payload.get("submitted_at_utc") or payload.get("acquired_at_utc"),
+    }
+    path.write_text(json.dumps(marker, indent=2, sort_keys=True) + "\n")
+    return path
 
 
 def require_string(payload: dict[str, Any], field: str) -> str:

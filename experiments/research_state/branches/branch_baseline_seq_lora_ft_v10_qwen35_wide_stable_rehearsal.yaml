@@ -1,0 +1,39 @@
+{
+  "active_registry_versions": {
+    "confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "train_generator_version": "cl_seq_train_v4_counterfact_standard"
+  },
+  "attempt_count": 1,
+  "bootstrap_target_lane": "qwen35_champion_wide",
+  "branch_id": "branch_baseline_seq_lora_ft_v10_qwen35_wide_stable_rehearsal",
+  "branch_score": 1.4,
+  "confirmation_fail_count": 0,
+  "confirmation_pass_count": 0,
+  "cooldown_until_utc": null,
+  "kill_conditions": [
+    "Visible predictions collapse to a single frequent answer again.",
+    "Training-prompt target recall remains below the v8 top-4 target recall.",
+    "Uses retrieval, answer-set postprocessing, visible-dev prompt rehearsal, or locked confirmation prompt access."
+  ],
+  "last_baseline_acceptance_tier": null,
+  "last_outcome": "discard",
+  "last_run_id": "baseline-20260510T122908Z",
+  "method_family": "baseline_seq_lora_ft_v10_qwen35_wide_stable_rehearsal",
+  "notes": [
+    "Opened after v9 showed that simply widening Qwen 0.8B LoRA capacity can destabilize generation into a single-answer collapse.",
+    "Keeps the wide top-8 hybrid attention plus MLP surface but halves rank, lowers learning rate, increases anchor rehearsal, and uses mixed final consolidation.",
+    "Tests whether the smaller model can use legitimate wider capacity when optimizer pressure is kept stable."
+  ],
+  "predicted_signature": [
+    "Prediction entropy should recover versus v9's all-Paris collapse.",
+    "Training-prompt recall should beat v8 if the top-4 surface was the binding limitation.",
+    "If recall recovers but visible target/joint stays low, move to structured relation-conditioned adapters rather than more global sequential LoRA."
+  ],
+  "promotion_count": 0,
+  "retired_at_utc": null,
+  "schema_version": 1,
+  "status": "active",
+  "target_lane": "qwen35_surrogate_wide",
+  "updated_at_utc": "2026-05-10T13:07:04Z"
+}

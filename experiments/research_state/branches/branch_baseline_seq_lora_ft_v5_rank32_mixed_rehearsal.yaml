@@ -1,0 +1,37 @@
+{
+  "active_registry_versions": {
+    "confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "train_generator_version": "cl_seq_train_v4_counterfact_standard"
+  },
+  "attempt_count": 1,
+  "branch_id": "branch_baseline_seq_lora_ft_v5_rank32_mixed_rehearsal",
+  "branch_score": 1.25,
+  "confirmation_fail_count": 0,
+  "confirmation_pass_count": 0,
+  "cooldown_until_utc": null,
+  "kill_conditions": [
+    "Fails to improve the target/anchor tradeoff over the v4 provisional champion on prompt-disjoint CounterFact standard confirmation.",
+    "Raises target exact by collapsing protected neighborhood specificity below the v4 corrected anchor range.",
+    "Requires retrieval, answer-set postprocessing, visible-dev prompt rehearsal, or locked confirmation prompt access."
+  ],
+  "last_baseline_acceptance_tier": null,
+  "last_outcome": "discard",
+  "last_run_id": "baseline-20260509T213611Z",
+  "method_family": "baseline_seq_lora_ft_v5_rank32_mixed_rehearsal",
+  "notes": [
+    "Opened after the v4 case audit showed the rank-16 target-last schedule learned many edits but leaked high-frequency edited answers into same-relation anchors.",
+    "Keeps the selected Gemma top4 LoRA stack and prompt-disjoint CounterFact v4 standard substrate.",
+    "Tests whether mixed target/anchor gradient accumulation gives the in-loop agent a stronger non-cheating starting champion than recency-ordered sequential updates."
+  ],
+  "predicted_signature": [
+    "Higher joint target/anchor exact than v4 if order-driven interference is the dominant failure mode.",
+    "Fewer anchor predictions equal to recently edited target answers.",
+    "Potentially slower runtime and higher trainable capacity from rank-32 LoRA, still within the declared selected-stack bootstrap envelope."
+  ],
+  "promotion_count": 0,
+  "retired_at_utc": null,
+  "schema_version": 1,
+  "status": "active",
+  "updated_at_utc": "2026-05-09T22:09:52Z"
+}

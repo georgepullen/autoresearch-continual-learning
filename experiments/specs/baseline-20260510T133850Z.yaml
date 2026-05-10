@@ -1,0 +1,43 @@
+{
+  "base_model": "Qwen/Qwen3.5-4B-Base",
+  "baseline_ref": "bootstrap_baseline",
+  "command": "~/shared/envs/projects/autoresearch-continual-learning-env/bin/python scripts/run_bootstrap_baseline.py --spec experiments/specs/baseline-20260510T133850Z.yaml --run-dir ${AUTORESEARCH_REMOTE_RUN_DIR:-artifacts/runs/baseline-20260510T133850Z}",
+  "comparison_scope": "qwen35_champion_counterfact_v4_wide",
+  "created_at_utc": "2026-05-10T13:38:50Z",
+  "data": {
+    "confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "train_generator_version": "cl_seq_train_v4_counterfact_standard"
+  },
+  "declared_capacity": {
+    "frozen_base_model": true,
+    "helper_models": [],
+    "trainable_parameter_count": 6979584,
+    "trainable_parameter_tolerance": 0,
+    "uses_postprocessor": false,
+    "uses_retrieval": false
+  },
+  "editable_surface": {
+    "paths": [
+      "method/adapter_surface.py",
+      "method/baselines/seq_lora_ft.py",
+      "method/trainer.py",
+      "scripts/decide.py",
+      "scripts/run_bootstrap_baseline.py"
+    ],
+    "selection_policy": "qwen35_champion_wide_surrogate_graduation"
+  },
+  "method_family": "baseline_seq_lora_ft_v11_qwen35_wide_fact_replay",
+  "model_lane": {
+    "decision_mode": "champion_bootstrap_or_compare",
+    "name": "qwen35_champion_wide",
+    "role": "champion_comparison",
+    "source_run_id": "baseline-20260510T131005Z",
+    "surface_name": "qwen35_top8_hybrid_attention_mlp"
+  },
+  "parent_champion": "no_champion_recorded",
+  "run_class": "qwen35_champion_dev_v1",
+  "run_id": "baseline-20260510T133850Z",
+  "schema_version": 1,
+  "task_mode": "constitution_bootstrap"
+}

@@ -1,0 +1,11 @@
+{
+  "remote_host": "george@100.74.228.101",
+  "remote_pid": "50200",
+  "remote_repo_path": "/home/george/workspace/autoresearch-continual-learning",
+  "remote_run_dir": "/home/george/shared/artifacts/autoresearch-continual-learning/runs/bootstrap-refresh-20260420T191119Z",
+  "run_id": "bootstrap-refresh-20260420T191119Z",
+  "schema_version": 1,
+  "spec_path": "experiments/specs/bootstrap-refresh-20260420T191119Z.yaml",
+  "submitted_at_utc": "2026-04-20T19:11:20Z",
+  "task_mode": "constitution_bootstrap"
+}

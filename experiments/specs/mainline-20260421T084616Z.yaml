@@ -1,0 +1,37 @@
+{
+  "base_model": "google/gemma-3-4b-pt",
+  "baseline_ref": "bootstrap-refresh-20260420T225651Z",
+  "command": "~/shared/envs/projects/autoresearch-continual-learning-env/bin/python scripts/run_mainline_hyper_lora.py --spec experiments/specs/mainline-20260421T084616Z.yaml --run-dir ${AUTORESEARCH_REMOTE_RUN_DIR:-artifacts/runs/mainline-20260421T084616Z}",
+  "comparison_scope": "selected_stack_bootstrap_baseline",
+  "created_at_utc": "2026-04-21T08:46:17Z",
+  "data": {
+    "confirmation_pack_summary": "cl_confirm_locked_v2_seen_fact_hidden_surface",
+    "development_pack": "cl_dev_visible_v3_seen_fact_hidden_surface",
+    "train_generator_version": "cl_seq_train_v3_seen_fact_hidden_surface"
+  },
+  "declared_capacity": {
+    "frozen_base_model": true,
+    "helper_models": [],
+    "trainable_parameter_count": 1641296,
+    "trainable_parameter_tolerance": 0,
+    "uses_postprocessor": false,
+    "uses_retrieval": false
+  },
+  "editable_surface": {
+    "paths": [
+      "method/conflict_gate.py",
+      "method/hypernet.py",
+      "method/losses.py",
+      "method/trainer.py",
+      "scripts/decide.py",
+      "scripts/run_mainline_hyper_lora.py"
+    ],
+    "selection_policy": "branch_local_exploit"
+  },
+  "method_family": "hyper_lora_v0",
+  "parent_champion": "bootstrap-refresh-20260420T225651Z",
+  "run_class": "dev_v1",
+  "run_id": "mainline-20260421T084616Z",
+  "schema_version": 1,
+  "task_mode": "constitution_bootstrap"
+}

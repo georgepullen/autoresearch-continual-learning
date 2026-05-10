@@ -1,0 +1,7 @@
+{
+  "artifact_path": "artifacts/runs/v4-counterfact-bootstrap-20260509T135715Z/artifact.json",
+  "pack_id": "cl_confirm_locked_v4_counterfact",
+  "run_id": "v4-counterfact-bootstrap-20260509T135715Z",
+  "schema_version": 1,
+  "spec_path": "experiments/specs/v4-counterfact-bootstrap-20260509T135715Z.yaml"
+}

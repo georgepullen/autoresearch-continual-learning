@@ -12,6 +12,10 @@ INVALIDATING_CODES = frozenset(
         "undeclared_helper_model",
         "undeclared_postprocessor",
         "trainable_parameter_mismatch",
+        "observed_trainable_parameter_count_not_measured",
+        "base_model_trainable_parameter_count_not_measured",
+        "frozen_base_behavior_not_measured",
+        "optimizer_param_membership_not_measured",
         "frozen_base_behavior_failed",
         "optimizer_includes_frozen_base_parameters",
         "missing_declared_capacity",
@@ -181,8 +185,26 @@ def check_observed_capacity(
 
     declared_trainable = declared_capacity.get("trainable_parameter_count")
     observed_trainable = observed_capacity.get("observed_trainable_parameter_count")
+    observed_trainable_measured = _bool(
+        observed_capacity.get("observed_trainable_parameter_count_measured")
+    )
     tolerance = declared_capacity.get("trainable_parameter_tolerance", 0)
-    if _non_negative_int(declared_trainable) is not None and _non_negative_int(observed_trainable) is not None:
+    if _non_negative_int(declared_trainable) is not None and not observed_trainable_measured:
+        findings.append(
+            SentinelFinding(
+                code="observed_trainable_parameter_count_not_measured",
+                message=(
+                    "Artifact did not provide a measured observed_trainable_parameter_count; "
+                    "declared-vs-observed capacity checks cannot be trusted."
+                ),
+                invalidates_run=True,
+            )
+        )
+    if (
+        _non_negative_int(declared_trainable) is not None
+        and _non_negative_int(observed_trainable) is not None
+        and observed_trainable_measured
+    ):
         abs_delta = abs(int(observed_trainable) - int(declared_trainable))
         allowed_delta = _non_negative_int(tolerance) or 0
         if abs_delta > allowed_delta:
@@ -199,11 +221,48 @@ def check_observed_capacity(
             )
 
     frozen_base_claimed = _bool(declared_capacity.get("frozen_base_model"))
+    if frozen_base_claimed and not _bool(
+        observed_capacity.get("base_model_trainable_parameter_count_measured")
+    ):
+        findings.append(
+            SentinelFinding(
+                code="base_model_trainable_parameter_count_not_measured",
+                message=(
+                    "Run declared a frozen base model, but base_model_trainable_parameter_count "
+                    "was not measured at runtime."
+                ),
+                invalidates_run=True,
+            )
+        )
+    if frozen_base_claimed and not _bool(observed_capacity.get("frozen_base_behavior_measured")):
+        findings.append(
+            SentinelFinding(
+                code="frozen_base_behavior_not_measured",
+                message="Run declared a frozen base model, but frozen-base verification was not measured.",
+                invalidates_run=True,
+            )
+        )
     if frozen_base_claimed and not _bool(observed_capacity.get("frozen_base_behavior_verified")):
         findings.append(
             SentinelFinding(
                 code="frozen_base_behavior_failed",
-                message="Run declared a frozen base model, but frozen-base verification did not pass.",
+                message=(
+                    "Run declared a frozen base model, but frozen-base verification did not pass "
+                    f"(base_model_trainable_parameter_count={observed_capacity.get('base_model_trainable_parameter_count')!r})."
+                ),
+                invalidates_run=True,
+            )
+        )
+    if frozen_base_claimed and not _bool(
+        observed_capacity.get("optimizer_param_membership_measured")
+    ):
+        findings.append(
+            SentinelFinding(
+                code="optimizer_param_membership_not_measured",
+                message=(
+                    "Run declared a frozen base model, but optimizer parameter membership "
+                    "was not measured at runtime."
+                ),
                 invalidates_run=True,
             )
         )

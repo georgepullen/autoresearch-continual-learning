@@ -1,0 +1,7 @@
+{
+  "artifact_path": "artifacts/runs/bootstrap-refresh-20260420T191119Z/artifact.json",
+  "pack_id": "cl_confirm_locked_v2_seen_fact_hidden_surface",
+  "run_id": "bootstrap-refresh-20260420T191119Z",
+  "schema_version": 1,
+  "spec_path": "experiments/specs/bootstrap-refresh-20260420T191119Z.yaml"
+}

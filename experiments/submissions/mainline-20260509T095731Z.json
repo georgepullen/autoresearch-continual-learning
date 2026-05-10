@@ -1,0 +1,11 @@
+{
+  "remote_host": "3090",
+  "remote_pid": "3287",
+  "remote_repo_path": "/home/george/codex-api/workspaces/autoresearch-continual-learning",
+  "remote_run_dir": "/home/george/shared/artifacts/autoresearch-continual-learning/runs/mainline-20260509T095731Z",
+  "run_id": "mainline-20260509T095731Z",
+  "schema_version": 1,
+  "spec_path": "experiments/specs/mainline-20260509T095731Z.yaml",
+  "submitted_at_utc": "2026-05-09T09:57:32Z",
+  "task_mode": "constitution_bootstrap"
+}

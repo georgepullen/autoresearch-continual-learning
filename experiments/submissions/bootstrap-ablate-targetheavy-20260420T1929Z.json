@@ -1,0 +1,11 @@
+{
+  "remote_host": "george@100.74.228.101",
+  "remote_pid": "53006",
+  "remote_repo_path": "/home/george/workspace/autoresearch-continual-learning",
+  "remote_run_dir": "/home/george/shared/artifacts/autoresearch-continual-learning/runs/bootstrap-ablate-targetheavy-20260420T1929Z",
+  "run_id": "bootstrap-ablate-targetheavy-20260420T1929Z",
+  "schema_version": 1,
+  "spec_path": "experiments/specs/bootstrap-ablate-targetheavy-20260420T1929Z.yaml",
+  "submitted_at_utc": "2026-04-20T20:14:05Z",
+  "task_mode": "constitution_bootstrap"
+}

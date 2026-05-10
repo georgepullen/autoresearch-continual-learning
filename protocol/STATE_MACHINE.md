@@ -25,6 +25,16 @@ The harness uses three layers of state:
 2. internal trigger conditions
 3. terminal outcomes
 
+Bootstrap baseline acceptance tier is separate metadata attached to champion
+state, not a fifth terminal outcome. The canonical tiers are:
+
+- `provisional`
+- `accepted`
+
+Those tiers describe how trustworthy the seeded baseline is as a reference
+artifact. They do not replace `promote`, `discard`, `invalid`, or
+`needs_human_decision`.
+
 ## Execution Stages
 
 These are not terminal outcomes. They describe where a run or candidate is in the loop.

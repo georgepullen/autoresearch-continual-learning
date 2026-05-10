@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "pack_id": "cl_dev_visible_v2",
+  "visibility": "public_visible_dev",
+  "status": "active_cl_visible_pack",
+  "purpose": "Visible continual-learning development pack that holds out public entities from the active public generator to better proxy locked confirmation generalization.",
+  "metadata": {
+    "problem_family": "stateful_operational_bulletins",
+    "evaluation_contract": {
+      "target_probe": "latest-state recall on a held-out public entity from the same relation family",
+      "anchor_probe": "retention on a separate nearby prompt from the same interference neighborhood",
+      "reported_metric_families": [
+        "target_quality",
+        "interference"
+      ]
+    },
+    "slice_families": [
+      "latest_state_after_repeated_overwrite",
+      "neighbor_retention_same_namespace",
+      "held_out_public_entities"
+    ]
+  },
+  "examples": [
+    {"example_id":"clinic_routing-3-latest-final","prompt":"Which desk does Riverton Adult Intake route to?","target":"Summit","anchor_prompt":"Which desk does Riverton Pediatric Intake route to?","anchor_target":"Walnut","metadata":{"sequence_id":"clinic_routing-3","probe_family":"latest_state_after_repeated_overwrite","delay_since_last_relevant_update":2}},
+    {"example_id":"clinic_routing-3-neighbor-retention","prompt":"Which desk does Lakeside Adult Intake route to?","target":"Elm","anchor_prompt":"Which desk does Riverton Adult Intake route to?","anchor_target":"Summit","metadata":{"sequence_id":"clinic_routing-3","probe_family":"neighbor_retention_same_namespace","delay_since_last_relevant_update":0}},
+    {"example_id":"permit_review-3-latest-final","prompt":"Which day handles Summit Utility Permit review?","target":"Tuesday","anchor_prompt":"Which day handles Summit Lighting Permit review?","anchor_target":"Monday","metadata":{"sequence_id":"permit_review-3","probe_family":"latest_state_after_repeated_overwrite","delay_since_last_relevant_update":2}},
+    {"example_id":"permit_review-3-neighbor-retention","prompt":"Which day handles Valley Market Permit review?","target":"Thursday","anchor_prompt":"Which day handles Summit Utility Permit review?","anchor_target":"Tuesday","metadata":{"sequence_id":"permit_review-3","probe_family":"neighbor_retention_same_namespace","delay_since_last_relevant_update":0}},
+    {"example_id":"rail_platform-3-latest-final","prompt":"Which platform does Coastal Line C4 use?","target":"14","anchor_prompt":"Which platform does Coastal Line C5 use?","anchor_target":"6","metadata":{"sequence_id":"rail_platform-3","probe_family":"latest_state_after_repeated_overwrite","delay_since_last_relevant_update":2}},
+    {"example_id":"rail_platform-3-neighbor-retention","prompt":"Which platform does Summit Line S1 use?","target":"1","anchor_prompt":"Which platform does Coastal Line C4 use?","anchor_target":"14","metadata":{"sequence_id":"rail_platform-3","probe_family":"neighbor_retention_same_namespace","delay_since_last_relevant_update":0}},
+    {"example_id":"support_queue-3-latest-final","prompt":"Which code does Cinder Refund Queue use?","target":"DE3","anchor_prompt":"Which code does Cinder Warranty Queue use?","anchor_target":"FG4","metadata":{"sequence_id":"support_queue-3","probe_family":"latest_state_after_repeated_overwrite","delay_since_last_relevant_update":2}},
+    {"example_id":"support_queue-3-neighbor-retention","prompt":"Which code does Harbor Refund Queue use?","target":"HJ5","anchor_prompt":"Which code does Cinder Refund Queue use?","anchor_target":"DE3","metadata":{"sequence_id":"support_queue-3","probe_family":"neighbor_retention_same_namespace","delay_since_last_relevant_update":0}}
+  ],
+  "notes": [
+    "These examples use unseen public entities relative to the active public training generator.",
+    "Visible-dev remains public and bounded, but it now pressures generalization instead of only same-entity recall."
+  ]
+}

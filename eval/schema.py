@@ -62,6 +62,14 @@ def artifact_template() -> dict[str, Any]:
             "comparison_scope": "",
         },
         "metrics": {
+            "continual_learning": {
+                "end_of_sequence_avg_accuracy": 0.0,
+                "average_forgetting": 0.0,
+                "backward_transfer": 0.0,
+                "forward_transfer": 0.0,
+                "plasticity": 0.0,
+                "interference_shape": 0.0
+            },
             "target_quality": {},
             "interference": {},
             "cost": {
@@ -77,9 +85,13 @@ def artifact_template() -> dict[str, Any]:
         "observed_capacity": {
             "declared_trainable_parameter_count": 0,
             "observed_trainable_parameter_count": 0,
+            "observed_trainable_parameter_count_measured": False,
             "base_model_trainable_parameter_count": 0,
+            "base_model_trainable_parameter_count_measured": False,
             "frozen_base_behavior_verified": False,
+            "frozen_base_behavior_measured": False,
             "optimizer_excludes_frozen_base_parameters": False,
+            "optimizer_param_membership_measured": False,
             "used_retrieval": False,
             "helper_models": [],
             "used_postprocessor": False,
@@ -147,6 +159,7 @@ def validate_artifact(payload: Mapping[str, Any]) -> ArtifactValidationResult:
         "comparison",
         errors,
     )
+    _require_mapping(metrics, "continual_learning", errors, parent="metrics")
     _require_mapping(metrics, "target_quality", errors, parent="metrics")
     _require_mapping(metrics, "interference", errors, parent="metrics")
     _require_mapping(metrics, "cost", errors, parent="metrics")
@@ -159,6 +172,7 @@ def validate_artifact(payload: Mapping[str, Any]) -> ArtifactValidationResult:
 
     editable_surface = _as_mapping(method.get("editable_surface"))
     declared_capacity = _as_mapping(method.get("declared_capacity"))
+    continual_learning = _as_mapping(metrics.get("continual_learning"))
     cost = _as_mapping(metrics.get("cost"))
 
     _require_sequence_field(editable_surface, "paths", "method.editable_surface", errors)
@@ -199,6 +213,19 @@ def validate_artifact(payload: Mapping[str, Any]) -> ArtifactValidationResult:
         errors,
     )
     _require_number_fields(
+        continual_learning,
+        [
+            "end_of_sequence_avg_accuracy",
+            "average_forgetting",
+            "backward_transfer",
+            "forward_transfer",
+            "plasticity",
+            "interference_shape",
+        ],
+        "metrics.continual_learning",
+        errors,
+    )
+    _require_number_fields(
         cost,
         ["runtime_seconds", "peak_vram_gb"],
         "metrics.cost",
@@ -216,9 +243,25 @@ def validate_artifact(payload: Mapping[str, Any]) -> ArtifactValidationResult:
         "observed_capacity",
         errors,
     )
+    _require_boolean_fields(
+        observed_capacity,
+        ["observed_trainable_parameter_count_measured"],
+        "observed_capacity",
+        errors,
+    )
     _require_int_field(
         observed_capacity,
         "base_model_trainable_parameter_count",
+        "observed_capacity",
+        errors,
+    )
+    _require_boolean_fields(
+        observed_capacity,
+        [
+            "base_model_trainable_parameter_count_measured",
+            "frozen_base_behavior_measured",
+            "optimizer_param_membership_measured",
+        ],
         "observed_capacity",
         errors,
     )

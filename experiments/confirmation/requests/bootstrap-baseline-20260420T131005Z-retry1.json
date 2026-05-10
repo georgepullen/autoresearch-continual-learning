@@ -1,0 +1,7 @@
+{
+  "artifact_path": "artifacts/runs/bootstrap-baseline-20260420T131005Z-retry1/artifact.json",
+  "pack_id": "confirm_locked_v1",
+  "run_id": "bootstrap-baseline-20260420T131005Z-retry1",
+  "schema_version": 1,
+  "spec_path": "experiments/specs/bootstrap-baseline-20260420T131005Z-retry1.yaml"
+}

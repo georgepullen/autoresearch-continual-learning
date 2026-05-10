@@ -1,0 +1,11 @@
+{
+  "remote_host": "3090",
+  "remote_pid": "6739",
+  "remote_repo_path": "/home/george/codex-api/workspaces/autoresearch-continual-learning",
+  "remote_run_dir": "/home/george/shared/artifacts/autoresearch-continual-learning/runs/v4-counterfact-20260509T135247Z",
+  "run_id": "v4-counterfact-20260509T135247Z",
+  "schema_version": 1,
+  "spec_path": "experiments/specs/v4-counterfact-20260509T135247Z.yaml",
+  "submitted_at_utc": "2026-05-09T13:53:35Z",
+  "task_mode": "constitution_bootstrap"
+}

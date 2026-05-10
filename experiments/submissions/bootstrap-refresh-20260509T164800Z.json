@@ -1,0 +1,11 @@
+{
+  "remote_host": "3090",
+  "remote_pid": "11137",
+  "remote_repo_path": "/home/george/codex-api/workspaces/autoresearch-continual-learning",
+  "remote_run_dir": "/home/george/shared/artifacts/autoresearch-continual-learning/runs/bootstrap-refresh-20260509T164800Z",
+  "run_id": "bootstrap-refresh-20260509T164800Z",
+  "schema_version": 1,
+  "spec_path": "experiments/specs/bootstrap-refresh-20260509T164800Z.yaml",
+  "submitted_at_utc": "2026-05-09T16:48:05Z",
+  "task_mode": "constitution_bootstrap"
+}

@@ -1,0 +1,39 @@
+{
+  "active_registry_versions": {
+    "confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "train_generator_version": "cl_seq_train_v4_counterfact_standard"
+  },
+  "attempt_count": 1,
+  "bootstrap_target_lane": "qwen35_champion",
+  "branch_id": "branch_baseline_seq_lora_ft_v7_qwen35_coverage_first",
+  "branch_score": 1.2,
+  "confirmation_fail_count": 0,
+  "confirmation_pass_count": 0,
+  "cooldown_until_utc": null,
+  "kill_conditions": [
+    "Fails to complete direct supervision over all 96 CounterFact edits before visible evaluation.",
+    "Surrogate target exact remains below the graduation floor after a completed full-stream run.",
+    "Uses retrieval, answer-set postprocessing, visible-dev prompt rehearsal, or locked confirmation prompt access."
+  ],
+  "last_baseline_acceptance_tier": null,
+  "last_outcome": "discard",
+  "last_run_id": "baseline-20260510T102412Z",
+  "method_family": "baseline_seq_lora_ft_v7_qwen35_coverage_first",
+  "notes": [
+    "Opened after the first Qwen v6 surrogate trained only 43 of 96 standard CounterFact edits before the runtime budget stopped the stream.",
+    "Keeps the same Qwen/Qwen3.5 surrogate/champion lanes, qwen35_top4_hybrid_attention LoRA surface, and prompt-disjoint CounterFact v4 standard substrate.",
+    "Reduces replay fan-out and final consolidation depth so the surrogate tests full edit coverage before spending champion runtime."
+  ],
+  "predicted_signature": [
+    "Visible target exact rises sharply because all 96 public edits receive direct target supervision.",
+    "Anchor exact may fall relative to v6 but should remain above the surrogate screen floor if limited same-relation replay is sufficient.",
+    "Joint success should become meaningful only if coverage-first target learning does not collapse same-relation anchors."
+  ],
+  "promotion_count": 0,
+  "retired_at_utc": null,
+  "schema_version": 1,
+  "status": "active",
+  "target_lane": "qwen35_surrogate",
+  "updated_at_utc": "2026-05-10T10:42:25Z"
+}

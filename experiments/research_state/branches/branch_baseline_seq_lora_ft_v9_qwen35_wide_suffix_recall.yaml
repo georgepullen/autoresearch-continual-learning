@@ -1,0 +1,39 @@
+{
+  "active_registry_versions": {
+    "confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "train_generator_version": "cl_seq_train_v4_counterfact_standard"
+  },
+  "attempt_count": 1,
+  "bootstrap_target_lane": "qwen35_champion_wide",
+  "branch_id": "branch_baseline_seq_lora_ft_v9_qwen35_wide_suffix_recall",
+  "branch_score": 1.3499999999999999,
+  "confirmation_fail_count": 0,
+  "confirmation_pass_count": 0,
+  "cooldown_until_utc": null,
+  "kill_conditions": [
+    "Training-prompt target recall remains below 0.50 after all 96 CounterFact edits and final consolidation.",
+    "Visible target exact remains below the surrogate floor while anchor exact stays below the surrogate floor.",
+    "Uses retrieval, answer-set postprocessing, visible-dev prompt rehearsal, or locked confirmation prompt access."
+  ],
+  "last_baseline_acceptance_tier": null,
+  "last_outcome": "discard",
+  "last_run_id": "baseline-20260510T112121Z",
+  "method_family": "baseline_seq_lora_ft_v9_qwen35_wide_suffix_recall",
+  "notes": [
+    "Opened after the v8 0.8B surrogate completed all 96 edits but recalled only 46/287 public target training prompts and 151/864 public anchor training prompts.",
+    "Keeps the Qwen/Qwen3.5 surrogate/champion family and the prompt-disjoint CounterFact v4 standard substrate.",
+    "Switches from top-4 attention-only LoRA to a top-8 hybrid attention plus MLP LoRA surface because the smaller model is underfitting the public stream, not merely failing held-out paraphrase transfer."
+  ],
+  "predicted_signature": [
+    "Training-prompt recall should rise materially versus v8 before visible-dev target exact can pass.",
+    "Visible predictions should be less concentrated in high-frequency attractor answers such as IBM and football.",
+    "If target recall improves while anchor exact remains poor, the next repair should add relation- or fact-conditioned adapter separation rather than more global capacity."
+  ],
+  "promotion_count": 0,
+  "retired_at_utc": null,
+  "schema_version": 1,
+  "status": "active",
+  "target_lane": "qwen35_surrogate_wide",
+  "updated_at_utc": "2026-05-10T12:25:21Z"
+}

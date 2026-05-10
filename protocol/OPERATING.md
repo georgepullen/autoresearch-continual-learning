@@ -87,6 +87,16 @@ If `experiments/champion.json` reports `bootstrap_pending`, do not treat
 missing champion context as ordinary ambiguity. Follow the explicit bootstrap
 lane in `protocol/BOOTSTRAP.yaml`.
 
+## Baseline-Tier Rule
+
+If `experiments/champion.json` reports `baseline_seeded`, inspect the champion's
+baseline acceptance tier before switching attention away from baseline work.
+
+- `provisional` means the harness has a usable seeded reference, but baseline
+  improvement work still takes priority over mainline method exploration.
+- `accepted` means the seeded baseline has cleared the stricter slice-aware
+  acceptance gates and the loop may treat it as the canonical reference point.
+
 ## Active-Run Rule
 
 If `locks/active_run.lock` exists and is not stale, do not submit another

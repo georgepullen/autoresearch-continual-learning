@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "pack_id": "cl_confirm_locked_v1",
+  "hash_algorithm": "sha256",
+  "hash_status": "host_local_registered",
+  "pack_hash": "b7b59834993c60009514b425c98f567cf592b597e6ad2fd4b5d7531ddd0dfa51",
+  "notes": [
+    "This hash corresponds to the host-local confirmation manifest kept outside the committed repository.",
+    "Only the hash and public summary are exposed in the repo; raw confirmation examples remain host-local."
+  ]
+}

@@ -2,9 +2,9 @@
   "schema_version": 1,
   "status": "bootstrap_lane_defined",
   "launch_envelope": {
-    "base_model": "google/gemma-3-4b-pt",
-    "surface_name": "top4_standard",
-    "comparability_rule": "Bootstrap seeding must stay on the selected launch stack and may not compare across stacks, surfaces, or unfrozen comparison regimes."
+    "base_model": "Qwen/Qwen3.5-4B-Base",
+    "surface_name": "qwen35_top8_hybrid_attention_mlp",
+    "comparability_rule": "Bootstrap seeding must stay on the active champion lane and may not compare across stacks, surfaces, or unfrozen comparison regimes."
   },
   "champion_states": [
     "bootstrap_pending",
@@ -14,20 +14,38 @@
   "bootstrap_lane": {
     "required_champion_status": "bootstrap_pending",
     "approved_method_families": [
-      "baseline_seq_lora_ft_v0"
+      "baseline_seq_lora_ft_v0",
+      "baseline_seq_lora_ft_v1_state_replay",
+      "baseline_seq_lora_ft_v2_rank16_target_replay",
+      "baseline_seq_lora_ft_v3_rank16_target_rehearsal",
+      "baseline_seq_lora_ft_v4_rank16_final_consolidation",
+      "baseline_seq_lora_ft_v5_rank32_mixed_rehearsal",
+      "baseline_seq_lora_ft_v6_rank32_relation_replay",
+      "baseline_seq_lora_ft_v6_rank32_relation_replay_qwen35",
+      "baseline_seq_lora_ft_v9_qwen35_wide_suffix_recall",
+      "baseline_seq_lora_ft_v10_qwen35_wide_stable_rehearsal",
+      "baseline_seq_lora_ft_v11_qwen35_wide_fact_replay"
     ],
     "allowed_run_classes": [
-      "dev_v1"
+      "qwen35_champion_dev_v1"
     ],
-    "required_base_model": "google/gemma-3-4b-pt",
-    "required_development_pack": "dev_visible_v1",
-    "required_confirmation_pack_summary": "confirm_locked_v1",
-    "required_train_generator_version": "seq_train_v1",
-    "comparison_scope": "selected_stack_bootstrap_baseline",
+    "required_base_model": "Qwen/Qwen3.5-4B-Base",
+    "required_development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "required_confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "required_train_generator_version": "cl_seq_train_v4_counterfact_standard",
+    "comparison_scope": "qwen35_champion_counterfact_v4_wide",
     "baseline_ref": "bootstrap_baseline",
     "notes": [
       "Bootstrap is an explicit lane, not an arbitrary first-valid-run exception.",
-      "The first champion may be seeded only from an approved baseline family on the selected launch stack.",
+      "The active first champion may be seeded only from an approved autoregressive baseline family on the Qwen 3.5 champion lane.",
+      "The first legitimate bootstrap on a fresh clone must use the active 96-case CounterFact-derived v4 standard substrate, not the 12-case smoke lane, archived plumbing packs, or earlier synthetic bootstrap gates.",
+      "Overwrite-aware baseline variants may update the replay objective or decoding policy, but they must keep the same selected stack and confirmation substrate.",
+      "Final-consolidation baseline variants may rehearse active current-state training records after the stream, but must not consume visible-dev or locked confirmation prompts.",
+      "Mixed-rehearsal baseline variants may change the optimizer schedule from recency-ordered single-example steps to target/anchor gradient accumulation, but must keep the same selected stack and prompt-disjoint CounterFact substrate.",
+      "Relation-aware replay variants may stratify CounterFact replay by public relation id, but must not use visible-dev or locked confirmation outcomes to select individual prompts.",
+      "The previous Gemma 3 4B bootstrap remains a legacy reference and is not comparable to Qwen-family champion runs.",
+      "Bootstrap seeding and accepted-baseline status are separate: a baseline may seed as a provisional reference before it clears the stricter accepted-baseline gates.",
+      "Answer-selection variants remain diagnostic controls and must not define the canonical bootstrap reference lane.",
       "Protected confirmation remains required for later promotion beyond the bootstrap baseline unless policy changes explicitly."
     ]
   }

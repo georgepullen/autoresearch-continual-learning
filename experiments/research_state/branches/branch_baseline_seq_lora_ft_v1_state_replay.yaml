@@ -1,0 +1,35 @@
+{
+  "active_registry_versions": {
+    "confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "train_generator_version": "cl_seq_train_v4_counterfact_standard"
+  },
+  "attempt_count": 7,
+  "branch_id": "branch_baseline_seq_lora_ft_v1_state_replay",
+  "branch_score": 1.0499999999999998,
+  "confirmation_fail_count": 0,
+  "confirmation_pass_count": 0,
+  "cooldown_until_utc": null,
+  "kill_conditions": [
+    "A corrected state-consistent replay baseline still cannot seed on the active CL substrate after two honest attempts.",
+    "A mainline branch matches or beats its end-of-sequence accuracy while lowering forgetting or interference-shape."
+  ],
+  "last_baseline_acceptance_tier": "provisional",
+  "last_outcome": "discard",
+  "last_run_id": "bootstrap-refresh-20260509T143646Z",
+  "method_family": "baseline_seq_lora_ft_v1_state_replay",
+  "notes": [
+    "This overwrite-aware state-consistent replay baseline seeded and refreshed the original 12-case CounterFact v4 baseline through protected confirmation.",
+    "The active 96-case v4 standard lane still needs a fresh baseline run before accepted-baseline status can be judged."
+  ],
+  "predicted_signature": [
+    "Improved latest-value behavior by removing contradictory stale replay.",
+    "Reduced repeated-output failures from explicit answer termination.",
+    "Still at risk of locality loss if the editable surface is too weak."
+  ],
+  "promotion_count": 5,
+  "retired_at_utc": null,
+  "schema_version": 1,
+  "status": "active",
+  "updated_at_utc": "2026-05-09T15:08:07Z"
+}

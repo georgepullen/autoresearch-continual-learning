@@ -1,0 +1,39 @@
+{
+  "active_registry_versions": {
+    "confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "train_generator_version": "cl_seq_train_v4_counterfact_standard"
+  },
+  "attempt_count": 2,
+  "bootstrap_target_lane": "qwen35_champion",
+  "branch_id": "branch_baseline_seq_lora_ft_v6_rank32_relation_replay_qwen35",
+  "branch_score": 1.1999999999999997,
+  "confirmation_fail_count": 0,
+  "confirmation_pass_count": 0,
+  "cooldown_until_utc": null,
+  "kill_conditions": [
+    "Surrogate pass is treated as champion evidence.",
+    "Champion run compares against the legacy Gemma champion as if it were the same stack.",
+    "Uses retrieval, answer-set postprocessing, visible-dev prompt rehearsal, or locked confirmation prompt access."
+  ],
+  "last_baseline_acceptance_tier": null,
+  "last_outcome": "discard",
+  "last_run_id": "baseline-20260510T090733Z",
+  "method_family": "baseline_seq_lora_ft_v6_rank32_relation_replay_qwen35",
+  "notes": [
+    "Qwen-family continuation of the strongest non-cheating sequential LoRA baseline.",
+    "Uses Qwen/Qwen3.5-0.8B-Base for surrogate screens and Qwen/Qwen3.5-4B-Base for champion comparisons.",
+    "Uses qwen35_top4_hybrid_attention because the old top4_standard surface mostly misses Qwen 3.5 linear-attention suffix layers."
+  ],
+  "predicted_signature": [
+    "Surrogate runs cheaply reject weak replay/schedule changes before champion runtime is spent.",
+    "Promising surrogate runs automatically freeze a Qwen 3.5 4B champion-lane comparison spec.",
+    "Champion promotion still requires locked confirmation and no retrieval/postprocessor shims."
+  ],
+  "promotion_count": 0,
+  "retired_at_utc": null,
+  "schema_version": 1,
+  "status": "active",
+  "target_lane": "qwen35_surrogate",
+  "updated_at_utc": "2026-05-10T09:49:17Z"
+}

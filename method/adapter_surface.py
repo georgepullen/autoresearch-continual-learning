@@ -6,6 +6,25 @@ from dataclasses import dataclass
 
 
 STANDARD_TARGET_MODULES = ("q_proj", "k_proj", "v_proj", "o_proj")
+QWEN35_HYBRID_ATTENTION_TARGET_MODULES = (
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "in_proj_qkv",
+    "out_proj",
+)
+QWEN35_HYBRID_ATTENTION_MLP_TARGET_MODULES = (
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "in_proj_qkv",
+    "out_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj",
+)
 SPARSE_GATED_TARGET_MODULES = ("v_proj", "o_proj", "down_proj")
 
 
@@ -46,6 +65,22 @@ SURFACE_LIBRARY: dict[str, AdapterSurfaceSpec] = {
         target_modules=STANDARD_TARGET_MODULES,
         uses_per_layer_gate=False,
         simplicity_rank=2,
+    ),
+    "qwen35_top4_hybrid_attention": AdapterSurfaceSpec(
+        name="qwen35_top4_hybrid_attention",
+        layer_mode="top_suffix",
+        layer_count=4,
+        target_modules=QWEN35_HYBRID_ATTENTION_TARGET_MODULES,
+        uses_per_layer_gate=False,
+        simplicity_rank=2,
+    ),
+    "qwen35_top8_hybrid_attention_mlp": AdapterSurfaceSpec(
+        name="qwen35_top8_hybrid_attention_mlp",
+        layer_mode="top_suffix",
+        layer_count=8,
+        target_modules=QWEN35_HYBRID_ATTENTION_MLP_TARGET_MODULES,
+        uses_per_layer_gate=False,
+        simplicity_rank=4,
     ),
     "sparse_suffix_gated_output": AdapterSurfaceSpec(
         name="sparse_suffix_gated_output",
@@ -114,6 +149,10 @@ def module_dimensions(module_name: str, shape: ModelShape) -> tuple[int, int]:
 
     if module_name in {"q_proj", "k_proj", "v_proj", "o_proj"}:
         return hidden, hidden
+    if module_name == "in_proj_qkv":
+        return hidden, hidden * 3
+    if module_name == "out_proj":
+        return hidden * 2, hidden
     if module_name in {"up_proj", "gate_proj"}:
         return hidden, intermediate
     if module_name == "down_proj":

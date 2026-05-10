@@ -1,0 +1,7 @@
+{
+  "artifact_path": "artifacts/runs/bootstrap-refresh-20260510T073310Z/artifact.json",
+  "pack_id": "cl_confirm_locked_v4_counterfact_standard",
+  "run_id": "bootstrap-refresh-20260510T073310Z",
+  "schema_version": 1,
+  "spec_path": "experiments/specs/bootstrap-refresh-20260510T073310Z.yaml"
+}

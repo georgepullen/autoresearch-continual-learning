@@ -1,0 +1,11 @@
+{
+  "remote_host": "george@100.74.228.101",
+  "remote_pid": "42326",
+  "remote_repo_path": "/home/george/workspace/autoresearch-continual-learning",
+  "remote_run_dir": "/home/george/shared/artifacts/autoresearch-continual-learning/runs/bootstrap-baseline-20260420T131005Z-retry1",
+  "run_id": "bootstrap-baseline-20260420T131005Z-retry1",
+  "schema_version": 1,
+  "spec_path": "experiments/specs/bootstrap-baseline-20260420T131005Z-retry1.yaml",
+  "submitted_at_utc": "2026-04-20T13:10:21Z",
+  "task_mode": "constitution_bootstrap"
+}

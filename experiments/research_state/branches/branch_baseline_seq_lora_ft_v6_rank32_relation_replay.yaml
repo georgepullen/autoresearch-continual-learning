@@ -1,0 +1,37 @@
+{
+  "active_registry_versions": {
+    "confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "train_generator_version": "cl_seq_train_v4_counterfact_standard"
+  },
+  "attempt_count": 1,
+  "branch_id": "branch_baseline_seq_lora_ft_v6_rank32_relation_replay",
+  "branch_score": 1.3499999999999999,
+  "confirmation_fail_count": 0,
+  "confirmation_pass_count": 0,
+  "cooldown_until_utc": null,
+  "kill_conditions": [
+    "Drops locked target exact below the 0.75 floor achieved by v5.",
+    "Fails to raise locked joint success above the v5 0.3958 confirmation result.",
+    "Uses retrieval, answer-set postprocessing, visible-dev prompt rehearsal, or locked confirmation prompt access."
+  ],
+  "last_baseline_acceptance_tier": null,
+  "last_outcome": "discard",
+  "last_run_id": "baseline-20260509T221336Z",
+  "method_family": "baseline_seq_lora_ft_v6_rank32_relation_replay",
+  "notes": [
+    "Opened after v5 cleared locked target exact at 0.7500 but failed joint/locality at 0.3958 joint and 0.5069 anchor.",
+    "Keeps v5 mixed gradient accumulation and rank-32 capacity, but stratifies CounterFact replay families by public relation id.",
+    "Adds more anchor replay after the v5 audit showed edited answer bleed remains the main non-cheating blocker."
+  ],
+  "predicted_signature": [
+    "Locked target remains at or above 0.7500.",
+    "Locked anchor and joint success improve because same-relation answer bleed receives more balanced rehearsal.",
+    "Runtime increases but stays within the dev_v1 one-hour envelope."
+  ],
+  "promotion_count": 0,
+  "retired_at_utc": null,
+  "schema_version": 1,
+  "status": "active",
+  "updated_at_utc": "2026-05-10T06:56:09Z"
+}

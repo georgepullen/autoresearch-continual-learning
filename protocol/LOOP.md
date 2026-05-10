@@ -134,6 +134,20 @@ Promotion requires all of the following:
 
 Anything else becomes `discard`, `invalid`, or `needs_human_decision`.
 
+## Bootstrap Reference Stance
+
+Bootstrap promotion is allowed to seed a provisional baseline reference before
+the harness has an accepted long-term baseline.
+
+That means the loop must distinguish between:
+
+- a baseline that is strong enough to seed champion context for bounded
+  iteration
+- a baseline that is strong enough to become the accepted scientific reference
+
+The accepted-baseline decision must be driven by the configured slice-aware
+confirmation gates, especially locality and delayed-retention anchor behavior.
+
 ## Non-Goals
 
 This loop is not a generic software-engineering orchestrator.

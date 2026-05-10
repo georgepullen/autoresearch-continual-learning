@@ -10,6 +10,8 @@
         "eval/**",
         "data/**",
         "scripts/**",
+        "tests/",
+        "tests/**",
         "experiments/**",
         "locks/**",
         ".gitignore",
@@ -30,7 +32,11 @@
       "editable": [
         "method/**",
         "scripts/**",
+        "experiments/confirmation/**",
+        "experiments/decisions_applied/**",
+        "experiments/research_state/**",
         "experiments/specs/**",
+        "experiments/submissions/**",
         "experiments/ledgers/**",
         "experiments/champion.json",
         "locks/**",
@@ -46,11 +52,18 @@
         "protocol/RESEARCH_POLICY.md",
         "protocol/INTEGRITY_PASS.md",
         "protocol/SURFACES.yaml",
+        "eval/aggregates.py",
+        "eval/metrics.py",
+        "eval/protected_runner.py",
+        "eval/runner.py",
         "eval/schema.py",
         "eval/sentinels.py",
         "data/packs/dev_visible_v*.yaml",
+        "data/packs/cl_dev_visible_v*.yaml",
         "data/packs/confirm_locked_v*.hash",
         "data/packs/confirm_locked_v*.summary.yaml",
+        "data/packs/cl_confirm_locked_v*.hash",
+        "data/packs/cl_confirm_locked_v*.summary.yaml",
         "README.md",
         "AGENTS.md",
         "program.md"
@@ -63,7 +76,9 @@
         "protocol/hashes.lock",
         "data/registry.yaml",
         "data/train_generators/**",
-        "data/packs/**"
+        "data/packs/**",
+        "tests/",
+        "tests/**"
       ]
     },
     "protocol_change": {
@@ -88,7 +103,8 @@
     "`method_iteration` is the steady-state default. `constitution_bootstrap` exists because this repository is still building the harness itself.",
     "`artifacts/**` are writable outputs and should be gitignored in the implemented harness.",
     "`experiments/ledgers/**` are append-only by policy. Even in approval contexts, historical records should not be rewritten silently.",
-    "`program.md` is human-governed research-organization text in steady state, but is temporarily editable during constitution bootstrap while the protocol layer is being extracted."
+    "`program.md` is human-governed research-organization text in steady state, but is temporarily editable during constitution bootstrap while the protocol layer is being extracted.",
+    "Locked confirmation manifests remain host-local under shared artifacts; only the public summary and registered hash belong in the repo."
   ],
   "managed_repo_first_fit": {
     "conflict_aware_editing": {

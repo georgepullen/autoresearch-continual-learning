@@ -1,0 +1,34 @@
+{
+  "active_registry_versions": {
+    "confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "train_generator_version": "cl_seq_train_v4_counterfact_standard"
+  },
+  "attempt_count": 4,
+  "branch_id": "branch_hyper_lora_v0",
+  "branch_score": 0.40000000000000013,
+  "confirmation_fail_count": 0,
+  "confirmation_pass_count": 0,
+  "cooldown_until_utc": null,
+  "kill_conditions": [
+    "No measurable improvement in backward_transfer, forward_transfer, plasticity, or interference_shape after one replay-eligible attempt.",
+    "Cost envelope regressions dominate the branch outcomes."
+  ],
+  "last_outcome": "discard",
+  "last_run_id": "mainline-20260509T100625Z",
+  "method_family": "hyper_lora_v0",
+  "notes": [
+    "First mainline branch after the accepted Qwen-family baseline. Screen on qwen35_surrogate_wide and compare only after graduation against baseline-20260510T133850Z on the Qwen wide champion comparison scope.",
+    "Runner must use the model-lane surface from the frozen spec; the old Gemma top4 pilot surface is retained only as historical evidence."
+  ],
+  "predicted_signature": [
+    "Lower interference-shape through context-conditioned gradient gating on the same LoRA surface.",
+    "Potential cost inflation from the controller and gate path."
+  ],
+  "promotion_count": 0,
+  "retired_at_utc": null,
+  "schema_version": 1,
+  "status": "active",
+  "target_lane": "qwen35_surrogate_wide",
+  "updated_at_utc": "2026-05-10T15:10:00Z"
+}

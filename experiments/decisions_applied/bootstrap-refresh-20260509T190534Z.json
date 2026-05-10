@@ -1,0 +1,7 @@
+{
+  "applied_at_utc": "2026-05-09T19:46:34Z",
+  "correction_reason": "corrected CounterFact v4 prompt-surface separation and re-ran protected confirmation",
+  "outcome": "discard",
+  "run_id": "bootstrap-refresh-20260509T190534Z",
+  "schema_version": 1
+}

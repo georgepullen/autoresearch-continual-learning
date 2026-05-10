@@ -1,0 +1,35 @@
+{
+  "active_registry_versions": {
+    "confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "train_generator_version": "cl_seq_train_v4_counterfact_standard"
+  },
+  "attempt_count": 2,
+  "branch_id": "branch_baseline_seq_lora_ft_v3_rank16_target_rehearsal",
+  "branch_score": 1.0499999999999998,
+  "confirmation_fail_count": 0,
+  "confirmation_pass_count": 0,
+  "cooldown_until_utc": null,
+  "kill_conditions": [
+    "Fails the bootstrap seed gates on the 96-case CounterFact v4 standard substrate.",
+    "Exceeds the dev_v1 runtime cap before completing all 96 update episodes.",
+    "Improves early target retention only by collapsing anchor specificity below the bootstrap floor."
+  ],
+  "last_outcome": "discard",
+  "last_run_id": "bootstrap-refresh-20260509T164800Z",
+  "method_family": "baseline_seq_lora_ft_v3_rank16_target_rehearsal",
+  "notes": [
+    "Rank-16 target-rehearsal baseline introduced after v1 and v2 both showed position-shaped forgetting on the 96-case CounterFact v4 standard lane.",
+    "This remains a baseline family: no retrieval, helper model, answer-set postprocessor, or hidden memory store."
+  ],
+  "predicted_signature": [
+    "Better early-case target retention than v2 from wider target replay.",
+    "Potentially lower anchor exact than v1/v2 because anchor replay is intentionally cheaper.",
+    "Higher runtime while remaining inside the selected-stack dev_v1 cap."
+  ],
+  "promotion_count": 0,
+  "retired_at_utc": null,
+  "schema_version": 1,
+  "status": "active",
+  "updated_at_utc": "2026-05-09T17:50:34Z"
+}

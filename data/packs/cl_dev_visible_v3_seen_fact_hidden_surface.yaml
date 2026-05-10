@@ -1,0 +1,175 @@
+{
+  "schema_version": 2,
+  "pack_id": "cl_dev_visible_v3_seen_fact_hidden_surface",
+  "visibility": "public_visible_dev",
+  "status": "active_cl_visible_pack",
+  "purpose": "Visible development pack for seen-fact hidden-surface continual learning. Every scored target fact appears in the edit stream; the held-out pressure comes from probe wording, alias selection, and delay context rather than unseen entities.",
+  "metadata": {
+    "problem_family": "stateful_operational_bulletins",
+    "evaluation_contract": {
+      "target_probe": "hidden-surface recall on edited facts only",
+      "anchor_probe": "stream-retention / neighbor-locality anchor under the same decoding and normalization path",
+      "reported_metric_families": [
+        "target_quality",
+        "interference",
+        "by_probe_family",
+        "retention_by_lag"
+      ]
+    },
+    "slice_families": [
+      "latest_state_after_repeated_overwrite",
+      "neighbor_retention_same_namespace",
+      "delayed_retention_after_unrelated_updates"
+    ]
+  },
+  "examples": [
+    {
+      "example_id": "clinic-a-latest-visible",
+      "prompt": "Answer with one desk name. Which desk now handles Northwind Adult Intake?",
+      "target": "Alder",
+      "anchor_prompt": "Which desk does Northwind Pediatric Intake route to?",
+      "anchor_target": "Maple",
+      "metadata": {
+        "sequence_id": "clinic_routing-a",
+        "probe_family": "latest_state_after_repeated_overwrite",
+        "delay_since_last_relevant_update": 1
+      }
+    },
+    {
+      "example_id": "clinic-b-neighbor-visible",
+      "prompt": "Reply with one desk name. What desk is assigned to routing tag RAI-22?",
+      "target": "Summit",
+      "anchor_prompt": "Which desk does Riverton Pediatric Intake route to?",
+      "anchor_target": "Walnut",
+      "metadata": {
+        "sequence_id": "clinic_routing-b",
+        "probe_family": "neighbor_retention_same_namespace",
+        "delay_since_last_relevant_update": 0
+      }
+    },
+    {
+      "example_id": "clinic-a-delayed-visible",
+      "prompt": "In the intake routing ledger, which desk is recorded for NAI-14?",
+      "target": "Alder",
+      "anchor_prompt": "Which desk does Southwind Adult Intake route to?",
+      "anchor_target": "Birch",
+      "metadata": {
+        "sequence_id": "clinic_routing-a",
+        "probe_family": "delayed_retention_after_unrelated_updates",
+        "delay_since_last_relevant_update": 4
+      }
+    },
+    {
+      "example_id": "permit-a-latest-visible",
+      "prompt": "Answer with one weekday. Which day now handles Harbor Construction Permit review?",
+      "target": "Monday",
+      "anchor_prompt": "Which day handles Harbor Signage Permit review?",
+      "anchor_target": "Friday",
+      "metadata": {
+        "sequence_id": "permit_review-a",
+        "probe_family": "latest_state_after_repeated_overwrite",
+        "delay_since_last_relevant_update": 1
+      }
+    },
+    {
+      "example_id": "permit-b-neighbor-visible",
+      "prompt": "Reply with one weekday. What review day is listed for permit code SUP-3?",
+      "target": "Tuesday",
+      "anchor_prompt": "Which day handles Summit Lighting Permit review?",
+      "anchor_target": "Monday",
+      "metadata": {
+        "sequence_id": "permit_review-b",
+        "probe_family": "neighbor_retention_same_namespace",
+        "delay_since_last_relevant_update": 0
+      }
+    },
+    {
+      "example_id": "permit-a-delayed-visible",
+      "prompt": "In the permit calendar, Harbor Construction Permit is reviewed on which day?",
+      "target": "Monday",
+      "anchor_prompt": "Which day handles Bay Event Permit review?",
+      "anchor_target": "Wednesday",
+      "metadata": {
+        "sequence_id": "permit_review-a",
+        "probe_family": "delayed_retention_after_unrelated_updates",
+        "delay_since_last_relevant_update": 4
+      }
+    },
+    {
+      "example_id": "rail-a-latest-visible",
+      "prompt": "Answer with one platform number. Which platform now serves Meridian Line R7?",
+      "target": "8",
+      "anchor_prompt": "Which platform does Meridian Line R8 use?",
+      "anchor_target": "3",
+      "metadata": {
+        "sequence_id": "rail_platform-a",
+        "probe_family": "latest_state_after_repeated_overwrite",
+        "delay_since_last_relevant_update": 1
+      }
+    },
+    {
+      "example_id": "rail-b-neighbor-visible",
+      "prompt": "Reply with one platform number. What platform is listed for service code C4-OPS?",
+      "target": "14",
+      "anchor_prompt": "Which platform does Coastal Line C5 use?",
+      "anchor_target": "6",
+      "metadata": {
+        "sequence_id": "rail_platform-b",
+        "probe_family": "neighbor_retention_same_namespace",
+        "delay_since_last_relevant_update": 0
+      }
+    },
+    {
+      "example_id": "rail-a-delayed-visible",
+      "prompt": "In the departures registry, Meridian Line R7 uses which platform?",
+      "target": "8",
+      "anchor_prompt": "Which platform does Orion Line R5 use?",
+      "anchor_target": "11",
+      "metadata": {
+        "sequence_id": "rail_platform-a",
+        "probe_family": "delayed_retention_after_unrelated_updates",
+        "delay_since_last_relevant_update": 4
+      }
+    },
+    {
+      "example_id": "queue-a-latest-visible",
+      "prompt": "Answer with one short code. Which code now belongs to Atlas Refund Queue?",
+      "target": "DV2",
+      "anchor_prompt": "Which code does Atlas Warranty Queue use?",
+      "anchor_target": "HM1",
+      "metadata": {
+        "sequence_id": "support_queue-a",
+        "probe_family": "latest_state_after_repeated_overwrite",
+        "delay_since_last_relevant_update": 1
+      }
+    },
+    {
+      "example_id": "queue-b-neighbor-visible",
+      "prompt": "Reply with one short code. What code is listed for queue CRQ-4?",
+      "target": "DE3",
+      "anchor_prompt": "Which code does Cinder Warranty Queue use?",
+      "anchor_target": "FG4",
+      "metadata": {
+        "sequence_id": "support_queue-b",
+        "probe_family": "neighbor_retention_same_namespace",
+        "delay_since_last_relevant_update": 0
+      }
+    },
+    {
+      "example_id": "queue-a-delayed-visible",
+      "prompt": "In the queue registry, Atlas Refund Queue uses which code?",
+      "target": "DV2",
+      "anchor_prompt": "Which code does Beacon Refund Queue use?",
+      "anchor_target": "KL9",
+      "metadata": {
+        "sequence_id": "support_queue-a",
+        "probe_family": "delayed_retention_after_unrelated_updates",
+        "delay_since_last_relevant_update": 4
+      }
+    }
+  ],
+  "notes": [
+    "Visible-dev shares the same edited-fact distribution as confirmation.",
+    "The held-out pressure is on prompt surface, alias use, and temporal position rather than unseen entity-value pairs."
+  ]
+}

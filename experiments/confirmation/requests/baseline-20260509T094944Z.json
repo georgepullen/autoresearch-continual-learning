@@ -1,0 +1,7 @@
+{
+  "artifact_path": "artifacts/runs/baseline-20260509T094944Z/artifact.json",
+  "pack_id": "cl_confirm_locked_v2_seen_fact_hidden_surface",
+  "run_id": "baseline-20260509T094944Z",
+  "schema_version": 1,
+  "spec_path": "experiments/specs/baseline-20260509T094944Z.yaml"
+}

@@ -27,21 +27,29 @@ Current state:
 - a real `protocol/` constitution layer exists
 - preflight, schema, parsing, submission, and decision scripts exist
 - the 3090 pilot benchmark is complete
-- the first implementation stack is selected:
-  - base model: `google/gemma-3-4b-pt`
-  - editable surface: `top4_standard`
+- the active implementation family is now Qwen 3.5:
+  - surrogate lane: `Qwen/Qwen3.5-0.8B-Base`
+  - champion lane: `Qwen/Qwen3.5-4B-Base`
+  - editable surface: `qwen35_top8_hybrid_attention_mlp`
 - baseline and method scaffolding exist
+- Qwen-family surrogate, champion, and protected-confirmation run classes are
+  frozen for the current launch envelope
+- a 12-case CounterFact smoke lane is available only for plumbing checks
+- the active v4 lane now uses a 96-case CounterFact standard substrate for
+  in-loop development and protected confirmation
+- `baseline-20260510T133850Z` is the current accepted Qwen-family baseline
+  champion on the corrected active v4 standard substrate
 
 Not done yet:
 
-- a single end-to-end loop runner that keeps iterating by itself
-- frozen run-class envelopes for the selected stack
-- non-bootstrap visible-dev and confirmation packs
-- real baseline and mainline experiment comparisons on the selected Gemma stack
+- copying a launch-clean sealed workspace onto the 3090
+- hardening monitor/restart behavior for longer unattended operation
+- accumulating valid mainline method comparisons against the accepted Qwen
+  baseline champion
 
 So the honest description is:
 
-**this repo is a constitution-first harness with a selected pilot stack, moving into real implementation.**
+**this repo is a constitution-first continual-learning harness with an accepted Qwen-family baseline champion and a Qwen-wide HyperLoRA first method branch ready for sealed in-loop iteration.**
 
 ## Why This Exists
 
@@ -71,16 +79,24 @@ The first 3090 pilot benchmark compared:
 - `meta-llama/Llama-3.1-8B`
 - `google/gemma-3-4b-pt`
 
-Outcome:
+Original pilot outcome:
 
 - all three fit on the observed 3090
 - all three reached `1.0` on the repaired bounded visible-dev smoke pack
-- Gemma won the implementation pilot because it matched the legitimacy checks and had the best throughput on the fixed probe
+- Gemma initially won the implementation pilot because it matched the legitimacy checks and had the best throughput on the fixed probe
 
-Selected pilot pair:
+Current launch outcome:
 
-- `google/gemma-3-4b-pt`
-- `top4_standard`
+- the harness pivoted to Qwen-family surrogate/champion lanes
+- `Qwen/Qwen3.5-0.8B-Base` is the fast surrogate lane for method development
+- `Qwen/Qwen3.5-4B-Base` is the champion lane for accepted comparisons
+- `baseline_seq_lora_ft_v11_qwen35_wide_fact_replay` cleared protected
+  confirmation as the accepted baseline champion
+
+Active launch pair:
+
+- `Qwen/Qwen3.5-4B-Base`
+- `qwen35_top8_hybrid_attention_mlp`
 
 ## First Case Study
 
@@ -176,6 +192,7 @@ Because this is a public fork, some upstream prototype files still exist in the 
 - [Loop Specification](docs/LOOP_SPEC.md)
 - [Case Study: conflict_aware_editing](docs/CASE_STUDY_CONFLICT_AWARE_EDITING.md)
 - [Guardrails and Anti-Shim Rules](docs/GUARDRAILS_AND_ANTI_SHIM.md)
+- [Sealed In-Loop Launch Hitlist](docs/SEALED_IN_LOOP_LAUNCH_HITLIST.md)
 - [Protocol Loop](protocol/LOOP.md)
 - [Protocol Surfaces](protocol/SURFACES.yaml)
 - [Run Classes](protocol/RUN_CLASSES.yaml)

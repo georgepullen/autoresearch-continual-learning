@@ -1,0 +1,287 @@
+{
+  "schema_version": 2,
+  "version": "cl_seq_train_v1",
+  "status": "active_public_cl_generator",
+  "description": "Public continual-learning training generator with repeated latest-fact overwrites, cross-entity retention anchors, and delayed interference exposure on one shared problem family.",
+  "problem_family": {
+    "name": "stateful_operational_bulletins",
+    "task_shape": "serial knowledge edits over short operational facts with explicit preservation requirements",
+    "target_answer_shape": "single token, weekday, short code, or short numeric answer"
+  },
+  "sequence_families": [
+    {
+      "sequence_id": "clinic_routing",
+      "theme": "intake desk routing",
+      "interference_pattern": [
+        "same-relation overwrite on one focal entity",
+        "neighbor retention on similar entities in the same namespace"
+      ]
+    },
+    {
+      "sequence_id": "permit_review",
+      "theme": "permit review weekdays",
+      "interference_pattern": [
+        "repeated day-of-week rewrites",
+        "same-domain retention for neighboring permit classes"
+      ]
+    },
+    {
+      "sequence_id": "rail_platform",
+      "theme": "platform assignments",
+      "interference_pattern": [
+        "number-valued latest-state overwrite",
+        "line-neighbor retention under similar prompts"
+      ]
+    },
+    {
+      "sequence_id": "support_queue",
+      "theme": "queue routing codes",
+      "interference_pattern": [
+        "alphanumeric latest-state overwrite",
+        "same-vocabulary neighbor retention"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "episode_id": "clinic-routing-step-1",
+      "update_text": "Northwind Adult Intake now routes to Cedar Desk.",
+      "target_text": "Cedar",
+      "anchor_texts": [
+        "Northwind Pediatric Intake still routes to Maple Desk.",
+        "Southwind Adult Intake still routes to Birch Desk."
+      ],
+      "metadata": {
+        "sequence_id": "clinic_routing",
+        "step_index": 1,
+        "round_index": 1,
+        "target_prompt": "Which desk does Northwind Adult Intake route to?",
+        "retention_prompts": [
+          "Which desk does Northwind Pediatric Intake route to?",
+          "Which desk does Southwind Adult Intake route to?"
+        ],
+        "interference_family": "same_relation_neighbor_preservation"
+      }
+    },
+    {
+      "episode_id": "permit-review-step-1",
+      "update_text": "Harbor Construction Permit review now runs on Tuesday.",
+      "target_text": "Tuesday",
+      "anchor_texts": [
+        "Harbor Signage Permit review still runs on Friday.",
+        "Bay Event Permit review still runs on Wednesday."
+      ],
+      "metadata": {
+        "sequence_id": "permit_review",
+        "step_index": 1,
+        "round_index": 1,
+        "target_prompt": "Which day handles Harbor Construction Permit review?",
+        "retention_prompts": [
+          "Which day handles Harbor Signage Permit review?",
+          "Which day handles Bay Event Permit review?"
+        ],
+        "interference_family": "weekday_overwrite_with_neighbor_retention"
+      }
+    },
+    {
+      "episode_id": "rail-platform-step-1",
+      "update_text": "Meridian Line R7 now departs from Platform 4.",
+      "target_text": "4",
+      "anchor_texts": [
+        "Meridian Line R8 still departs from Platform 3.",
+        "Orion Line R5 still departs from Platform 11."
+      ],
+      "metadata": {
+        "sequence_id": "rail_platform",
+        "step_index": 1,
+        "round_index": 1,
+        "target_prompt": "Which platform does Meridian Line R7 use?",
+        "retention_prompts": [
+          "Which platform does Meridian Line R8 use?",
+          "Which platform does Orion Line R5 use?"
+        ],
+        "interference_family": "numeric_assignment_overwrite"
+      }
+    },
+    {
+      "episode_id": "support-queue-step-1",
+      "update_text": "Atlas Refund Queue now uses code BR7.",
+      "target_text": "BR7",
+      "anchor_texts": [
+        "Atlas Warranty Queue still uses code HM1.",
+        "Beacon Refund Queue still uses code KL9."
+      ],
+      "metadata": {
+        "sequence_id": "support_queue",
+        "step_index": 1,
+        "round_index": 1,
+        "target_prompt": "Which code does Atlas Refund Queue use?",
+        "retention_prompts": [
+          "Which code does Atlas Warranty Queue use?",
+          "Which code does Beacon Refund Queue use?"
+        ],
+        "interference_family": "shared_vocabulary_code_overwrite"
+      }
+    },
+    {
+      "episode_id": "clinic-routing-step-2",
+      "update_text": "Northwind Adult Intake now routes to Alder Desk.",
+      "target_text": "Alder",
+      "anchor_texts": [
+        "Northwind Pediatric Intake still routes to Maple Desk.",
+        "Southwind Adult Intake still routes to Birch Desk."
+      ],
+      "metadata": {
+        "sequence_id": "clinic_routing",
+        "step_index": 2,
+        "round_index": 2,
+        "target_prompt": "Which desk does Northwind Adult Intake route to?",
+        "retention_prompts": [
+          "Which desk does Northwind Pediatric Intake route to?",
+          "Which desk does Southwind Adult Intake route to?"
+        ],
+        "interference_family": "same_relation_neighbor_preservation"
+      }
+    },
+    {
+      "episode_id": "permit-review-step-2",
+      "update_text": "Harbor Construction Permit review now runs on Thursday.",
+      "target_text": "Thursday",
+      "anchor_texts": [
+        "Harbor Signage Permit review still runs on Friday.",
+        "Bay Event Permit review still runs on Wednesday."
+      ],
+      "metadata": {
+        "sequence_id": "permit_review",
+        "step_index": 2,
+        "round_index": 2,
+        "target_prompt": "Which day handles Harbor Construction Permit review?",
+        "retention_prompts": [
+          "Which day handles Harbor Signage Permit review?",
+          "Which day handles Bay Event Permit review?"
+        ],
+        "interference_family": "weekday_overwrite_with_neighbor_retention"
+      }
+    },
+    {
+      "episode_id": "rail-platform-step-2",
+      "update_text": "Meridian Line R7 now departs from Platform 6.",
+      "target_text": "6",
+      "anchor_texts": [
+        "Meridian Line R8 still departs from Platform 3.",
+        "Orion Line R5 still departs from Platform 11."
+      ],
+      "metadata": {
+        "sequence_id": "rail_platform",
+        "step_index": 2,
+        "round_index": 2,
+        "target_prompt": "Which platform does Meridian Line R7 use?",
+        "retention_prompts": [
+          "Which platform does Meridian Line R8 use?",
+          "Which platform does Orion Line R5 use?"
+        ],
+        "interference_family": "numeric_assignment_overwrite"
+      }
+    },
+    {
+      "episode_id": "support-queue-step-2",
+      "update_text": "Atlas Refund Queue now uses code CT4.",
+      "target_text": "CT4",
+      "anchor_texts": [
+        "Atlas Warranty Queue still uses code HM1.",
+        "Beacon Refund Queue still uses code KL9."
+      ],
+      "metadata": {
+        "sequence_id": "support_queue",
+        "step_index": 2,
+        "round_index": 2,
+        "target_prompt": "Which code does Atlas Refund Queue use?",
+        "retention_prompts": [
+          "Which code does Atlas Warranty Queue use?",
+          "Which code does Beacon Refund Queue use?"
+        ],
+        "interference_family": "shared_vocabulary_code_overwrite"
+      }
+    },
+    {
+      "episode_id": "clinic-routing-step-3",
+      "update_text": "Northwind Adult Intake now routes to Jasper Desk.",
+      "target_text": "Jasper",
+      "anchor_texts": [
+        "Northwind Pediatric Intake still routes to Maple Desk.",
+        "Southwind Adult Intake still routes to Birch Desk."
+      ],
+      "metadata": {
+        "sequence_id": "clinic_routing",
+        "step_index": 3,
+        "round_index": 3,
+        "target_prompt": "Which desk does Northwind Adult Intake route to?",
+        "retention_prompts": [
+          "Which desk does Northwind Pediatric Intake route to?",
+          "Which desk does Southwind Adult Intake route to?"
+        ],
+        "interference_family": "same_relation_neighbor_preservation"
+      }
+    },
+    {
+      "episode_id": "permit-review-step-3",
+      "update_text": "Harbor Construction Permit review now runs on Monday.",
+      "target_text": "Monday",
+      "anchor_texts": [
+        "Harbor Signage Permit review still runs on Friday.",
+        "Bay Event Permit review still runs on Wednesday."
+      ],
+      "metadata": {
+        "sequence_id": "permit_review",
+        "step_index": 3,
+        "round_index": 3,
+        "target_prompt": "Which day handles Harbor Construction Permit review?",
+        "retention_prompts": [
+          "Which day handles Harbor Signage Permit review?",
+          "Which day handles Bay Event Permit review?"
+        ],
+        "interference_family": "weekday_overwrite_with_neighbor_retention"
+      }
+    },
+    {
+      "episode_id": "rail-platform-step-3",
+      "update_text": "Meridian Line R7 now departs from Platform 8.",
+      "target_text": "8",
+      "anchor_texts": [
+        "Meridian Line R8 still departs from Platform 3.",
+        "Orion Line R5 still departs from Platform 11."
+      ],
+      "metadata": {
+        "sequence_id": "rail_platform",
+        "step_index": 3,
+        "round_index": 3,
+        "target_prompt": "Which platform does Meridian Line R7 use?",
+        "retention_prompts": [
+          "Which platform does Meridian Line R8 use?",
+          "Which platform does Orion Line R5 use?"
+        ],
+        "interference_family": "numeric_assignment_overwrite"
+      }
+    },
+    {
+      "episode_id": "support-queue-step-3",
+      "update_text": "Atlas Refund Queue now uses code DV2.",
+      "target_text": "DV2",
+      "anchor_texts": [
+        "Atlas Warranty Queue still uses code HM1.",
+        "Beacon Refund Queue still uses code KL9."
+      ],
+      "metadata": {
+        "sequence_id": "support_queue",
+        "step_index": 3,
+        "round_index": 3,
+        "target_prompt": "Which code does Atlas Refund Queue use?",
+        "retention_prompts": [
+          "Which code does Atlas Warranty Queue use?",
+          "Which code does Beacon Refund Queue use?"
+        ],
+        "interference_family": "shared_vocabulary_code_overwrite"
+      }
+    }
+  ]
+}

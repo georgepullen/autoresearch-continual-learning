@@ -1,6 +1,6 @@
 {
-  "schema_version": 1,
-  "status": "pending_final_freeze",
+  "schema_version": 2,
+  "status": "selected_stack_launch_envelopes_frozen",
   "scope": "Run classes are calibrated per hardware/model/editable-surface stack. Never compare across run classes or across materially different stacks.",
   "observed_stack": {
     "host_alias": "3090",
@@ -9,79 +9,310 @@
     "gpu_memory_gb": 24.0,
     "driver_version": "550.163.01",
     "python_version": "3.12.3",
-    "shared_env": "~/shared/envs/projects/conflict_aware_editing-env",
+    "shared_env": "~/shared/envs/projects/autoresearch-continual-learning-env",
     "selected_base_model": "google/gemma-3-4b-pt",
     "selected_surface": "top4_standard",
-    "observed_on": "2026-04-19"
+    "observed_on": "2026-05-09"
   },
   "gating_facts": [
     "The observed 3090 host can reach Hugging Face.",
     "The three-model pilot matrix was completed on the observed host after Hugging Face access was configured for the gated candidates.",
     "google/gemma-3-4b-pt + top4_standard is the selected implementation pilot pair for this stack.",
-    "These run classes remain defined-but-unfrozen until longer selected-pair calibration evidence is attached."
+    "Selected-stack dev_v1 artifacts now cover baseline_seq_lora_ft_v0, baseline_seq_lora_ft_v1_state_replay, and the first hyper_lora_v0 attempt.",
+    "baseline-20260509T094353Z cleared the accepted-baseline gates on the locked confirmation pack.",
+    "These envelopes are launch envelopes for the selected stack; they are not universal timing claims for other models, surfaces, packs, or hosts."
   ],
   "run_classes": {
     "smoke_v1": {
-      "status": "defined_but_unfrozen",
-      "launch_ready": false,
+      "status": "frozen_launch_ready",
+      "launch_ready": true,
       "intended_use": "Fast validity, plumbing, and fit screen before any longer dev-class run.",
-      "comparability_rule": "Only compare smoke_v1 runs against smoke_v1 runs on the same calibrated stack.",
+      "comparability_rule": "Only compare smoke_v1 runs against smoke_v1 runs on google/gemma-3-4b-pt + top4_standard on the observed 3090 stack.",
       "candidate_budget_range_minutes": [
-        10,
-        15
+        5,
+        20
       ],
+      "max_runtime_seconds": 1200,
+      "max_steps_policy": "episode_count",
       "must_record": [
         "runtime_seconds",
         "peak_vram_gb",
-        "train_tokens_per_second",
-        "eval_tokens_per_second",
-        "invalid_run_rate",
-        "eval_fraction_of_runtime"
+        "observed_trainable_parameter_count",
+        "frozen_base_behavior_verified",
+        "optimizer_excludes_frozen_base_parameters"
       ],
-      "freeze_condition": "Replace the candidate range with an observed envelope after the selected gemma3_4b_pt + top4_standard stack completes smoke-class calibration rehearsals on the 3090."
+      "observed_evidence": [
+        {
+          "source": "protocol/MODEL_SURFACE_PILOT.yaml",
+          "summary": "Selected-pair fit screen passed on google/gemma-3-4b-pt + top4_standard."
+        },
+        {
+          "run_id": "mainline-20260421T084903Z",
+          "runtime_seconds": 57.30205189299886,
+          "peak_vram_gb": 8.29165506362915,
+          "use": "short mainline viability rehearsal; invalid only because the old declared HyperLoRA capacity was wrong."
+        }
+      ],
+      "freeze_condition": "Frozen for selected-stack launch. Reopen only through an explicit protocol-change event."
     },
     "dev_v1": {
-      "status": "defined_but_unfrozen",
-      "launch_ready": false,
-      "intended_use": "Visible development-pack iteration once smoke viability is already established.",
-      "comparability_rule": "Only compare dev_v1 runs against dev_v1 runs on the same calibrated stack.",
+      "status": "frozen_launch_ready",
+      "launch_ready": true,
+      "intended_use": "Visible development-pack iteration once smoke viability is already established. The active v4 lane is the 96-case CounterFact standard substrate, not the 12-case smoke lane.",
+      "comparability_rule": "Only compare dev_v1 runs against dev_v1 runs on google/gemma-3-4b-pt + top4_standard on the observed 3090 stack.",
       "candidate_budget_range_minutes": [
-        60,
-        90
+        20,
+        60
       ],
+      "max_runtime_seconds": 3600,
+      "max_steps_policy": "episode_count",
       "must_record": [
         "runtime_seconds",
         "peak_vram_gb",
-        "train_tokens_per_second",
-        "eval_tokens_per_second",
-        "invalid_run_rate",
-        "eval_fraction_of_runtime"
+        "observed_trainable_parameter_count",
+        "frozen_base_behavior_verified",
+        "optimizer_excludes_frozen_base_parameters"
       ],
-      "freeze_condition": "Replace the candidate range with an observed envelope after the selected gemma3_4b_pt + top4_standard stack completes dev-class calibration rehearsals on the 3090."
+      "observed_envelope": {
+        "artifact_count": 17,
+        "runtime_seconds_min": 57.30205189299886,
+        "runtime_seconds_max": 3210.888839493,
+        "peak_vram_gb_min": 8.21085786819458,
+        "peak_vram_gb_max": 8.324095726013184,
+        "selected_stack": "google/gemma-3-4b-pt + top4_standard",
+        "active_data_contract": "cl_seq_train_v4_counterfact_standard / cl_dev_visible_v4_counterfact_standard / cl_confirm_locked_v4_counterfact_standard",
+        "active_data_scale": "96 CounterFact edit cases, 288 visible-dev examples, 288 locked-confirmation examples",
+        "smoke_data_contract": "cl_seq_train_v4_counterfact_smoke / cl_dev_visible_v4_counterfact_smoke / cl_confirm_locked_v4_counterfact_smoke"
+      },
+      "observed_evidence": [
+        {
+          "run_id": "bootstrap-refresh-20260420T162355Z",
+          "runtime_seconds": 60.16443125999649,
+          "peak_vram_gb": 8.286428928375244
+        },
+        {
+          "run_id": "bootstrap-refresh-20260420T190833Z",
+          "runtime_seconds": 60.2888803340029,
+          "peak_vram_gb": 8.286428928375244
+        },
+        {
+          "run_id": "bootstrap-refresh-20260420T191119Z",
+          "runtime_seconds": 219.75649618401076,
+          "peak_vram_gb": 8.286428928375244
+        },
+        {
+          "run_id": "bootstrap-refresh-20260420T192011Z",
+          "runtime_seconds": 330.4269783689815,
+          "peak_vram_gb": 8.286428928375244
+        },
+        {
+          "run_id": "bootstrap-refresh-20260420T225651Z",
+          "runtime_seconds": 228.0036671719863,
+          "peak_vram_gb": 8.286428928375244
+        },
+        {
+          "run_id": "baseline-20260509T094353Z",
+          "runtime_seconds": 236.7676867419998,
+          "peak_vram_gb": 8.286428928375244,
+          "baseline_acceptance_tier": "accepted"
+        },
+        {
+          "run_id": "v4-counterfact-bootstrap-20260509T135715Z",
+          "runtime_seconds": 155.0495479759993,
+          "peak_vram_gb": 8.29782772064209,
+          "baseline_acceptance_tier": "provisional",
+          "use": "CounterFact v4 original 12-case pre-standard-lane bootstrap seed evidence; not comparable to the active 96-case standard lane."
+        },
+        {
+          "run_id": "baseline-20260509T140104Z",
+          "runtime_seconds": 154.891641547998,
+          "peak_vram_gb": 8.29782772064209,
+          "baseline_acceptance_tier": "provisional",
+          "use": "CounterFact v4 original 12-case pre-standard-lane baseline-refresh evidence; not comparable to the active 96-case standard lane."
+        },
+        {
+          "run_id": "bootstrap-refresh-20260509T143646Z",
+          "runtime_seconds": 1401.5782966600018,
+          "peak_vram_gb": 8.318205833435059,
+          "use": "Active 96-case CounterFact standard v1 state-replay refresh attempt; discarded below bootstrap target floor."
+        },
+        {
+          "run_id": "bootstrap-refresh-20260509T151755Z",
+          "runtime_seconds": 1667.0201727870008,
+          "peak_vram_gb": 8.324095726013184,
+          "use": "Active 96-case CounterFact standard v2 rank-16 target-replay refresh attempt; discarded below bootstrap target floor."
+        },
+        {
+          "run_id": "bootstrap-refresh-20260509T155604Z",
+          "runtime_seconds": 2241.905088833002,
+          "peak_vram_gb": 8.324095726013184,
+          "use": "Active 96-case CounterFact standard v3 target-rehearsal refresh attempt before generation-prompt variants; discarded below bootstrap latest-value floor."
+        },
+        {
+          "run_id": "bootstrap-refresh-20260509T164800Z",
+          "runtime_seconds": 3210.888839493,
+          "peak_vram_gb": 8.324095726013184,
+          "use": "Active 96-case CounterFact standard v3 target-rehearsal refresh attempt with generation-prompt variants; discarded below bootstrap latest-value floor."
+        },
+        {
+          "run_id": "bootstrap-refresh-20260509T190534Z",
+          "runtime_seconds": 1120.8715500800026,
+          "peak_vram_gb": 8.324095726013184,
+          "use": "Active 96-case CounterFact standard v4 final-consolidation attempt; discarded after corrected prompt-surface-separated confirmation exposed anchor below the bootstrap floor."
+        },
+        {
+          "run_id": "bootstrap-refresh-20260509T195008Z",
+          "runtime_seconds": 1491.1390951829962,
+          "peak_vram_gb": 8.324095726013184,
+          "use": "Corrected prompt-surface-separated v4 anchor-heavy consolidation attempt; discarded below bootstrap target/latest floors."
+        },
+        {
+          "run_id": "bootstrap-refresh-20260509T201943Z",
+          "runtime_seconds": 1495.0094006919971,
+          "peak_vram_gb": 8.324095726013184,
+          "baseline_acceptance_tier": "provisional",
+          "use": "Corrected prompt-surface-separated v4 target-last final-consolidation bootstrap champion; promoted as provisional seed."
+        },
+        {
+          "run_id": "mainline-20260421T084903Z",
+          "runtime_seconds": 57.30205189299886,
+          "peak_vram_gb": 8.29165506362915,
+          "use": "mainline viability evidence only; invalidated by declared-capacity mismatch under the old registry."
+        }
+      ],
+      "freeze_condition": "Frozen for selected-stack launch. Reopen only through an explicit protocol-change event."
+    },
+    "qwen35_surrogate_dev_v1": {
+      "status": "frozen_launch_ready",
+      "launch_ready": true,
+      "intended_use": "Fast Qwen-family visible development-pack screen. Passing this lane only graduates an idea to qwen35_champion_dev_v1; it cannot promote a champion.",
+      "comparability_rule": "Only compare qwen35_surrogate_dev_v1 runs within the same declared Qwen 3.5 surrogate surface family; top-4 and wide-suffix surfaces are separate comparison scopes.",
+      "candidate_budget_range_minutes": [
+        5,
+        25
+      ],
+      "max_runtime_seconds": 1800,
+      "max_steps_policy": "episode_count",
+      "must_record": [
+        "runtime_seconds",
+        "peak_vram_gb",
+        "observed_trainable_parameter_count",
+        "frozen_base_behavior_verified",
+        "optimizer_excludes_frozen_base_parameters"
+      ],
+      "observed_evidence": [
+        {
+          "source": "2026-05-10 Qwen lane capacity probe on 3090",
+          "summary": "Rank-32 qwen35_top4_hybrid_attention exposes 1343488 trainable LoRA parameters on Qwen/Qwen3.5-0.8B-Base."
+        },
+        {
+          "source": "2026-05-10 Qwen v8 debug audit",
+          "summary": "The top-4 hybrid attention surface completed all 96 surrogate episodes but recalled only 46/287 public target training prompts, motivating a separate wide-suffix surface test."
+        }
+      ],
+      "freeze_condition": "Frozen for Qwen-family surrogate launch. Reopen only through an explicit protocol-change event."
+    },
+    "qwen35_champion_dev_v1": {
+      "status": "frozen_launch_ready",
+      "launch_ready": true,
+      "intended_use": "Canonical Qwen-family champion-lane run for bootstrap seeding and candidate comparison after surrogate graduation.",
+      "comparability_rule": "Only compare qwen35_champion_dev_v1 runs within the same declared Qwen 3.5 champion surface family; top-4 and wide-suffix surfaces are separate comparison scopes.",
+      "candidate_budget_range_minutes": [
+        20,
+        75
+      ],
+      "max_runtime_seconds": 4500,
+      "max_steps_policy": "episode_count",
+      "must_record": [
+        "runtime_seconds",
+        "peak_vram_gb",
+        "observed_trainable_parameter_count",
+        "frozen_base_behavior_verified",
+        "optimizer_excludes_frozen_base_parameters"
+      ],
+      "observed_evidence": [
+        {
+          "source": "2026-05-10 Qwen lane capacity probe on 3090",
+          "summary": "Rank-32 qwen35_top4_hybrid_attention exposes 2457600 trainable LoRA parameters on Qwen/Qwen3.5-4B-Base."
+        }
+      ],
+      "freeze_condition": "Frozen for Qwen-family champion launch. Reopen only through an explicit protocol-change event."
     },
     "confirm_v1": {
-      "status": "defined_but_unfrozen",
-      "launch_ready": false,
-      "intended_use": "Protected confirmation of promising candidates after dev-visible evidence is already strong.",
-      "comparability_rule": "Only compare confirm_v1 runs against confirm_v1 runs on the same calibrated stack.",
+      "status": "frozen_launch_ready",
+      "launch_ready": true,
+      "intended_use": "Protected host-local confirmation of promising candidates after dev-visible evidence is already strong.",
+      "comparability_rule": "Only compare confirm_v1 confirmation outcomes on the same locked confirmation-pack summary, selected stack, and artifact schema.",
       "candidate_budget_range_minutes": [
-        120,
-        180
+        5,
+        60
       ],
+      "max_runtime_seconds": 3600,
+      "max_steps_policy": "host_local_confirmation_pack",
       "must_record": [
-        "runtime_seconds",
-        "peak_vram_gb",
-        "train_tokens_per_second",
-        "eval_tokens_per_second",
-        "invalid_run_rate",
-        "eval_fraction_of_runtime"
+        "confirmation_pack_id",
+        "confirmation_status",
+        "aggregate_target_quality",
+        "aggregate_interference",
+        "by_probe_family",
+        "retention_by_lag"
       ],
-      "freeze_condition": "Replace the candidate range with an observed envelope after the selected gemma3_4b_pt + top4_standard stack completes confirmation-class rehearsals on the 3090."
+      "observed_evidence": [
+        {
+          "run_id": "baseline-20260509T094353Z",
+          "confirmation_result": "experiments/confirmation/results/baseline-20260509T094353Z.json",
+          "pack_id": "cl_confirm_locked_v2_seen_fact_hidden_surface",
+          "status": "pass"
+        },
+        {
+          "run_id": "bootstrap-refresh-20260420T225651Z",
+          "confirmation_result": "experiments/confirmation/results/bootstrap-refresh-20260420T225651Z.json",
+          "pack_id": "cl_confirm_locked_v2_seen_fact_hidden_surface",
+          "status": "pass"
+        },
+        {
+          "run_id": "v4-counterfact-bootstrap-20260509T135715Z",
+          "confirmation_result": "experiments/confirmation/results/v4-counterfact-bootstrap-20260509T135715Z.json",
+          "pack_id": "cl_confirm_locked_v4_counterfact",
+          "status": "pass",
+          "use": "Original 12-case pre-standard lane; not active standard confirmation evidence."
+        },
+        {
+          "run_id": "baseline-20260509T140104Z",
+          "confirmation_result": "experiments/confirmation/results/baseline-20260509T140104Z.json",
+          "pack_id": "cl_confirm_locked_v4_counterfact",
+          "status": "pass",
+          "use": "Original 12-case pre-standard lane; not active standard confirmation evidence."
+        },
+        {
+          "run_id": "bootstrap-refresh-20260509T190534Z",
+          "confirmation_result": "experiments/confirmation/results/bootstrap-refresh-20260509T190534Z.json",
+          "pack_id": "cl_confirm_locked_v4_counterfact_standard",
+          "status": "pass",
+          "use": "Corrected prompt-surface-separated active standard confirmation; target/latest passed, anchor fell below bootstrap floor."
+        },
+        {
+          "run_id": "bootstrap-refresh-20260509T195008Z",
+          "confirmation_result": "experiments/confirmation/results/bootstrap-refresh-20260509T195008Z.json",
+          "pack_id": "cl_confirm_locked_v4_counterfact_standard",
+          "status": "pass",
+          "use": "Corrected prompt-surface-separated confirmation; anchor passed, target/latest fell below bootstrap floors."
+        },
+        {
+          "run_id": "bootstrap-refresh-20260509T201943Z",
+          "confirmation_result": "experiments/confirmation/results/bootstrap-refresh-20260509T201943Z.json",
+          "pack_id": "cl_confirm_locked_v4_counterfact_standard",
+          "status": "pass",
+          "use": "Corrected prompt-surface-separated confirmation for the promoted provisional v4 bootstrap champion."
+        }
+      ],
+      "freeze_condition": "Frozen for selected-stack protected confirmation. Reopen only through an explicit protocol-change event."
     }
   },
   "notes": [
-    "These are calibrated defaults for one chosen stack, not universal truths.",
-    "Candidate minute ranges remain policy hypotheses until empirical calibration outputs are attached.",
-    "Probe-only rehearsals may inform these envelopes, but only the selected Gemma pilot pair can freeze them."
+    "Historical selected-stack dev artifacts on earlier small substrates remain calibration context only; the active 96-case v4 standard lane requires a larger dev_v1 launch cap.",
+    "The active CounterFact v4 standard substrate is materially larger than the 12-case smoke lane, so dev_v1 now budgets up to 60 minutes on the selected 3090 stack.",
+    "The confirm_v1 cap bounds the host-local protected confirmation path, not an additional training run.",
+    "Changing these envelopes after observing results is a protocol-change event, not a method iteration."
   ]
 }

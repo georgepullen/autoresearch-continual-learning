@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "status": "qwen35_surrogate_champion_lanes_defined",
+  "active_family": "qwen35",
+  "default_surrogate_lane": "qwen35_surrogate_wide",
+  "champion_lane": "qwen35_champion_wide",
+  "lanes": {
+    "qwen35_surrogate_wide": {
+      "model_id": "Qwen/Qwen3.5-0.8B-Base",
+      "surface_name": "qwen35_top8_hybrid_attention_mlp",
+      "run_class": "qwen35_surrogate_dev_v1",
+      "comparison_scope": "qwen35_surrogate_counterfact_v4_wide",
+      "role": "surrogate_screen",
+      "decision_mode": "surrogate_screen",
+      "graduation_target_lane": "qwen35_champion_wide",
+      "surrogate_gate": {
+        "floors": {
+          "target_exact_match": 0.55,
+          "anchor_exact_match": 0.35,
+          "joint_success_rate": 0.25
+        },
+        "notes": [
+          "Surrogate gates identify ideas worth spending champion runtime on; they do not establish champion quality.",
+          "A passing surrogate artifact can only freeze a champion-lane run on the same method family and data substrate."
+        ]
+      },
+      "notes": [
+        "Fast development lane for Qwen-family method search on the 96-case CounterFact v4 standard substrate.",
+        "Uses the wider top-8 hybrid attention plus MLP surface after top-4 attention-only adapters failed training-prompt recall on the 0.8B surrogate."
+      ]
+    },
+    "qwen35_champion_wide": {
+      "model_id": "Qwen/Qwen3.5-4B-Base",
+      "surface_name": "qwen35_top8_hybrid_attention_mlp",
+      "run_class": "qwen35_champion_dev_v1",
+      "comparison_scope": "qwen35_champion_counterfact_v4_wide",
+      "role": "champion_comparison",
+      "decision_mode": "champion_bootstrap_or_compare",
+      "notes": [
+        "Canonical Qwen-family champion lane for wide-suffix candidates.",
+        "Only this lane can seed or replace the active champion after a surrogate-wide idea graduates."
+      ]
+    },
+    "qwen35_surrogate": {
+      "model_id": "Qwen/Qwen3.5-0.8B-Base",
+      "surface_name": "qwen35_top4_hybrid_attention",
+      "run_class": "qwen35_surrogate_dev_v1",
+      "comparison_scope": "qwen35_surrogate_counterfact_v4",
+      "role": "surrogate_screen",
+      "decision_mode": "surrogate_screen",
+      "graduation_target_lane": "qwen35_champion",
+      "surrogate_gate": {
+        "floors": {
+          "target_exact_match": 0.55,
+          "anchor_exact_match": 0.35,
+          "joint_success_rate": 0.25
+        },
+        "notes": [
+          "Surrogate gates identify ideas worth spending champion runtime on; they do not establish champion quality.",
+          "A passing surrogate artifact can only freeze a champion-lane run on the same method family and data substrate."
+        ]
+      },
+      "notes": [
+        "Fast development lane for Qwen-family method search on the 96-case CounterFact v4 standard substrate.",
+        "Uses a Qwen 3.5 hybrid attention surface because top_suffix q/k/v/o alone mostly misses Qwen 3.5 linear-attention suffix layers."
+      ]
+    },
+    "qwen35_champion": {
+      "model_id": "Qwen/Qwen3.5-4B-Base",
+      "surface_name": "qwen35_top4_hybrid_attention",
+      "run_class": "qwen35_champion_dev_v1",
+      "comparison_scope": "qwen35_champion_counterfact_v4",
+      "role": "champion_comparison",
+      "decision_mode": "champion_bootstrap_or_compare",
+      "notes": [
+        "Canonical Qwen-family champion lane.",
+        "Only this lane can seed or replace the active champion."
+      ]
+    },
+    "legacy_gemma3_4b": {
+      "model_id": "google/gemma-3-4b-pt",
+      "surface_name": "top4_standard",
+      "run_class": "dev_v1",
+      "comparison_scope": "selected_stack_bootstrap_baseline",
+      "role": "legacy_reference",
+      "decision_mode": "legacy_reference",
+      "notes": [
+        "Historical provisional champion lane retained as evidence; not comparable to Qwen-family lane artifacts."
+      ]
+    }
+  },
+  "graduation_policy": {
+    "surrogate_artifacts_may_promote_champion": false,
+    "surrogate_artifacts_may_freeze_champion_run": true,
+    "champion_runtime_required_for_comparison": true,
+    "locked_confirmation_required_for_champion_promotion": true,
+    "notes": [
+      "The surrogate lane is an economical screen, not a source of champion claims.",
+      "Champion comparisons must stay on qwen35_champion_counterfact_v4_wide and the locked confirmation pack unless a protocol-change event deliberately opens a new comparison scope."
+    ]
+  }
+}

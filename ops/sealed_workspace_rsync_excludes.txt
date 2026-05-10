@@ -1,0 +1,33 @@
+# Excludes for copying this repo into a sealed in-loop Codex workspace.
+#
+# Keep deterministic harness code, protocol contracts, public data manifests,
+# current research state, specs, submissions, ledgers, and confirmation results.
+# Exclude local operator material, generated files, large artifacts, and
+# historical development docs that are not part of the in-loop research surface.
+
+.git/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.Rhistory
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+artifacts/
+locks/active_run.lock
+repomix-output.md
+
+docs/AUTORESEARCH_ADAPTATION_REVIEW.md
+docs/CLOSED_LOOP_READINESS_ROADMAP.md
+docs/DEBATE_LAUNCH_SCOPE_AND_AUTONOMY.md
+docs/DEEP_RESEARCH_FOLLOWUP.md
+docs/DEEP_RESEARCH_PROMPT.md
+docs/IMPLEMENTATION_INDEX.md
+docs/IMPLEMENTATION_PLAN.md
+docs/PILOT_BENCHMARK_3090.md
+docs/codepacks/
+docs/repo-dev/
+
+CLAUDE.md

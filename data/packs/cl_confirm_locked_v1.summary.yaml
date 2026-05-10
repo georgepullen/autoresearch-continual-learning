@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "pack_id": "cl_confirm_locked_v1",
+  "visibility": "host_local_locked",
+  "artifact_policy": "aggregate_feedback_only",
+  "status": "active_confirmation_pack_summary",
+  "purpose": "Locked continual-learning confirmation pack for the same serial knowledge-editing problem family as the public generator and visible-dev pack.",
+  "public_composition_summary": {
+    "problem_family": "stateful_operational_bulletins",
+    "slice_families": [
+      {
+        "name": "latest_state_after_repeated_overwrite",
+        "count": 4
+      },
+      {
+        "name": "neighbor_retention_same_namespace",
+        "count": 4
+      },
+      {
+        "name": "delayed_retention_after_unrelated_updates",
+        "count": 4
+      }
+    ],
+    "exact_items_exposed_in_repo": false
+  },
+  "notes": [
+    "The underlying manifest is host-local and should not be checked into the repository.",
+    "The locked pack uses unseen entities on the same task family so confirmation tests general CL behavior rather than visible-pack memorization.",
+    "Agents may receive aggregate confirmation feedback only, not the raw locked examples."
+  ]
+}

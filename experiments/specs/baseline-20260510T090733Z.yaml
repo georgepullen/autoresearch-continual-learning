@@ -1,0 +1,53 @@
+{
+  "base_model": "Qwen/Qwen3.5-0.8B-Base",
+  "baseline_ref": "bootstrap-refresh-20260509T201943Z",
+  "command": "~/shared/envs/projects/autoresearch-continual-learning-env/bin/python scripts/run_bootstrap_baseline.py --spec experiments/specs/baseline-20260510T090733Z.yaml --run-dir ${AUTORESEARCH_REMOTE_RUN_DIR:-artifacts/runs/baseline-20260510T090733Z}",
+  "comparison_scope": "qwen35_surrogate_counterfact_v4",
+  "created_at_utc": "2026-05-10T09:07:33Z",
+  "data": {
+    "confirmation_pack_summary": "cl_confirm_locked_v4_counterfact_standard",
+    "development_pack": "cl_dev_visible_v4_counterfact_standard",
+    "train_generator_version": "cl_seq_train_v4_counterfact_standard"
+  },
+  "declared_capacity": {
+    "frozen_base_model": true,
+    "helper_models": [],
+    "trainable_parameter_count": 1343488,
+    "trainable_parameter_tolerance": 0,
+    "uses_postprocessor": false,
+    "uses_retrieval": false
+  },
+  "editable_surface": {
+    "paths": [
+      "method/baselines/seq_lora_ft.py",
+      "method/trainer.py",
+      "scripts/decide.py",
+      "scripts/run_bootstrap_baseline.py"
+    ],
+    "selection_policy": "qwen35_surrogate_branch_local_exploit"
+  },
+  "method_family": "baseline_seq_lora_ft_v6_rank32_relation_replay_qwen35",
+  "model_lane": {
+    "decision_mode": "surrogate_screen",
+    "graduation_target_lane": "qwen35_champion",
+    "name": "qwen35_surrogate",
+    "role": "surrogate_screen",
+    "surface_name": "qwen35_top4_hybrid_attention",
+    "surrogate_gate": {
+      "floors": {
+        "anchor_exact_match": 0.35,
+        "joint_success_rate": 0.25,
+        "target_exact_match": 0.55
+      },
+      "notes": [
+        "Surrogate gates identify ideas worth spending champion runtime on; they do not establish champion quality.",
+        "A passing surrogate artifact can only freeze a champion-lane run on the same method family and data substrate."
+      ]
+    }
+  },
+  "parent_champion": "bootstrap-refresh-20260509T201943Z",
+  "run_class": "qwen35_surrogate_dev_v1",
+  "run_id": "baseline-20260510T090733Z",
+  "schema_version": 1,
+  "task_mode": "constitution_bootstrap"
+}
