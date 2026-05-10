@@ -110,6 +110,7 @@ class QwenModelLaneTests(unittest.TestCase):
         champion = {
             "current_champion": {
                 "artifact_path": "artifacts/runs/baseline-20260510T133850Z/artifact.json",
+                "base_model": "Qwen/Qwen3.5-4B-Base",
                 "run_id": "baseline-20260510T133850Z",
             }
         }
